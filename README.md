@@ -1,6 +1,13 @@
 # 📚 YT Vocab Study Studio & Snakely Studio
 
+[![License: All Rights Reserved](https://img.shields.io/badge/License-All_Rights_Reserved-red.svg)](LICENSE)
+[![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Azure_Cloud-success.svg)](http://20.203.250.249)
+
 **YT Vocab Study Studio**, YouTube videolarından, kitaplardan ve metinlerden otomatik kelime çıkaran; akıllı aralıklı tekrar (SRS), oyunlaştırma, retro arcade entegrasyonu ve mobil PWA senkronizasyonu sunan kapsamlı bir dil öğrenme ekosistemidir.
+
+🌐 **Canlı Demo:** [http://20.203.250.249](http://20.203.250.249)  
+📱 **Mobil Web App:** [http://20.203.250.249/m](http://20.203.250.249/m)
 
 ---
 
@@ -16,7 +23,7 @@
 * **Ayır & Sına (Swipe):** Tinder/Anki tarzı bilinen ve öğrenilecek kelimeleri sağa-sola ayırma mekaniği.
 * **Aşamalı Öğren:** Çoktan seçmeli algoritmik kelime pekiştirme.
 * **Test Sınavı:** Çoktan seçmeli ve yazılı karma deneme sınavı.
-* **Eşleştirme Oyunu:** Zaman karşı refleks kelime-anlam eşleştirme oyunu.
+* **Eşleştirme Oyunu:** Zamana karşı refleks kelime-anlam eşleştirme oyunu.
 
 ### 🕹️ 3. Oyunlaştırılmış Öğrenme Motorları
 * **⛏️ Vocab Miner (Minecraft):** Bilinmeyen kelimelerin ve Türkçe karşılıklarının aktarıldığı WebGL tabanlı voxel madencilik modu.
@@ -35,7 +42,7 @@
 * **Backend:** Python, Flask, Gunicorn, YouTube Transcript API
 * **Frontend:** Vanilla JavaScript (ES6+), HTML5, CSS3 (Neo-brutalist & Liquid Glassmorphism)
 * **Kütüphaneler:** Tabler Icons, Chart.js, Html5-Qrcode, QRCode.js
-* **Emülasyon & Oyun:** WebGL, WASM (Eaglercraft 1.8.8), Libretro Web Player
+* **Emülasyon & Oyun Motorları:** WebGL, WASM (Eaglercraft 1.8.8), Libretro Web Player
 
 ---
 
@@ -47,5 +54,5 @@
 
 ### 2. Projeyi Klonlayın
 ```bash
-git clone [https://github.com/KULLANICI_ADIN/REPO_ADIN.git](https://github.com/KULLANICI_ADIN/REPO_ADIN.git)
-cd REPO_ADIN
+git clone [https://github.com/MuhammedCanCeylan/yt-vocab-studio.git](https://github.com/MuhammedCanCeylan/yt-vocab-studio.git)
+cd yt-vocab-studio
