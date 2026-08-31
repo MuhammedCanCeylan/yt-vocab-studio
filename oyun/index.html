@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Vocab Runner 10.1 - Final Polish</title>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/utils/SkeletonUtils.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    
+    <style>
+        @font-face { font-family: 'KenneyFuture'; src: url('assets/Kenney Future.ttf') format('truetype'); }
+        body { margin: 0; overflow: hidden; background-color: #191923; font-family: 'KenneyFuture', sans-serif; touch-action: none; user-select: none; -webkit-tap-highlight-color: transparent; }
+        canvas { display: block; width: 100vw; height: 100vh; }
+        
+        /* OYUN İÇİ HUD (ALEV EMOJİSİ KALDIRILDI) */
+        #ui-layer { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; display: flex; flex-direction: column; align-items: center; z-index: 10; }
+        #screen-glow { position: absolute; top:0; left:0; width:100%; height:100%; box-shadow: inset 0 0 0px #ff6b35; transition: box-shadow 0.3s; pointer-events: none; z-index: 5; }
+        #top-bar { display: flex; justify-content: space-between; width: 95%; margin-top: 20px; gap: 10px; flex-wrap: wrap; z-index: 11;}
+        .hud-box { background: rgba(23, 23, 18, 0.85); color: #FFF; font-size: 16px; padding: 8px 16px; border-radius: 8px; border: 3px solid #FFF; box-shadow: 4px 4px 0px rgba(0,0,0,0.5); backdrop-filter: blur(4px);}
+        #progress-text { color: #4EBE59; }
+        #coin-text { color: #F5B700; font-size: 20px; text-shadow: 2px 2px 0px #000; transition: color 0.3s;}
+        
+        #target-word-container { margin-top: 20px; background: rgba(23, 23, 18, 0.95); border: 4px solid #F5B700; border-radius: 12px; padding: 8px 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); text-align: center; animation: float 3s ease-in-out infinite; z-index: 11;}
+        #target-word-title { font-size: 11px; color: #8A8578; letter-spacing: 2px; }
+        #target-word { font-size: 32px; color: #FFF; margin: 4px 0 0 0; text-shadow: 3px 3px 0px #F5B700; transition: transform 0.2s; }
+        @keyframes float { 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(-5px); } }
+        
+        /* TAM EKRAN MENÜLER */
+        .screen { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(25, 25, 35, 0.95); display: flex; flex-direction: column; justify-content: center; align-items: center; pointer-events: auto; backdrop-filter: blur(15px); z-index: 100; }
+        h1 { font-size: clamp(32px, 8vw, 50px); margin: 0 0 10px 0; text-shadow: 4px 4px 0px #000; text-align:center; color: #F5B700; }
+        
+        .btn-group { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; max-width: 800px; }
+        .img-btn { background-color: transparent; border: none; padding: 18px 26px; font-size: 15px; font-family: 'KenneyFuture', sans-serif; cursor: pointer; color: #171712; background-image: url('assets/button_rectangle_depth_flat.png'); background-size: 100% 100%; background-position: center; transition: transform 0.1s; min-width: 200px; }
+        .img-btn:active { transform: scale(0.95); }
+        .img-btn:disabled { filter: grayscale(100%); cursor: not-allowed; opacity: 0.6; }
+        .btn-green { filter: hue-rotate(80deg) saturate(1.5); color: #FFF; text-shadow: 2px 2px 0px #171712; }
+        .btn-red { filter: hue-rotate(320deg) saturate(2); color: #FFF; text-shadow: 2px 2px 0px #171712; }
+        .btn-blue { filter: hue-rotate(180deg) saturate(1.5); color: #FFF; text-shadow: 2px 2px 0px #171712; }
+        .btn-yellow { filter: hue-rotate(0deg) saturate(1.5); color: #171712; }
+
+        #market-screen { background: rgba(15, 15, 20, 0.98); z-index: 105; }
+        #stats-screen { background: rgba(15, 15, 20, 0.98); z-index: 105; }
+        .char-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-bottom: 24px; max-width: 800px; width: 95%; max-height: 50vh; overflow-y: auto; padding-right: 10px; }
+        .char-card { background: rgba(255,255,255,0.08); border: 3px solid #555; border-radius: 12px; padding: 10px; text-align: center; cursor: pointer; transition: all 0.2s; }
+        .char-card:hover { background: rgba(255,255,255,0.15); transform: translateY(-2px); }
+        .char-card.selected { border-color: #4EBE59; background: rgba(78, 190, 89, 0.2); box-shadow: 0 0 15px rgba(78,190,89,0.5); }
+        .char-card.locked { opacity: 0.5; filter: grayscale(100%); }
+        .char-price { font-size: 14px; color: #F5B700; margin-top: 8px; display: block; }
+        
+        #loading-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #191923; z-index: 200; display: flex; flex-direction: column; justify-content: center; align-items: center; pointer-events: auto; }
+        #loading-bar-container { width: 300px; height: 16px; background: rgba(255,255,255,0.1); border-radius: 8px; border: 2px solid #F5B700; overflow: hidden; margin-top: 16px; }
+        #loading-bar { width: 0%; height: 100%; background: linear-gradient(90deg, #F5B700, #ffeb3b); border-radius: 6px; transition: width 0.1s ease; }
+        #loading-text { color: #4EBE59; font-size: 14px; margin-top: 12px; text-shadow: 2px 2px 0px #000; text-align: center;}
+        
+        .corner-btn { position: absolute; bottom: 20px; background: rgba(0,0,0,0.6); color: #FFF; border: 2px solid #FFF; border-radius: 50%; width: 48px; height: 48px; font-size: 18px; cursor: pointer; z-index: 50; pointer-events: auto; transition: transform 0.2s; display: flex; align-items: center; justify-content: center; }
+        .corner-btn:hover { transform: scale(1.1); background: rgba(0,0,0,0.9); }
+        #audio-toggle { right: 20px; }
+        #fullscreen-toggle { right: 80px; }
+        
+        .badge { background: rgba(0,0,0,0.8); border: 2px solid #FFF; border-radius: 20px; padding: 4px 16px; color: #FFF; font-size: 12px; z-index: 15; opacity: 0; transition: opacity 0.3s; }
+        #biome-badge { position: absolute; top: 90px; left: 20px; border-color: #3498db; }
+        #difficulty-badge { position: absolute; top: 90px; right: 20px; }
+        .badge.show { opacity: 1 !important; }
+
+        #achievement-popup { position: absolute; top: 100px; left: 50%; transform: translateX(-50%) translateY(-100px); background: rgba(78,190,89,0.95); border: 3px solid #FFF; border-radius: 12px; padding: 12px 24px; color: #FFF; font-size: 14px; z-index: 60; opacity: 0; transition: all 0.5s ease; pointer-events: none; text-align: center; }
+        #achievement-popup.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+        
+        @keyframes comboPulse { 0%{ transform: scale(1); } 50%{ transform: scale(1.4); text-shadow: 0 0 20px #ff6b35;} 100%{ transform: scale(1); } }
+        #speed-lines { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 5; opacity: 0; transition: opacity 0.5s; }
+        
+        /* ========================================================= */
+        /* ULTIMATE BLENDER/UNITY INSPECTOR & WORLD BUILDER          */
+        /* ========================================================= */
+        #test-ui { 
+            position: absolute; right: 15px; top: 15px; width: 380px; height: 85vh; min-height: 550px;
+            background: #1a1a1a; border: 1px solid #3c3c3c; border-radius: 8px; display: none; 
+            flex-direction: column; z-index: 150; box-shadow: -10px 10px 40px rgba(0,0,0,0.9); 
+            pointer-events: auto; font-family: 'Segoe UI', 'Roboto', sans-serif; color: #d4d4d4; 
+            resize: both; overflow: hidden;
+        }
+        
+        .unity-panel-header { background: #252526; padding: 10px 15px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #3c3c3c; flex-shrink: 0; cursor: move;}
+        .unity-panel-title { font-size: 13px; font-weight: bold; letter-spacing: 1px; color: #fff; text-transform: uppercase;}
+        .unity-close-btn { background: none; border: none; color: #999; font-size: 18px; cursor: pointer; padding: 0 4px; transition: color 0.2s;}
+        .unity-close-btn:hover { color: #e74c3c; }
+        
+        .unity-tabs { display: flex; background: #2d2d2d; border-bottom: 2px solid #1a1a1a; flex-shrink: 0;}
+        .unity-tab { flex:1; padding: 10px 0; background: none; border: none; color: #888; font-size: 11px; cursor: pointer; border-bottom: 2px solid transparent; transition: all 0.2s; font-family: inherit; font-weight: bold; text-align: center; text-transform: uppercase;}
+        .unity-tab:hover { color: #d4d4d4; background: #333;}
+        .unity-tab.active { color: #F5B700; border-bottom-color: #F5B700; background: #1a1a1a;}
+        
+        .unity-content { flex: 1; overflow-y: auto; padding: 12px; scrollbar-width: thin; scrollbar-color: #444 #1a1a1a;}
+        .unity-content::-webkit-scrollbar { width: 8px; }
+        .unity-content::-webkit-scrollbar-track { background: #1a1a1a; }
+        .unity-content::-webkit-scrollbar-thumb { background: #444; border-radius: 4px; }
+        
+        .unity-section { margin-bottom: 12px; border: 1px solid #333; border-radius: 6px; overflow: hidden; background: #222;}
+        .unity-section-header { background: #2d2d2d; padding: 8px 12px; font-size: 11px; font-weight: bold; color: #ddd; display: flex; justify-content: space-between; align-items: center; cursor: pointer; user-select: none; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid transparent;}
+        .unity-section-header:hover { background: #383838; }
+        .unity-section:not(.collapsed) .unity-section-header { border-bottom-color: #1a1a1a; }
+        .unity-section-arrow { transition: transform 0.2s; font-size: 10px; color: #969696;}
+        .unity-section.collapsed .unity-section-arrow { transform: rotate(-90deg); }
+        .unity-section.collapsed .unity-section-body { display: none; }
+        .unity-section-body { padding: 12px;}
+        
+        .unity-vec3-row { display: flex; align-items: center; gap: 4px; margin-bottom: 8px;}
+        .unity-vec3-label { width: 16px; font-size: 10px; font-weight: bold; text-align: center;}
+        .unity-vec3-label.x { color: #e74c3c; } .unity-vec3-label.y { color: #4EBE59; } .unity-vec3-label.z { color: #3498db; }
+        .unity-vec3-input { width: 100%; flex: 1; background: #111; border: 1px solid #333; border-radius: 4px; color: #eee; padding: 6px; font-size: 12px; font-family: 'Consolas', monospace; text-align: center; outline: none; transition: border-color 0.2s;}
+        .unity-vec3-input:focus { border-color: #F5B700; background:#1a1a1a;}
+        
+        .unity-dropdown { width: 100%; background: #111; border: 1px solid #333; border-radius: 4px; color: #eee; padding: 8px; font-size: 12px; cursor: pointer; outline: none; font-family: inherit;}
+        .unity-dropdown:focus { border-color: #F5B700; }
+        
+        .unity-btn { background: #333; border: 1px solid #444; border-radius: 4px; color: #eee; padding: 8px 12px; font-size: 11px; font-weight: bold; cursor: pointer; transition: all 0.2s; font-family: inherit; text-transform: uppercase; letter-spacing: 0.5px; width: 100%; margin-bottom: 6px;}
+        .unity-btn:hover { background: #444; color: #FFF; }
+        .unity-btn.primary { background: #007acc; border-color: #007acc; color: #ffffff; }
+        .unity-btn.primary:hover { background: #005f9e; }
+        .unity-btn.success { background: #2d5a27; border-color: #2d5a27; color: #ffffff; }
+        .unity-btn.success:hover { background: #3c7a34; }
+        .unity-btn.warning { background: #F5B700; border-color: #F5B700; color: #000; }
+        .unity-btn.warning:hover { background: #d49a00; }
+        .unity-btn.danger { background: #c42b2b; border-color: #c42b2b; color: #ffffff; }
+        .unity-btn.danger:hover { background: #a82424; }
+        .unity-btn.random { background: #8e44ad; border-color: #8e44ad; color: #ffffff; font-size: 13px; padding: 10px;}
+        .unity-btn.random:hover { background: #9b59b6; }
+        
+        .unity-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; gap: 8px;}
+        .unity-row-label { font-size: 11px; color: #bbb; white-space: nowrap; flex-shrink: 0; min-width: 80px;}
+        
+        .unity-slider { -webkit-appearance: none; appearance: none; width: 100%; height: 6px; background: #333; border-radius: 3px; outline: none; cursor: pointer; flex: 1;}
+        .unity-slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; background: #F5B700; border-radius: 50%; cursor: pointer; border: 2px solid #111; box-shadow: 0 0 5px rgba(0,0,0,0.8);}
+        
+        input[type="file"] { display: none; }
+        .file-upload-label { display: block; background: #111; border: 1px dashed #F5B700; border-radius: 6px; color: #F5B700; padding: 12px; text-align: center; font-size: 12px; cursor: pointer; transition: all 0.2s; font-weight: bold;}
+        .file-upload-label:hover { background: #F5B700; color: #111; border-style: solid;}
+
+        .mod-rule-item { background: #111; border: 1px solid #333; border-left: 4px solid #F5B700; border-radius: 4px; padding: 10px; margin-bottom: 8px; position: relative;}
+        .mod-rule-title { font-size: 12px; font-weight: bold; color: #FFF; margin-bottom: 6px; }
+        .mod-rule-stats { font-size: 11px; color: #aaa; display: flex; gap: 12px;}
+        .mod-rule-stats span { color: #4EBE59; font-family: monospace; font-weight: bold;}
+        .mod-rule-delete { position: absolute; top: 8px; right: 8px; background: none; border: none; color: #e74c3c; font-size: 14px; cursor: pointer; }
+        .mod-rule-delete:hover { color: #ff6b6b; transform: scale(1.2);}
+        
+        .unity-console { background: #000; border-radius: 4px; padding: 10px; font-family: 'Consolas', monospace; font-size: 11px; height: 100%; overflow-y: auto; border: 1px solid #333;}
+        .unity-console-entry { margin-bottom: 6px; padding: 3px 0; border-bottom: 1px solid #1a1a1a; word-break: break-all;}
+        .unity-console-entry.info { color: #4EC9B0; }
+        .unity-console-entry.warn { color: #F5B700; }
+        .unity-console-entry.error { color: #e74c3c; }
+    </style>
+</head>
+<body>
+
+    <div id="loading-overlay">
+        <h1 style="font-size: 32px;">VOCAB RUNNER</h1>
+        <div id="loading-bar-container"><div id="loading-bar"></div></div>
+        <div id="loading-text">Assetler Yükleniyor...<br>
+            <span id="current-asset" style="color:#FFF; font-size: 10px;">Bekleniyor</span>
+        </div>
+    </div>
+
+    <canvas id="speed-lines"></canvas>
+
+    <!-- OYUN HUD (Combo Alev Silindi, Daha Temiz) -->
+    <div id="ui-layer" style="display:none;">
+        <div id="screen-glow"></div>
+        <div id="top-bar">
+            <div class="hud-box"><span id="progress-text">Skor: 0</span></div>
+            <!-- YENİ: Sadece Coin barı kaldı -->
+            <div class="hud-box" id="coin-hud">🪙 <span id="coin-text">0</span></div>
+        </div>
+        <div id="biome-badge" class="badge">ORMAN KÖYÜ</div>
+        <div id="difficulty-badge" class="badge">ZORLUK: KOLAY</div>
+        <div id="target-word-container">
+            <div id="target-word-title">HEDEF KELİME</div>
+            <div id="target-word">...</div>
+        </div>
+    </div>
+
+    <!-- ANA MENÜ -->
+    <div id="start-screen" class="screen" style="display:none;">
+        <h1>VOCAB RUNNER</h1>
+        <div style="background: rgba(0,0,0,0.5); border: 1px dashed #8A8578; padding: 15px; border-radius: 8px; margin-bottom: 20px; font-size: 11px; color: #bdc3c7; max-width: 400px; text-align: center;">
+            "Kelimeler dünyası karanlık bir güç tarafından parçalandı. Sen, son koşucu, kayıp kelimeleri toplayarak dünyayı yeniden inşa etmelisin."
+        </div>
+        <div style="display:flex; align-items:center; gap:8px; margin-top:-16px; margin-bottom:16px;">
+            <span style="color:#F5B700; font-size:16px;">BAKİYEN: <span id="menu-total-coins">0</span> 🪙</span>
+        </div>
+        <div class="btn-group" id="main-menu-buttons">
+            <button class="img-btn btn-yellow" id="start-lvl-btn" disabled onclick="GameEngine.startGame('level')">BÖLÜM MODU</button>
+            <button class="img-btn btn-green" id="start-inf-btn" disabled onclick="GameEngine.startGame('endless')">SONSUZ MOD</button>
+            <button class="img-btn btn-blue" id="market-btn" disabled onclick="MarketManager.openStore()">KARAKTER MARKETİ</button>
+            <button class="img-btn btn-red" id="stats-btn" disabled onclick="StatsManager.open()">📊 İSTATİSTİK</button>
+            <button class="img-btn btn-red" id="test-btn" disabled onclick="GameEngine.startTestMode()">🛠️ ENGINE / MODDER</button>
+        </div>
+    </div>
+
+    <!-- OYUN MOTORU (INSPECTOR & WORLD BUILDER) -->
+    <div id="test-ui">
+        <div class="unity-panel-header">
+            <span class="unity-panel-title">⚙️ Vocab Engine</span>
+            <button class="unity-close-btn" onclick="GameEngine.exitTestMode()">✕</button>
+        </div>
+        
+        <div class="unity-tabs">
+            <button class="unity-tab active" data-tab="inspector" onclick="GameEngine.switchTestTab('inspector')">Inspector</button>
+            <button class="unity-tab" data-tab="world" onclick="GameEngine.switchTestTab('world')">World</button>
+            <button class="unity-tab" data-tab="console" onclick="GameEngine.switchTestTab('console')">Console</button>
+        </div>
+        
+        <!-- 1. INSPECTOR TABI -->
+        <div class="unity-content" id="tab-inspector">
+            
+            <div class="unity-section">
+                <div class="unity-section-header" onclick="GameEngine.toggleSection(this)">
+                    <span>Model Seçimi & Yükleme</span>
+                    <span class="unity-section-arrow">▼</span>
+                </div>
+                <div class="unity-section-body">
+                    <label for="asset-upload" class="file-upload-label">📂 Dışarıdan 3D Model Ekle (.glb, .gltf)</label>
+                    <input type="file" id="asset-upload" accept=".glb,.gltf" onchange="GameEngine.handleAssetUpload(event)">
+                    <div style="height: 12px;"></div>
+                    <select class="unity-dropdown" id="test-model-select" onchange="GameEngine.onModelSelect(this.value)"></select>
+                    
+                    <div class="unity-row" style="margin-top:12px; border-top: 1px solid #333; padding-top: 12px;">
+                        <span class="unity-row-label">Oyun İçi Türü:</span>
+                        <select class="unity-dropdown" id="t-category" onchange="GameEngine.changeAssetCategory(this.value)">
+                            <option value="scenery">🌲 Çevre Objesi</option>
+                            <option value="obstacle">🚗 Engel / Tuzak</option>
+                            <option value="character">🏃 Oynanabilir Karakter</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="unity-section">
+                <div class="unity-section-header" onclick="GameEngine.toggleSection(this)">
+                    <span>Transform</span>
+                    <span class="unity-section-arrow">▼</span>
+                </div>
+                <div class="unity-section-body">
+                    <div style="font-size:10px;color:#aaa;margin-bottom:6px;letter-spacing:0.5px;">POSITION</div>
+                    <div class="unity-vec3-row">
+                        <span class="unity-vec3-label x">X</span><input type="number" class="unity-vec3-input" id="t-pos-x" value="0" step="0.1" oninput="GameEngine.onTransformInput('pos', 'x')">
+                        <span class="unity-vec3-label y">Y</span><input type="number" class="unity-vec3-input" id="t-pos-y" value="0" step="0.1" oninput="GameEngine.onTransformInput('pos', 'y')">
+                        <span class="unity-vec3-label z">Z</span><input type="number" class="unity-vec3-input" id="t-pos-z" value="0" step="0.1" oninput="GameEngine.onTransformInput('pos', 'z')">
+                    </div>
+                    
+                    <div style="font-size:10px;color:#aaa;margin:12px 0 6px;letter-spacing:0.5px;">ROTATION (DEG)</div>
+                    <div class="unity-vec3-row">
+                        <span class="unity-vec3-label x">X</span><input type="number" class="unity-vec3-input" id="t-rot-x" value="0" step="5" oninput="GameEngine.onTransformInput('rot', 'x')">
+                        <span class="unity-vec3-label y">Y</span><input type="number" class="unity-vec3-input" id="t-rot-y" value="0" step="5" oninput="GameEngine.onTransformInput('rot', 'y')">
+                        <span class="unity-vec3-label z">Z</span><input type="number" class="unity-vec3-input" id="t-rot-z" value="0" step="5" oninput="GameEngine.onTransformInput('rot', 'z')">
+                    </div>
+                    
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin:12px 0 6px;">
+                        <span style="font-size:10px;color:#aaa;letter-spacing:0.5px;">SCALE</span>
+                        <label style="font-size:10px; color:#F5B700; cursor:pointer; font-weight:bold;"><input type="checkbox" id="t-scl-lock" checked style="vertical-align:middle;"> Zincir Kilit</label>
+                    </div>
+                    <div class="unity-vec3-row">
+                        <span class="unity-vec3-label x">X</span><input type="number" class="unity-vec3-input" id="t-scl-x" value="1" step="0.1" oninput="GameEngine.onTransformInput('scl', 'x')">
+                        <span class="unity-vec3-label y">Y</span><input type="number" class="unity-vec3-input" id="t-scl-y" value="1" step="0.1" oninput="GameEngine.onTransformInput('scl', 'y')">
+                        <span class="unity-vec3-label z">Z</span><input type="number" class="unity-vec3-input" id="t-scl-z" value="1" step="0.1" oninput="GameEngine.onTransformInput('scl', 'z')">
+                    </div>
+                    <button class="unity-btn small" style="margin-top:8px;" onclick="GameEngine.resetTransform()">Ayarları Sıfırla</button>
+                </div>
+            </div>
+
+            <div class="unity-section">
+                <div class="unity-section-header" onclick="GameEngine.toggleSection(this)">
+                    <span>Camera & Lighting</span>
+                    <span class="unity-section-arrow">▼</span>
+                </div>
+                <div class="unity-section-body">
+                    <div class="unity-row">
+                        <span class="unity-row-label">FOV</span>
+                        <input type="range" class="unity-slider" min="20" max="120" value="60" id="c-fov-range" oninput="GameEngine.onCameraInput('fov', 'range')">
+                    </div>
+                    <div class="unity-row">
+                        <span class="unity-row-label">Distance</span>
+                        <input type="range" class="unity-slider" min="2" max="50" value="10" id="c-dist-range" oninput="GameEngine.onCameraInput('dist', 'range')">
+                    </div>
+                    <div class="unity-row">
+                        <span class="unity-row-label">Height</span>
+                        <input type="range" class="unity-slider" min="-10" max="30" value="0" id="c-height-range" oninput="GameEngine.onCameraInput('height', 'range')">
+                    </div>
+                    <div style="border-top:1px solid #333; margin:10px 0; padding-top:10px;"></div>
+                    <div class="unity-row">
+                        <span class="unity-row-label">Dir Light</span>
+                        <input type="range" class="unity-slider" min="0" max="2" step="0.05" value="0.8" id="l-dir-range" oninput="GameEngine.onLightInput('dir', 'range')">
+                    </div>
+                    <div class="unity-row">
+                        <span class="unity-row-label">Ambient</span>
+                        <input type="range" class="unity-slider" min="0" max="2" step="0.05" value="0.6" id="l-amb-range" oninput="GameEngine.onLightInput('amb', 'range')">
+                    </div>
+                </div>
+            </div>
+            
+            <button class="unity-btn success" style="margin-top:10px; padding:12px; font-size:12px;" onclick="GameEngine.saveSettingsToLocal()">💾 ASSETLERİ OYUNA KAYDET</button>
+        </div>
+        
+        <!-- 2. WORLD BUILDER TABI -->
+        <div class="unity-content" id="tab-world" style="display:none;">
+            
+            <button class="unity-btn random" style="margin-bottom:12px;" onclick="GameEngine.randomizeWorld()">🎲 RASTGELE DÜNYA OLUŞTUR</button>
+
+            <div class="unity-section">
+                <div class="unity-section-header" onclick="GameEngine.toggleSection(this)">
+                    <span>Biyom (Dünya) Seçimi</span>
+                    <span class="unity-section-arrow">▼</span>
+                </div>
+                <div class="unity-section-body">
+                    <select class="unity-dropdown" id="wb-biome-select" onchange="GameEngine.onWorldBiomeSelect(this.value)">
+                        <option value="1">Orman Köyü (Varsayılan)</option>
+                        <option value="2">Yanardağ Geçidi (Varsayılan)</option>
+                        <option value="3">Kristal Mağara (Varsayılan)</option>
+                    </select>
+                    <button class="unity-btn primary" style="margin-top:10px;" onclick="GameEngine.createNewBiome()">+ YENİ DÜNYA YARAT</button>
+                </div>
+            </div>
+            
+            <div class="unity-section">
+                <div class="unity-section-header" onclick="GameEngine.toggleSection(this)">
+                    <span>Environment & Lighting</span>
+                    <span class="unity-section-arrow">▼</span>
+                </div>
+                <div class="unity-section-body">
+                    <div class="unity-row">
+                        <span class="unity-row-label">Yol Zemin Tipi:</span>
+                        <select class="unity-dropdown" id="wb-road-style" onchange="GameEngine.updateWorldColors()">
+                            <option value="asphalt">Siyah Asfalt</option>
+                            <option value="dirt">Toprak Zemin</option>
+                            <option value="stone">Taşlık / Blok Zemin</option>
+                            <option value="cracked">Çatlak Zemin</option>
+                            <option value="lava">Lav / Kırmızı Çizgili</option>
+                            <option value="snow">Karlı Zemin</option>
+                        </select>
+                    </div>
+                    <div class="unity-row" style="margin-top:10px;">
+                        <span class="unity-row-label">Zemin Rengi:</span>
+                        <input type="color" id="wb-ground-color" value="#2d5a27" style="background:none; border:none; cursor:pointer;" onchange="GameEngine.updateWorldColors()">
+                    </div>
+                    <div class="unity-row">
+                        <span class="unity-row-label">Gökyüzü/Sis Rengi:</span>
+                        <input type="color" id="wb-fog-color" value="#87CEEB" style="background:none; border:none; cursor:pointer;" onchange="GameEngine.updateWorldColors()">
+                    </div>
+                </div>
+            </div>
+
+            <div class="unity-section">
+                <div class="unity-section-header" onclick="GameEngine.toggleSection(this)">
+                    <span>Obje Dizme Kuralları (Spawner)</span>
+                    <span class="unity-section-arrow">▼</span>
+                </div>
+                <div class="unity-section-body">
+                    <div class="unity-row">
+                        <span class="unity-row-label">Model:</span>
+                        <select class="unity-dropdown" id="wb-rule-model" onchange="GameEngine.previewWorldRule()"></select>
+                    </div>
+                    <div class="unity-row" style="margin-top:8px;">
+                        <span class="unity-row-label">Çıkma Şansı (%):</span>
+                        <input type="number" class="unity-vec3-input" id="wb-rule-chance" value="30" min="1" max="100">
+                    </div>
+                    <div class="unity-row" style="margin-top:8px;">
+                        <span class="unity-row-label">Uzaklık (X):</span>
+                        <input type="range" class="unity-slider" id="wb-rule-x-range" value="12" min="2" max="50" step="0.5" oninput="GameEngine.previewWorldRule('range')">
+                        <input type="number" class="unity-vec3-input" id="wb-rule-x-num" value="12" style="width:45px; margin-left:8px;" oninput="GameEngine.previewWorldRule('num')">
+                    </div>
+                    <button class="unity-btn" style="background:#4EBE59; border:none; margin-top:12px; padding:10px;" onclick="GameEngine.addWorldRule()">➕ KURALI EKLE</button>
+                </div>
+            </div>
+
+            <div class="unity-section">
+                <div class="unity-section-header" onclick="GameEngine.toggleSection(this)">
+                    <span>Bu Dünyanın Kuralları</span>
+                    <span class="unity-section-arrow">▼</span>
+                </div>
+                <div class="unity-section-body" id="wb-rules-list" style="max-height:150px; overflow-y:auto; padding:5px 0;">
+                    <div style="font-size:10px; color:#555; text-align:center;">Henüz kural eklenmedi.</div>
+                </div>
+            </div>
+
+            <div style="margin-top:10px;">
+                <button class="unity-btn warning" style="padding:12px; font-size:12px;" onclick="GameEngine.exportWorldData()">🌍 JSON OLARAK İNDİR</button>
+            </div>
+        </div>
+        
+        <!-- 3. CONSOLE TABI -->
+        <div class="unity-content" id="tab-console" style="display:none; padding:0;">
+            <div class="unity-console" id="console-output">
+                <div class="unity-console-entry info">> Ultimate Engine Initialized.</div>
+            </div>
+            <button class="unity-btn small" style="width:100%;margin-top:6px;" onclick="GameEngine.clearConsole()">Clear Console</button>
+        </div>
+    </div>
+
+    <!-- Alt Menü Butonları -->
+    <button id="fullscreen-toggle" class="corner-btn" onclick="GameEngine.toggleFullScreen()">🖵</button>
+    <button id="audio-toggle" class="corner-btn" onclick="AudioManager.toggle()">🔊</button>
+
+    <!-- Oyun Sonu Ekranları -->
+    <div id="stats-screen" class="screen" style="display:none;">
+        <h1 style="color:#3498db;">📊 İSTATİSTİKLER</h1>
+        <div id="stats-content" style="background: rgba(0,0,0,0.5); padding: 20px; border-radius: 12px; border: 2px solid #3498db; margin-bottom: 20px; min-width: 280px;"></div>
+        <button class="img-btn btn-red" onclick="StatsManager.close()">MENÜYE DÖN</button>
+    </div>
+
+    <div id="market-screen" class="screen" style="display:none;">
+        <h1 style="color:#3498db; margin-bottom: 0;">MARKET</h1>
+        <p style="color:#F5B700; font-size:18px; margin-bottom: 10px;">BAKİYE: <span id="store-total-coins">0</span> 🪙</p>
+        <div id="market-3d-preview"></div>
+        <div class="char-grid" id="char-grid"></div>
+        <button class="img-btn btn-red" onclick="MarketManager.closeStore()">MENÜYE DÖN</button>
+    </div>
+
+    <div id="game-over-screen" class="screen" style="display:none;">
+        <h1 style="color:#E74C3C;">KAZA YAPTIN!</h1>
+        <div style="background: rgba(0,0,0,0.6); padding: 15px 30px; border-radius: 12px; border: 4px solid #E74C3C; margin-bottom: 20px; text-align: center;">
+            <span style="color: #8A8578; font-size: 11px; letter-spacing: 2px; display: block; margin-bottom: 5px;">DOĞRU ÇEVİRİ</span>
+            <span id="correct-answer-text" style="font-size: 24px; color: #FFF;"></span>
+        </div>
+        <h2 id="final-score" style="color:#F5B700; font-size: 32px; margin: 10px 0;">Skor: 0</h2>
+        <button class="img-btn btn-red" onclick="GameEngine.resetGame()">MENÜYE DÖN</button>
+    </div>
+
+    <div id="level-complete-screen" class="screen" style="display:none;">
+        <h1 style="color:#4EBE59;">BÖLÜM GEÇİLDİ!</h1>
+        <div style="background: rgba(0,0,0,0.6); padding: 20px 40px; border-radius: 12px; border: 4px solid #4EBE59; margin-bottom: 16px; text-align: center;">
+            <span style="color: #8A8578; font-size: 13px; letter-spacing: 2px; display: block; margin-bottom: 8px;">KAZANILAN ALTIN</span>
+            <span id="final-coin-text" style="font-size: 42px; color: #F5B700;">0</span>
+        </div>
+        <button class="img-btn btn-green" onclick="GameEngine.resetGame()">DEVAM ET</button>
+    </div>
+
+    <div id="achievement-popup"><span class="popup-icon" style="font-size: 24px;">🏆</span><br><span id="popup-text">Başarım Açıldı!</span></div>
+
+    <!-- Modüler Scriptler -->
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/stats.js"></script>
+    <script src="js/market.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/traffic.js"></script>
+    <script src="js/track.js"></script>
+    <script src="js/gate.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

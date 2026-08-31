@@ -1,0 +1,16 @@
+{
+  "name": "YT Vocab Study Studio",
+  "short_name": "Vocab Studio",
+  "description": "YouTube videolarından dil öğrenin",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F7F3EA",
+  "theme_color": "#171712",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3050/3050525.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

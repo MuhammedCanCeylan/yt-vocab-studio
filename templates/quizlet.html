@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Quizlet Studio - Bildiğim Kelimeler</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.36.0/tabler-icons.min.css">
+    <style>
+        :root {
+            --bg: #F7F3EA;
+            --surface: #FFFFFF;
+            --surface-hover: #EFE9DA;
+            --surface-dark: #171712;
+            --primary: #F5B700;
+            --primary-hover: #e6ab00;
+            --text: #171712;
+            --text-muted: #8A8578;
+            --danger: #E74C3C;
+            --orange: #E67E22;
+            --green: #4EBE59;
+            --border: #171712;
+            --radius: 18px;
+            --shadow: 3.5px 3.5px 0px #171712;
+            --shadow-sm: 2px 2px 0px #171712;
+            --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+        
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            padding: 20px 20px 120px; /* Liquid Glass bar için alt tampon */
+            overflow-x: hidden;
+            user-select: none;
+        }
+
+        /* BUTONLAR */
+        .btn-action {
+            background: var(--surface);
+            border: 2.5px solid var(--border);
+            color: var(--text);
+            padding: 10px 16px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-family: 'Space Grotesk';
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        .btn-action:hover { background: var(--surface-hover); transform: translateY(-2px); box-shadow: var(--shadow); }
+        .btn-action:active { transform: translate(1.5px, 1.5px); box-shadow: 1px 1px 0px var(--border); }
+        .btn-primary { background: var(--primary); }
+        .btn-danger { background: var(--danger); color: #FFF; border-color: var(--border); }
+        .btn-green { background: var(--green); color: #FFF; border-color: var(--border); }
+
+        /* ÜST BAŞLIK */
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .title { font-family: 'Space Grotesk'; font-size: 22px; font-weight: 800; color: var(--text); display: flex; align-items: center; gap: 10px; margin: 0; }
+        .counter-pill-global { font-weight: 800; font-family: 'Space Grotesk'; color: var(--text); font-size: 13px; background: var(--surface); border: 2px solid var(--border); padding: 6px 14px; border-radius: 12px; box-shadow: var(--shadow-sm); }
+
+        /* 3D DÖNEN KART ALTYAPISI */
+        .card-stage {
+            perspective: 1400px;
+            width: 100%;
+            height: 350px;
+            position: relative;
+            margin-bottom: 16px;
+        }
+        .main-card {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            border-radius: 22px;
+            cursor: pointer;
+            transform-style: preserve-3d;
+            transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease;
+            touch-action: none;
+        }
+        .main-card.flipped { transform: rotateY(180deg); }
+
+        .card-face {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: var(--surface);
+            border: 3px solid var(--border);
+            border-radius: 22px;
+            box-shadow: 6px 6px 0px #171712;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            text-align: center;
+            pointer-events: none;
+        }
+        .card-face.back {
+            transform: rotateY(180deg);
+            background: #FFFBEB;
+        }
+        .card-word {
+            font-size: 38px;
+            font-weight: 800;
+            font-family: 'Space Grotesk';
+            color: var(--text);
+            word-break: break-word;
+        }
+        .card-subtext {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 10px;
+            font-weight: 600;
+        }
+        .card-tools {
+            position: absolute;
+            top: 18px; right: 20px;
+            font-size: 22px;
+            color: var(--text-muted);
+            z-index: 10;
+            pointer-events: auto;
+            display: flex; gap: 12px;
+        }
+        .card-tools i { cursor: pointer; transition: 0.15s; }
+        .card-tools i:hover { color: var(--text); transform: scale(1.15); }
+        .card-tools i.starred { color: var(--primary); }
+
+        .bottom-hint {
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 100%;
+            background: var(--surface-hover);
+            border-top: 2.5px solid var(--border);
+            padding: 10px;
+            border-radius: 0 0 18px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            pointer-events: none;
+        }
+        .key-badge { background: #FFF; border: 1.5px solid var(--border); padding: 2px 6px; border-radius: 6px; font-size: 11px; font-weight: 800; }
+
+        /* 1. KLASİK KARTLAR KONTROLLERİ */
+        .classic-controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--surface);
+            border: 2.5px solid var(--border);
+            border-radius: 16px;
+            padding: 10px 18px;
+            box-shadow: var(--shadow);
+            margin-bottom: 24px;
+        }
+        .counter-label { font-family: 'Space Grotesk'; font-weight: 800; font-size: 16px; color: var(--text); }
+
+        /* 2. SWIPE (AYIR & SINA) */
+        .progress-header { display: flex; justify-content: space-between; font-family: 'Space Grotesk'; font-weight: 700; font-size: 14px; margin-bottom: 12px; }
+        .pill { border: 2px solid var(--border); border-radius: 20px; padding: 2px 12px; font-weight: 800; color: #fff; min-width: 32px; text-align: center; }
+
+        .summary-card {
+            background: var(--surface);
+            border: 3px solid var(--border);
+            border-radius: 22px;
+            box-shadow: 6px 6px 0px #171712;
+            width: 100%; height: 350px;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            text-align: center; padding: 30px;
+        }
+
+        /* 3. ÖĞREN (LEARN) */
+        .learn-stats { display: flex; justify-content: space-around; margin-bottom: 16px; background: var(--surface); border: 2.5px solid var(--border); padding: 14px; border-radius: 16px; box-shadow: var(--shadow); }
+        .l-stat { display: flex; flex-direction: column; align-items: center; font-weight: 700; font-size: 13px; color: var(--text-muted); }
+        .l-num { font-size: 24px; font-family: 'Space Grotesk'; color: var(--text); margin-bottom: 2px; }
+        .learn-question { font-size: 26px; font-weight: 800; font-family: 'Space Grotesk'; text-align: center; margin-bottom: 20px; }
+        .learn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .learn-opt { background: var(--bg); border: 2.5px solid var(--border); padding: 16px; border-radius: 14px; font-size: 15px; font-weight: 700; cursor: pointer; text-align: center; box-shadow: var(--shadow-sm); transition: var(--transition); }
+        .learn-opt:hover { background: var(--surface-hover); transform: translateY(-2px); box-shadow: var(--shadow); }
+        .feedback-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.96); z-index: 100; display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center; border-radius: 18px; border: 3px solid var(--danger); padding: 20px; }
+
+        /* 4. TEST SINAVI */
+        .test-scroll-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .test-q-card {
+            background: var(--surface);
+            border: 2.5px solid var(--border);
+            border-radius: 16px;
+            padding: 18px 20px;
+            box-shadow: var(--shadow);
+        }
+        .test-input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2.5px solid var(--border);
+            border-radius: 12px;
+            font-size: 15px;
+            font-family: 'Inter';
+            outline: none;
+            margin-top: 10px;
+            background: var(--bg);
+            font-weight: 600;
+        }
+        .test-input:focus { border-color: var(--primary); background: #FFF; }
+        .test-result-text { font-size: 14px; font-weight: 800; font-family: 'Space Grotesk'; margin-top: 10px; display: none; }
+        .test-footer-actions {
+            margin-top: 10px;
+            padding: 14px 0 20px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        /* 5. EŞLEŞTİR (MATCH) */
+        .match-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+        .match-tile { background: var(--surface); border: 2.5px solid var(--border); border-radius: 14px; padding: 18px 10px; min-height: 80px; display: flex; align-items: center; justify-content: center; text-align: center; font-weight: 700; font-size: 14px; cursor: pointer; box-shadow: var(--shadow-sm); transition: var(--transition); }
+        .match-tile:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+        .match-tile.selected { border-color: var(--primary); background: #FFFBEB; }
+        .match-tile.matched { opacity: 0; pointer-events: none; transform: scale(0.8); }
+        .match-tile.error { border-color: var(--danger); background: #FDEDEC; animation: shake 0.4s; }
+        @keyframes shake { 0%, 100% { transform: translateX(0); } 25%, 75% { transform: translateX(-5px); } 50% { transform: translateX(5px); } }
+
+        /* TERİMLER LİSTESİ */
+        .terms-section { margin-top: 30px; border-top: 2.5px dashed var(--border); padding-top: 20px; }
+        .list-row { background: var(--surface); border: 2.5px solid var(--border); border-radius: 12px; padding: 12px 16px; margin-bottom: 10px; display: flex; align-items: center; gap: 14px; box-shadow: var(--shadow-sm); }
+        .list-input { border: none; outline: none; background: transparent; font-size: 14px; font-family: 'Inter'; width: 100%; font-weight: 600; }
+        .list-en { font-weight: 800; font-family: 'Space Grotesk'; }
+        .list-tr { color: var(--text-muted); border-left: 2px solid var(--border); padding-left: 12px; }
+
+        .view-section { display: none; }
+        .view-section.active { display: block; animation: fadeIn 0.2s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* LIQUID GLASS ALT BAR */
+        .liquid-glass-dock {
+            position: fixed;
+            bottom: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 32px);
+            max-width: 500px;
+            z-index: 9999;
+            filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.35));
+        }
+
+        .liquid-glass-bar {
+            position: relative;
+            height: 64px;
+            border-radius: 999px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.04) 40%), rgba(20, 20, 18, 0.72);
+            backdrop-filter: blur(26px) saturate(180%);
+            -webkit-backdrop-filter: blur(26px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            box-shadow: inset 0 1px 1.5px rgba(255, 255, 255, 0.4), inset 0 -1px 2px rgba(0, 0, 0, 0.15), 0 10px 30px rgba(0, 0, 0, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 5px;
+            touch-action: none;
+        }
+
+        .liquid-bubble {
+            position: absolute;
+            top: 5px;
+            left: 0;
+            height: 54px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.22);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.18), 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), width 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .liquid-tab-item {
+            position: relative;
+            z-index: 2;
+            flex: 1;
+            height: 54px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2px;
+            color: rgba(255, 255, 255, 0.55);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 10px;
+            font-weight: 800;
+            cursor: pointer;
+            border-radius: 999px;
+            transition: color 0.2s, transform 0.15s ease;
+            background: transparent;
+            border: none;
+            outline: none;
+        }
+        .liquid-tab-item:active { transform: scale(0.92); }
+        .liquid-tab-item i {
+            font-size: 19px;
+            transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.2s ease;
+        }
+        .liquid-tab-item.active { color: #FFFFFF; }
+        .liquid-tab-item.active i {
+            color: var(--primary);
+            transform: translateY(-2px) scale(1.15);
+        }
+
+        @media (max-width: 600px) {
+            .match-grid { grid-template-columns: repeat(2, 1fr); }
+            .learn-grid { grid-template-columns: 1fr; }
+            .card-word { font-size: 32px; }
+            .card-stage { height: 320px; }
+            .liquid-tab-item span { display: none; }
+            .liquid-tab-item i { font-size: 22px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ÜST BAŞLIK -->
+    <div class="header">
+        <h2 class="title"><i class="ti ti-folders" style="color:var(--primary); font-size:28px;"></i> Bildiğim Kelimeler Studio</h2>
+        <div class="counter-pill-global" id="global-word-count">0 Terim</div>
+    </div>
+
+    <!-- ================= 1. KLASİK KARTLAR ================= -->
+    <div id="view-cards" class="view-section active">
+        <div class="card-stage">
+            <div class="main-card" id="classic-card">
+                <div class="card-face front">
+                    <div class="card-tools">
+                        <i class="ti ti-volume" id="btn-classic-speak" title="Sesli Oku"></i>
+                        <i class="ti ti-star" id="classic-star-btn" title="Yıldızla"></i>
+                    </div>
+                    <div class="card-word" id="classic-front-text">Yükleniyor...</div>
+                    <div class="card-subtext">Çevirmek için dokun veya Boşluk tuşuna bas</div>
+                    <div class="bottom-hint">
+                        <i class="ti ti-keyboard"></i> Çevirmek için <span class="key-badge">Boşluk</span>, geçmek için <span class="key-badge">←</span> <span class="key-badge">→</span>
+                    </div>
+                </div>
+                <div class="card-face back">
+                    <div class="card-tools">
+                        <i class="ti ti-volume" id="btn-classic-speak-back" title="Sesli Oku"></i>
+                    </div>
+                    <div class="card-word" id="classic-back-text">...</div>
+                    <div class="card-subtext">İngilizceye dönmek için dokun</div>
+                    <div class="bottom-hint">
+                        <i class="ti ti-keyboard"></i> Çevirmek için <span class="key-badge">Boşluk</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="classic-controls">
+            <div style="display:flex; gap:8px;">
+                <button class="btn-action" onclick="QuizletApp.prevClassic()"><i class="ti ti-arrow-left"></i> Önceki</button>
+                <button class="btn-action" onclick="QuizletApp.nextClassic()">Sonraki <i class="ti ti-arrow-right"></i></button>
+            </div>
+            <div class="counter-label" id="classic-counter">1 / 1</div>
+            <div style="display:flex; gap:8px;">
+                <button class="btn-action" onclick="QuizletApp.shuffleClassic()" title="Karıştır"><i class="ti ti-arrows-shuffle"></i> Karıştır</button>
+                <button class="btn-action" id="btn-autoplay" onclick="QuizletApp.toggleAutoplay()" title="Otomatik Oynat"><i class="ti ti-player-play"></i> Oynat</button>
+            </div>
+        </div>
+
+        <div class="terms-section">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+                <h3 style="font-family:'Space Grotesk'; font-size:18px; font-weight:800; margin:0;"><i class="ti ti-list"></i> Bu Setteki Terimler</h3>
+                <button class="btn-action" onclick="QuizletApp.addTermRow()"><i class="ti ti-plus"></i> Yeni Terim Ekle</button>
+            </div>
+            <div id="terms-list-container"></div>
+        </div>
+    </div>
+
+    <!-- ================= 2. AYIR & SINA (SWIPE) ================= -->
+    <div id="view-swipe" class="view-section">
+        <div class="progress-header">
+            <div style="display:flex; align-items:center; gap:8px;">
+                <span class="pill" style="background:var(--orange); border-color:var(--border);" id="count-unlearned">0</span>
+                <span style="color:var(--orange);">Öğrenilecek</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px;">
+                <span style="color:var(--green);">Bilinenler</span>
+                <span class="pill" style="background:var(--green); border-color:var(--border);" id="count-learned">0</span>
+            </div>
+        </div>
+
+        <div class="card-stage">
+            <div class="main-card" id="swipe-card">
+                <div class="card-face front">
+                    <div class="card-tools">
+                        <i class="ti ti-volume" id="btn-swipe-speak" title="Sesli Oku"></i>
+                        <i class="ti ti-star" id="swipe-star-btn" title="Yıldızla"></i>
+                    </div>
+                    <div class="card-word" id="swipe-front-text">Yükleniyor...</div>
+                    <div class="card-subtext">Kaydır veya dokun</div>
+                    <div class="bottom-hint">
+                        <i class="ti ti-keyboard"></i> Sola <span class="key-badge">←</span> Öğrenilecek | Sağa <span class="key-badge">→</span> Bilinen
+                    </div>
+                </div>
+                <div class="card-face back">
+                    <div class="card-tools">
+                        <i class="ti ti-volume" id="btn-swipe-speak-back" title="Sesli Oku"></i>
+                    </div>
+                    <div class="card-word" id="swipe-back-text">...</div>
+                </div>
+            </div>
+
+            <div class="summary-card" id="summary-card" style="display:none;">
+                <h2 style="font-family:'Space Grotesk'; font-size:26px; font-weight:800; margin-bottom:8px;">Deste Tamamlandı! 🎉</h2>
+                <p style="color:var(--text-muted); font-size:14px; margin-bottom:20px;" id="summary-stat-text">0 Bilinen | 0 Öğrenilecek</p>
+                <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center;">
+                    <button class="btn-action btn-danger" id="btn-restart-unlearned" onclick="QuizletApp.restartUnlearnedOnly()"><i class="ti ti-rotate-2"></i> Bilinmeyenleri Tekrar Et</button>
+                    <button class="btn-action btn-primary" onclick="QuizletApp.startSwipeCards()"><i class="ti ti-reload"></i> Baştan Başlat</button>
+                </div>
+            </div>
+        </div>
+
+        <div style="display:flex; justify-content:center; gap:28px; margin-top:16px;">
+            <button class="btn-action" style="background:var(--danger); border-radius:50%; width:60px; height:60px; padding:0;" onclick="QuizletApp.swipe('left')" title="Öğrenilecek"><i class="ti ti-x" style="font-size:30px; color:#fff;"></i></button>
+            <button class="btn-action" style="border-radius:50%; width:48px; height:48px; padding:0; align-self:center;" onclick="QuizletApp.undoSwipe()" title="Geri Al"><i class="ti ti-arrow-back-up" style="font-size:22px;"></i></button>
+            <button class="btn-action" style="background:var(--green); border-radius:50%; width:60px; height:60px; padding:0;" onclick="QuizletApp.swipe('right')" title="Biliyorum"><i class="ti ti-check" style="font-size:30px; color:#fff;"></i></button>
+        </div>
+    </div>
+
+    <!-- ================= 3. AŞAMALI ÖĞREN ================= -->
+    <div id="view-learn" class="view-section">
+        <div class="learn-stats">
+            <div class="l-stat"><span class="l-num" id="lrn-kalan">0</span> Kalan</div>
+            <div class="l-stat"><span class="l-num" id="lrn-asina" style="color:var(--orange);">0</span> Aşina</div>
+            <div class="l-stat"><span class="l-num" id="lrn-ogrenildi" style="color:var(--green);">0</span> Öğrenildi</div>
+        </div>
+        
+        <div style="position:relative; background:var(--surface); border:3px solid var(--border); border-radius:20px; padding:30px 20px; box-shadow:var(--shadow); min-height:280px;">
+            <div class="learn-question" id="learn-q-text">Soru Yükleniyor...</div>
+            <div class="learn-grid" id="learn-options"></div>
+
+            <div id="learn-feedback" class="feedback-overlay">
+                <h2 style="font-family:'Space Grotesk'; font-size:26px; color:var(--danger); margin-bottom:8px;">Çalışmaya Devam Et!</h2>
+                <div style="font-size:16px; font-weight:600; margin-bottom:18px;">
+                    Senin cevabın: <span id="fb-wrong" style="color:var(--danger); text-decoration:line-through;">-</span><br><br>
+                    Doğru cevap: <span id="fb-correct" style="color:var(--green); font-size:20px;">-</span>
+                </div>
+                <button class="btn-action btn-primary" onclick="QuizletApp.nextLearn()">Devam Et</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= 4. TEST SINAVI ================= -->
+    <div id="view-test" class="view-section">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+            <h3 style="font-family:'Space Grotesk'; font-size:18px; margin:0;"><i class="ti ti-pencil"></i> Test Sınavı</h3>
+            <button class="btn-action" onclick="QuizletApp.startTest()"><i class="ti ti-reload"></i> Yeni Test Üret</button>
+        </div>
+        <div class="test-scroll-wrap" id="test-container"></div>
+        <div class="test-footer-actions">
+            <button class="btn-action btn-primary" style="font-size:15px; padding:12px 24px;" id="btn-submit-test" onclick="QuizletApp.submitTest()"><i class="ti ti-check"></i> Testi Bitir ve Puanı Gör</button>
+        </div>
+    </div>
+
+    <!-- ================= 5. EŞLEŞTİR OYUNU ================= -->
+    <div id="view-match" class="view-section">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; font-family:'Space Grotesk'; font-weight:800; font-size:18px; background:var(--surface); border:2.5px solid var(--border); padding:12px 18px; border-radius:14px; box-shadow:var(--shadow-sm);">
+            <span>⏱️ Süre: <span id="match-timer-label" style="color:var(--danger);">0.0</span>s</span>
+            <button class="btn-action" onclick="QuizletApp.startMatch()"><i class="ti ti-player-play"></i> Başlat</button>
+        </div>
+        <div class="match-grid" id="match-grid"></div>
+    </div>
+
+    <!-- ================= LIQUID GLASS DOCK ================= -->
+    <div class="liquid-glass-dock">
+        <nav class="liquid-glass-bar" id="liquid-glass-bar">
+            <div class="liquid-bubble" id="liquid-bubble"></div>
+            
+            <button class="liquid-tab-item active" data-tab="cards" data-index="0" onclick="QuizletApp.switchTabByIndex(0)">
+                <i class="ti ti-cards"></i>
+                <span>Kartlar</span>
+            </button>
+            <button class="liquid-tab-item" data-tab="swipe" data-index="1" onclick="QuizletApp.switchTabByIndex(1)">
+                <i class="ti ti-arrows-split-2"></i>
+                <span>Sına</span>
+            </button>
+            <button class="liquid-tab-item" data-tab="learn" data-index="2" onclick="QuizletApp.switchTabByIndex(2)">
+                <i class="ti ti-brain"></i>
+                <span>Öğren</span>
+            </button>
+            <button class="liquid-tab-item" data-tab="test" data-index="3" onclick="QuizletApp.switchTabByIndex(3)">
+                <i class="ti ti-file-certificate"></i>
+                <span>Test</span>
+            </button>
+            <button class="liquid-tab-item" data-tab="match" data-index="4" onclick="QuizletApp.switchTabByIndex(4)">
+                <i class="ti ti-grid-dots"></i>
+                <span>Eşleştir</span>
+            </button>
+        </nav>
+    </div>
+
+<script>
+const QuizletApp = {
+    allWords: [],
+    tabNames: ['cards', 'swipe', 'learn', 'test', 'match'],
+    currentIndex: 0,
+    saveDebounceTimer: null,
+
+    // HTML Kaçış Yardımcısı (Attribute ve Metin Koruması)
+    escapeHtml(str) {
+        if (!str) return '';
+        return String(str)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#039;');
+    },
+
+    shuffle(array) {
+        const arr = [...array];
+        for (let i = arr.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+    },
+
+    init() {
+        if (window.parent && window.parent.App && window.parent.App.data) {
+            this.allWords = window.parent.App.data.known_words || [];
+        } else {
+            const stored = localStorage.getItem('yt_vocab_data');
+            if (stored) {
+                try {
+                    this.allWords = JSON.parse(stored).known_words || [];
+                } catch(e) {
+                    this.allWords = [];
+                }
+            }
+        }
+        
+        document.getElementById('global-word-count').innerText = `${this.allWords.length} Terim`;
+        this.initListEvents();
+        this.renderList();
+        this.startClassicCards();
+        this.bindEvents();
+
+        // Boyut değişiminde baloncuk pozisyonunu otomatik düzelt
+        window.addEventListener('resize', () => {
+            this.updateLiquidPill(this.currentIndex);
+        });
+
+        // Fontlar veya stiller geç yüklense bile baloncuğu yerine oturt
+        window.addEventListener('load', () => {
+            this.updateLiquidPill(this.currentIndex);
+        });
+
+        this.updateLiquidPill(0);
+    },
+
+    // Güvenli Try-Catch Veritabanı Kaydı
+    saveToDatabase() {
+        if (window.parent && window.parent.App && window.parent.App.data) {
+            window.parent.App.data.known_words = this.allWords;
+            window.parent.App.saveState();
+        } else {
+            let fullData = {};
+            try {
+                const stored = localStorage.getItem('yt_vocab_data');
+                if (stored) fullData = JSON.parse(stored);
+            } catch(e) {
+                fullData = {};
+            }
+            fullData.known_words = this.allWords;
+            try {
+                localStorage.setItem('yt_vocab_data', JSON.stringify(fullData));
+            } catch(e) {}
+        }
+        const countEl = document.getElementById('global-word-count');
+        if (countEl) countEl.innerText = `${this.allWords.length} Terim`;
+    },
+
+    /* ================= TEK TIKLA ÇALIŞAN LIQUID GLASS MOTORU ================= */
+    switchTabByIndex(index) {
+        this.currentIndex = index;
+        const tab = this.tabNames[index];
+        this.updateLiquidPill(index);
+
+        // Önceki timer ve seçili element kalıntılarını temizle
+        if (this.matchInterval) {
+            clearInterval(this.matchInterval);
+            this.matchInterval = null;
+        }
+        this.matchSelected = null;
+        this.matchPairsLeft = 0;
+
+        if (this.autoplayInterval) {
+            clearInterval(this.autoplayInterval);
+            this.autoplayInterval = null;
+            document.getElementById('btn-autoplay').innerHTML = '<i class="ti ti-player-play"></i> Oynat';
+        }
+
+        document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
+        const activeView = document.getElementById(`view-${tab}`);
+        if (activeView) activeView.classList.add('active');
+
+        if (tab === 'cards') this.startClassicCards();
+        if (tab === 'swipe') this.startSwipeCards();
+        if (tab === 'learn') this.startLearn();
+        if (tab === 'test') this.startTest();
+        if (tab === 'match') this.startMatch();
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    },
+
+    updateLiquidPill(index) {
+        requestAnimationFrame(() => {
+            const pill = document.getElementById('liquid-bubble');
+            const items = document.querySelectorAll('.liquid-tab-item');
+            const activeItem = items[index];
+            if (!activeItem || !pill) return;
+
+            items.forEach((it, i) => it.classList.toggle('active', i === index));
+
+            const left = activeItem.offsetLeft;
+            const width = activeItem.offsetWidth;
+
+            pill.style.width = `${width}px`;
+            pill.style.transform = `translateX(${left}px)`;
+        });
+    },
+
+    /* ================= 1. KLASİK KARTLAR ================= */
+    classicIndex: 0,
+    classicIsFlipped: false,
+    autoplayInterval: null,
+
+    startClassicCards() {
+        this.classicIndex = 0;
+        this.classicIsFlipped = false;
+        this.showClassicCard();
+    },
+
+    showClassicCard() {
+        const cardEl = document.getElementById('classic-card');
+        cardEl.classList.remove('flipped');
+        this.classicIsFlipped = false;
+
+        if (this.allWords.length === 0) {
+            document.getElementById('classic-front-text').innerText = "Kelime Yok";
+            document.getElementById('classic-back-text').innerText = "Terim Ekleyin";
+            document.getElementById('classic-counter').innerText = "0 / 0";
+            return;
+        }
+
+        if (this.classicIndex >= this.allWords.length) this.classicIndex = 0;
+        if (this.classicIndex < 0) this.classicIndex = this.allWords.length - 1;
+
+        const cur = this.allWords[this.classicIndex];
+        document.getElementById('classic-front-text').innerText = cur.en;
+        document.getElementById('classic-back-text').innerText = cur.tr || 'Çeviri yok';
+        document.getElementById('classic-counter').innerText = `${this.classicIndex + 1} / ${this.allWords.length}`;
+
+        const starBtn = document.getElementById('classic-star-btn');
+        starBtn.className = cur.starred ? 'ti ti-star-filled starred' : 'ti ti-star';
+    },
+
+    flipClassic() {
+        if (this.allWords.length === 0) return;
+        this.classicIsFlipped = !this.classicIsFlipped;
+        document.getElementById('classic-card').classList.toggle('flipped', this.classicIsFlipped);
+    },
+
+    nextClassic() {
+        if (this.allWords.length === 0) return;
+        this.classicIndex = (this.classicIndex + 1) % this.allWords.length;
+        this.showClassicCard();
+    },
+
+    prevClassic() {
+        if (this.allWords.length === 0) return;
+        this.classicIndex = (this.classicIndex - 1 + this.allWords.length) % this.allWords.length;
+        this.showClassicCard();
+    },
+
+    shuffleClassic() {
+        this.allWords = this.shuffle(this.allWords);
+        this.saveToDatabase();
+        this.startClassicCards();
+        this.renderList();
+    },
+
+    toggleStarClassic() {
+        if (this.allWords.length === 0) return;
+        const cur = this.allWords[this.classicIndex];
+        cur.starred = !cur.starred;
+        this.saveToDatabase();
+        this.showClassicCard();
+    },
+
+    speakClassic() {
+        if (this.allWords.length === 0 || !window.speechSynthesis) return;
+        window.speechSynthesis.cancel();
+        const cur = this.allWords[this.classicIndex];
+        const text = this.classicIsFlipped ? (cur.tr || cur.en) : cur.en;
+        const lang = this.classicIsFlipped ? 'tr-TR' : 'en-US';
+        const utt = new SpeechSynthesisUtterance(text);
+        utt.lang = lang;
+        window.speechSynthesis.speak(utt);
+    },
+
+    toggleAutoplay() {
+        const btn = document.getElementById('btn-autoplay');
+        if (this.autoplayInterval) {
+            clearInterval(this.autoplayInterval);
+            this.autoplayInterval = null;
+            btn.innerHTML = '<i class="ti ti-player-play"></i> Oynat';
+        } else {
+            btn.innerHTML = '<i class="ti ti-player-pause"></i> Durdur';
+            this.autoplayInterval = setInterval(() => {
+                const card = document.getElementById('classic-card');
+                if (!card.classList.contains('flipped')) {
+                    this.flipClassic();
+                } else {
+                    this.nextClassic();
+                }
+            }, 2500);
+        }
+    },
+
+    /* ================= 2. SWIPE (AYIR & SINA) ================= */
+    swipeQueue: [],
+    swipeLearned: [],
+    swipeUnlearned: [],
+    swipeHistory: [],
+    swipeIsFlipped: false,
+    isDragging: false,
+    startX: 0,
+    currentX: 0,
+
+    prepareSwipeDeck(pool) {
+        const cardEl = document.getElementById('swipe-card');
+        const summaryEl = document.getElementById('summary-card');
+        if (cardEl) cardEl.style.display = 'block';
+        if (summaryEl) summaryEl.style.display = 'none';
+
+        this.swipeQueue = this.shuffle(pool);
+        this.swipeLearned = [];
+        this.swipeUnlearned = [];
+        this.swipeHistory = [];
+        this.updateSwipeCounts();
+        this.showSwipeCard();
+    },
+
+    startSwipeCards() { this.prepareSwipeDeck(this.allWords); },
+    restartUnlearnedOnly() { if (this.swipeUnlearned.length > 0) this.prepareSwipeDeck(this.swipeUnlearned); },
+
+    updateSwipeCounts() {
+        document.getElementById('count-unlearned').innerText = this.swipeUnlearned.length;
+        document.getElementById('count-learned').innerText = this.swipeLearned.length;
+    },
+
+    showSwipeCard() {
+        const cardEl = document.getElementById('swipe-card');
+        const summaryEl = document.getElementById('summary-card');
+
+        cardEl.classList.remove('flipped');
+        this.swipeIsFlipped = false;
+        cardEl.style.transform = 'translate(0px, 0px) rotate(0deg)';
+        cardEl.style.opacity = '1';
+
+        if (this.swipeQueue.length === 0) {
+            cardEl.style.display = 'none';
+            summaryEl.style.display = 'flex';
+            document.getElementById('summary-stat-text').innerHTML = `
+                <span style="color:var(--green); font-weight:700;">${this.swipeLearned.length} Bilinen</span> | 
+                <span style="color:var(--orange); font-weight:700;">${this.swipeUnlearned.length} Öğrenilecek</span>
+            `;
+            document.getElementById('btn-restart-unlearned').style.display = this.swipeUnlearned.length > 0 ? 'inline-flex' : 'none';
+            return;
+        }
+        
+        const cur = this.swipeQueue[0];
+        document.getElementById('swipe-front-text').innerText = cur.en;
+        document.getElementById('swipe-back-text').innerText = cur.tr || 'Çeviri yok';
+        
+        const starBtn = document.getElementById('swipe-star-btn');
+        starBtn.className = cur.starred ? 'ti ti-star-filled starred' : 'ti ti-star';
+    },
+
+    flipSwipe() {
+        if (this.swipeQueue.length === 0) return;
+        this.swipeIsFlipped = !this.swipeIsFlipped;
+        document.getElementById('swipe-card').classList.toggle('flipped', this.swipeIsFlipped);
+    },
+
+    swipe(dir) {
+        if (this.swipeQueue.length === 0) return;
+        const item = this.swipeQueue.shift();
+        const cardEl = document.getElementById('swipe-card');
+        
+        const moveX = dir === 'right' ? 600 : -600;
+        const rotate = dir === 'right' ? 20 : -20;
+        
+        cardEl.style.transform = `translate(${moveX}px, 0px) rotate(${rotate}deg)`;
+        cardEl.style.opacity = '0';
+
+        this.swipeHistory.push({ item, dir });
+        if (dir === 'right') this.swipeLearned.push(item);
+        else this.swipeUnlearned.push(item);
+
+        this.updateSwipeCounts();
+        setTimeout(() => this.showSwipeCard(), 220);
+    },
+
+    undoSwipe() {
+        if (this.swipeHistory.length === 0) return;
+        const last = this.swipeHistory.pop();
+        if (last.dir === 'right') this.swipeLearned.pop();
+        else this.swipeUnlearned.pop();
+
+        this.swipeQueue.unshift(last.item);
+        this.updateSwipeCounts();
+        this.showSwipeCard();
+    },
+
+    toggleStarSwipe() {
+        if (this.swipeQueue.length === 0) return;
+        const cur = this.swipeQueue[0];
+        cur.starred = !cur.starred;
+        this.saveToDatabase();
+        this.showSwipeCard();
+    },
+
+    speakSwipe() {
+        if (this.swipeQueue.length === 0 || !window.speechSynthesis) return;
+        window.speechSynthesis.cancel();
+        const cur = this.swipeQueue[0];
+        const text = this.swipeIsFlipped ? (cur.tr || cur.en) : cur.en;
+        const lang = this.swipeIsFlipped ? 'tr-TR' : 'en-US';
+        const utt = new SpeechSynthesisUtterance(text);
+        utt.lang = lang;
+        window.speechSynthesis.speak(utt);
+    },
+
+    /* ================= 3. AŞAMALI ÖĞREN (EVENT DELEGATION İLE GÜVENLİ) ================= */
+    learnUnseen: [], learnFamiliar: [], learnMastered: [], currentLearn: null,
+
+    startLearn() {
+        if (this.allWords.length < 4) {
+            document.getElementById('learn-q-text').innerText = "Öğren modu için en az 4 kelime gerekli!";
+            document.getElementById('learn-options').innerHTML = "<div style='grid-column:1/-1; color:var(--text-muted); font-weight:700;'>Klasik Kartlar sekmesinden kelime ekleyin.</div>";
+            document.getElementById('lrn-kalan').innerText = 0;
+            document.getElementById('lrn-asina').innerText = 0;
+            document.getElementById('lrn-ogrenildi').innerText = 0;
+            return;
+        }
+        this.learnUnseen = this.shuffle(this.allWords);
+        this.learnFamiliar = [];
+        this.learnMastered = [];
+        this.nextLearn();
+    },
+
+    updateLearnUI() {
+        document.getElementById('lrn-kalan').innerText = this.learnUnseen.length;
+        document.getElementById('lrn-asina').innerText = this.learnFamiliar.length;
+        document.getElementById('lrn-ogrenildi').innerText = this.learnMastered.length;
+    },
+
+    nextLearn() {
+        document.getElementById('learn-feedback').style.display = 'none';
+        this.updateLearnUI();
+
+        if (this.learnUnseen.length === 0 && this.learnFamiliar.length === 0) {
+            document.getElementById('learn-q-text').innerText = "Tebrikler! Hepsini Öğrendin 🎉";
+            document.getElementById('learn-options').innerHTML = `<button class="btn-action btn-primary" style="grid-column:1/-1; padding:16px; font-size:16px;" onclick="QuizletApp.startLearn()">Baştan Başla</button>`;
+            return;
+        }
+
+        let isUnseen = this.learnUnseen.length > 0 && (Math.random() > 0.4 || this.learnFamiliar.length === 0);
+        this.currentLearn = isUnseen ? this.learnUnseen.shift() : this.learnFamiliar.shift();
+        this.currentLearn._stage = isUnseen ? 'unseen' : 'familiar';
+
+        document.getElementById('learn-q-text').innerText = `"${this.currentLearn.en}" ne anlama gelir?`;
+
+        let wrongs = this.shuffle(this.allWords.filter(w => w.en !== this.currentLearn.en)).slice(0, 3);
+        let opts = this.shuffle([this.currentLearn, ...wrongs]);
+
+        // Event Delegation formatında güvenli data-opt attribute üretimi
+        document.getElementById('learn-options').innerHTML = opts.map(o => `
+            <div class="learn-opt" data-opt="${this.escapeHtml(o.tr || o.en)}">${this.escapeHtml(o.tr || o.en)}</div>
+        `).join('');
+    },
+
+    checkLearn(sel, corr) {
+        if (sel === corr) {
+            if (this.currentLearn._stage === 'unseen') this.learnFamiliar.push(this.currentLearn);
+            else this.learnMastered.push(this.currentLearn);
+            this.nextLearn();
+        } else {
+            if (this.currentLearn._stage === 'unseen') this.learnUnseen.push(this.currentLearn);
+            else this.learnFamiliar.push(this.currentLearn);
+            
+            document.getElementById('fb-wrong').innerText = sel;
+            document.getElementById('fb-correct').innerText = corr;
+            document.getElementById('learn-feedback').style.display = 'flex';
+        }
+    },
+
+    /* ================= 4. TEST SINAVI ================= */
+    testQuestions: [],
+    
+    startTest() {
+        if (this.allWords.length < 4) {
+            document.getElementById('test-container').innerHTML = "<div style='padding:20px; font-weight:700;'>Test için en az 4 kelime gerekli.</div>";
+            document.getElementById('btn-submit-test').style.display = 'none';
+            return;
+        }
+        document.getElementById('btn-submit-test').style.display = 'inline-flex';
+        let pool = this.shuffle(this.allWords).slice(0, 10);
+        
+        this.testQuestions = pool.map((w, i) => {
+            let type = i % 2 === 0 ? 'mc' : 'written';
+            let opts = [];
+            if (type === 'mc') {
+                let wro = this.shuffle(this.allWords.filter(x => x.en !== w.en)).slice(0, 3);
+                opts = this.shuffle([w, ...wro]);
+            }
+            return { word: w, type, options: opts };
+        });
+
+        this.renderTest();
+    },
+
+    renderTest() {
+        let html = '';
+        this.testQuestions.forEach((q, i) => {
+            html += `<div class="test-q-card">
+                <div style="font-weight:800; font-family:'Space Grotesk'; font-size:16px; margin-bottom:12px;">${i+1}. "${this.escapeHtml(q.word.en)}" kelimesinin anlamı nedir?</div>`;
+            
+            if (q.type === 'mc') {
+                html += `<div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">`;
+                q.options.forEach((opt) => {
+                    html += `
+                        <label style="background:var(--bg); border:2px solid var(--border); padding:12px; border-radius:10px; cursor:pointer; font-weight:700; display:flex; align-items:center; gap:8px; font-size:14px;">
+                            <input type="radio" name="q_${i}" value="${this.escapeHtml(opt.tr || opt.en)}"> ${this.escapeHtml(opt.tr || opt.en)}
+                        </label>`;
+                });
+                html += `</div>`;
+            } else {
+                html += `<input type="text" id="q_${i}" class="test-input" placeholder="Cevabınızı yazın..." autocomplete="off">`;
+            }
+            html += `<div id="res_${i}" class="test-result-text"></div></div>`;
+        });
+        document.getElementById('test-container').innerHTML = html;
+    },
+
+    submitTest() {
+        let correctCount = 0;
+        this.testQuestions.forEach((q, i) => {
+            let userAns = '';
+            if (q.type === 'mc') {
+                let checked = document.querySelector(`input[name="q_${i}"]:checked`);
+                if (checked) userAns = checked.value;
+            } else {
+                let el = document.getElementById(`q_${i}`);
+                if (el) userAns = el.value.trim().toLowerCase();
+            }
+
+            const resDiv = document.getElementById(`res_${i}`);
+            resDiv.style.display = 'block';
+
+            if (userAns === (q.word.tr || '').toLowerCase() || userAns === q.word.en.toLowerCase()) {
+                correctCount++;
+                resDiv.style.color = 'var(--green)';
+                resDiv.innerText = '✓ Doğru Bildin!';
+            } else {
+                resDiv.style.color = 'var(--danger)';
+                resDiv.innerText = `✕ Yanlış. Doğrusu: ${q.word.tr || q.word.en}`;
+            }
+        });
+
+        const score = Math.round((correctCount / this.testQuestions.length) * 100);
+        document.getElementById('btn-submit-test').style.display = 'none';
+        
+        const cont = document.getElementById('test-container');
+        cont.insertAdjacentHTML('afterbegin', `
+            <div style="background:var(--surface); border:3px solid var(--primary); padding:20px; text-align:center; border-radius:16px; margin-bottom:14px; box-shadow:var(--shadow);">
+                <div style="font-size:38px; font-weight:800; font-family:'Space Grotesk'; color:var(--text);">${score}%</div>
+                <div style="font-size:14px; font-weight:700; color:var(--text-muted);">Test Puanınız (${correctCount}/${this.testQuestions.length})</div>
+            </div>
+        `);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    },
+
+    /* ================= 5. EŞLEŞTİR OYUNU ================= */
+    matchTimer: 0, matchInterval: null, matchSelected: null, matchPairsLeft: 0,
+
+    startMatch() {
+        if (this.matchInterval) {
+            clearInterval(this.matchInterval);
+            this.matchInterval = null;
+        }
+        this.matchSelected = null;
+        this.matchPairsLeft = 0;
+
+        if (this.allWords.length < 3) {
+            document.getElementById('match-grid').innerHTML = "<div style='grid-column:1/-1; padding:20px; font-weight:700;'>Oyun için en az 3 kelime gerekli.</div>";
+            return;
+        }
+        
+        this.matchTimer = 0;
+        document.getElementById('match-timer-label').innerText = "0.0";
+        
+        let pool = this.shuffle(this.allWords).slice(0, 6);
+        this.matchPairsLeft = pool.length;
+        let tiles = [];
+        
+        pool.forEach(w => {
+            tiles.push({ id: w.en, text: w.en, type: 'en' });
+            tiles.push({ id: w.en, text: w.tr || w.en, type: 'tr' });
+        });
+        tiles = this.shuffle(tiles);
+
+        document.getElementById('match-grid').innerHTML = tiles.map((t) => `
+            <div class="match-tile" data-id="${this.escapeHtml(t.id)}" data-type="${t.type}">${this.escapeHtml(t.text)}</div>
+        `).join('');
+
+        this.matchInterval = setInterval(() => {
+            this.matchTimer += 0.1;
+            document.getElementById('match-timer-label').innerText = this.matchTimer.toFixed(1);
+        }, 100);
+    },
+
+    handleMatchTile(tile) {
+        if (!tile || tile.classList.contains('matched')) return;
+
+        if (!this.matchSelected) {
+            this.matchSelected = tile;
+            tile.classList.add('selected');
+        } else {
+            if (this.matchSelected === tile) return;
+            
+            const id1 = this.matchSelected.dataset.id;
+            const id2 = tile.dataset.id;
+            const t1 = this.matchSelected.dataset.type;
+            const t2 = tile.dataset.type;
+
+            if (id1 === id2 && t1 !== t2) {
+                this.matchSelected.classList.add('matched');
+                tile.classList.add('matched');
+                this.matchSelected = null;
+                this.matchPairsLeft--;
+
+                if (this.matchPairsLeft === 0) {
+                    clearInterval(this.matchInterval);
+                    setTimeout(() => alert(`Tebrikler! ${this.matchTimer.toFixed(1)} saniyede bitirdiniz. 🎉`), 250);
+                }
+            } else {
+                tile.classList.add('error');
+                this.matchSelected.classList.add('error');
+                
+                const p1 = this.matchSelected;
+                const p2 = tile;
+                this.matchSelected = null;
+                
+                setTimeout(() => {
+                    p1.classList.remove('selected', 'error');
+                    p2.classList.remove('error');
+                }, 400);
+            }
+        }
+    },
+
+    /* ================= TERİM LİSTESİ (DEBOUNCE INPUT) ================= */
+    initListEvents() {
+        const container = document.getElementById('terms-list-container');
+        if (!container) return;
+
+        container.addEventListener('input', (e) => {
+            const input = e.target.closest('.list-input');
+            if (!input) return;
+            const row = input.closest('.list-row');
+            const idx = parseInt(row.dataset.index, 10);
+            const field = input.dataset.field;
+
+            if (this.allWords[idx]) {
+                this.allWords[idx][field] = input.value;
+                clearTimeout(this.saveDebounceTimer);
+                this.saveDebounceTimer = setTimeout(() => this.saveToDatabase(), 300);
+            }
+        });
+
+        container.addEventListener('click', (e) => {
+            const delBtn = e.target.closest('.btn-delete-row');
+            if (!delBtn) return;
+            const row = delBtn.closest('.list-row');
+            const idx = parseInt(row.dataset.index, 10);
+            this.deleteTerm(idx);
+        });
+    },
+
+    renderList() {
+        const container = document.getElementById('terms-list-container');
+        if (!container) return;
+        
+        let html = '';
+        this.allWords.forEach((item, idx) => {
+            html += `
+                <div class="list-row" data-index="${idx}">
+                    <div style="font-family:'Space Grotesk'; font-weight:800; color:var(--text-muted); width:24px;">${idx+1}</div>
+                    <div style="flex:1;"><input class="list-input list-en" data-field="en" value="${this.escapeHtml(item.en)}"></div>
+                    <div style="flex:1;"><input class="list-input list-tr" data-field="tr" value="${this.escapeHtml(item.tr || '')}"></div>
+                    <i class="ti ti-trash btn-delete-row" style="cursor:pointer; color:var(--danger); font-size:18px;"></i>
+                </div>
+            `;
+        });
+        container.innerHTML = html;
+    },
+
+    deleteTerm(idx) {
+        if (!confirm("Silmek istiyor musunuz?")) return;
+        this.allWords.splice(idx, 1);
+        this.saveToDatabase();
+        this.renderList();
+        this.showClassicCard();
+    },
+
+    addTermRow() {
+        this.allWords.push({ en: '', tr: '', starred: false });
+        this.renderList();
+        const container = document.getElementById('terms-list-container');
+        if (container && container.lastElementChild) {
+            const input = container.lastElementChild.querySelector('.list-en');
+            if (input) input.focus();
+        }
+    },
+
+    /* ================= SCOPED VE TEMİZ EVENT DİNLENMESİ ================= */
+    bindEvents() {
+        // Klasik Kart Tıklama & Araçlar
+        const classicCardEl = document.getElementById('classic-card');
+        if (classicCardEl) {
+            classicCardEl.onclick = (e) => {
+                if (!e.target.closest('i')) this.flipClassic();
+            };
+        }
+        document.getElementById('btn-classic-speak').onclick = (e) => { e.stopPropagation(); this.speakClassic(); };
+        document.getElementById('btn-classic-speak-back').onclick = (e) => { e.stopPropagation(); this.speakClassic(); };
+        document.getElementById('classic-star-btn').onclick = (e) => { e.stopPropagation(); this.toggleStarClassic(); };
+
+        // Swipe Kart Araçları
+        document.getElementById('btn-swipe-speak').onclick = (e) => { e.stopPropagation(); this.speakSwipe(); };
+        document.getElementById('btn-swipe-speak-back').onclick = (e) => { e.stopPropagation(); this.speakSwipe(); };
+        document.getElementById('swipe-star-btn').onclick = (e) => { e.stopPropagation(); this.toggleStarSwipe(); };
+
+        // Öğren Modu Event Delegation
+        const learnContainer = document.getElementById('learn-options');
+        if (learnContainer) {
+            learnContainer.onclick = (e) => {
+                const optEl = e.target.closest('.learn-opt');
+                if (!optEl || !this.currentLearn) return;
+                const sel = optEl.dataset.opt;
+                const corr = this.currentLearn.tr || this.currentLearn.en;
+                this.checkLearn(sel, corr);
+            };
+        }
+
+        // Eşleştir Modu Event Delegation
+        const matchGridEl = document.getElementById('match-grid');
+        if (matchGridEl) {
+            matchGridEl.onclick = (e) => {
+                const tile = e.target.closest('.match-tile');
+                if (tile) this.handleMatchTile(tile);
+            };
+        }
+
+        // Swipe Hareketi (Scoped Dinleme)
+        const swipeCardEl = document.getElementById('swipe-card');
+        if (swipeCardEl) {
+            const onMove = (cx) => {
+                if (!this.isDragging) return;
+                this.currentX = cx - this.startX;
+                const rotate = this.currentX * 0.04;
+                const baseRotY = this.swipeIsFlipped ? 180 : 0;
+                swipeCardEl.style.transform = `translate(${this.currentX}px, 0px) rotate(${rotate}deg) rotateY(${baseRotY}deg)`;
+            };
+
+            const onEnd = () => {
+                if (!this.isDragging) return;
+                this.isDragging = false;
+                document.removeEventListener('mousemove', handleMouseMove);
+                document.removeEventListener('mouseup', handleMouseUp);
+                document.removeEventListener('touchmove', handleTouchMove);
+                document.removeEventListener('touchend', handleTouchEnd);
+
+                swipeCardEl.style.transition = 'transform 0.45s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease';
+                if (this.currentX > 100) this.swipe('right');
+                else if (this.currentX < -100) this.swipe('left');
+                else swipeCardEl.style.transform = `translate(0px, 0px) rotate(0deg) rotateY(${this.swipeIsFlipped ? 180 : 0}deg)`;
+                this.currentX = 0;
+            };
+
+            const handleMouseMove = (e) => onMove(e.clientX);
+            const handleMouseUp = () => onEnd();
+            const handleTouchMove = (e) => onMove(e.touches[0].clientX);
+            const handleTouchEnd = () => onEnd();
+
+            const onStart = (cx) => {
+                if (this.swipeQueue.length === 0) return;
+                this.isDragging = true;
+                this.startX = cx;
+                swipeCardEl.style.transition = 'none';
+
+                document.addEventListener('mousemove', handleMouseMove);
+                document.addEventListener('mouseup', handleMouseUp);
+                document.addEventListener('touchmove', handleTouchMove, { passive: true });
+                document.addEventListener('touchend', handleTouchEnd);
+            };
+
+            swipeCardEl.addEventListener('mousedown', e => {
+                if (!e.target.closest('i')) onStart(e.clientX);
+            });
+
+            swipeCardEl.addEventListener('touchstart', e => {
+                if (!e.target.closest('i')) onStart(e.touches[0].clientX);
+            }, { passive: true });
+
+            swipeCardEl.addEventListener('click', (e) => {
+                if (!e.target.closest('i') && Math.abs(this.currentX) < 8) this.flipSwipe();
+            });
+        }
+        
+        // Klavye Kısayolları
+        window.addEventListener('keydown', e => {
+            if (['INPUT', 'TEXTAREA'].includes(e.target.tagName)) return;
+            const activeTab = this.tabNames[this.currentIndex];
+
+            if (activeTab === 'cards') {
+                if (e.code === 'Space') { e.preventDefault(); this.flipClassic(); }
+                if (e.code === 'ArrowRight') { e.preventDefault(); this.nextClassic(); }
+                if (e.code === 'ArrowLeft') { e.preventDefault(); this.prevClassic(); }
+                if (e.code === 'KeyS') this.speakClassic();
+            }
+
+            if (activeTab === 'swipe') {
+                if (e.code === 'Space') { e.preventDefault(); this.flipSwipe(); }
+                if (e.code === 'ArrowRight') { e.preventDefault(); this.swipe('right'); }
+                if (e.code === 'ArrowLeft') { e.preventDefault(); this.swipe('left'); }
+                if (e.code === 'KeyZ') this.undoSwipe();
+                if (e.code === 'KeyS') this.speakSwipe();
+            }
+        });
+    }
+};
+
+// Global Erişimi Garantiye Al
+window.QuizletApp = QuizletApp;
+window.addEventListener('DOMContentLoaded', () => QuizletApp.init());
+</script>
+</body>
+</html>

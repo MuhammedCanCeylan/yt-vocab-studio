@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Arcade Player</title>
+<style>
+  * { box-sizing: border-box; }
+  body { background: #000; color: #fff; margin: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; overflow: hidden; font-family: monospace; }
+  #canvas-container { position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #000; }
+  canvas { 
+    image-rendering: pixelated; 
+    width: 100%; 
+    height: 100%; 
+    max-width: 640px; 
+    max-height: 600px; 
+    aspect-ratio: 256 / 240; 
+    object-fit: contain; 
+    display: block; 
+    outline: none; 
+  }
+  #status-msg { position: absolute; font-size: 16px; color: #f1c40f; text-align: center; pointer-events: none; }
+</style>
+</head>
+<body>
+
+<div id="canvas-container">
+  <div id="status-msg">ROM Yükleniyor...</div>
+  <canvas id="nes-canvas" width="256" height="240" tabindex="1"></canvas>
+</div>
+
+<script src="jsnes.min.js"></script>
+<script>
+  const canvas = document.getElementById('nes-canvas');
+  const ctx = canvas.getContext('2d');
+  const imageData = ctx.createImageData(256, 240);
+  const statusMsg = document.getElementById('status-msg');
+
+  let isPaused = false;
+  let romLoaded = false;
+
+  // 1. SIFIR GC VE VERİ KAYIPSIZ FLOAT32 INTERLEAVED RING BUFFER
+  const MAX_AUDIO_SAMPLES = 8192;
+  const audioBuffer = new Float32Array(MAX_AUDIO_SAMPLES * 2);
+  let audioWriteIndex = 0;
+  let audioReadIndex = 0;
+  let audioCtx = null;
+  let scriptNode = null;
+  let audioInitialized = false;
+
+  function initAudio() {
+    if (audioInitialized) return;
+    try {
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)({ sampleRate: 44100 });
+      scriptNode = audioCtx.createScriptProcessor(2048, 0, 2);
+      
+      scriptNode.onaudioprocess = function(e) {
+        const left = e.outputBuffer.getChannelData(0);
+        const right = e.outputBuffer.getChannelData(1);
+        const len = left.length;
+        
+        for (let i = 0; i < len; i++) {
+          if (audioReadIndex !== audioWriteIndex) {
+            left[i] = audioBuffer[audioReadIndex];
+            right[i] = audioBuffer[audioReadIndex + 1];
+            audioReadIndex = (audioReadIndex + 2) % (MAX_AUDIO_SAMPLES * 2);
+          } else {
+            left[i] = 0;
+            right[i] = 0;
+          }
+        }
+      };
+      
+      scriptNode.connect(audioCtx.destination);
+      audioInitialized = true;
+    } catch (e) {
+      console.warn("Ses motoru başlatılamadı:", e);
+    }
+  }
+
+  function ensureAudio() {
+    if (!audioInitialized) {
+      initAudio();
+    }
+    if (audioCtx && audioCtx.state === 'suspended') {
+      audioCtx.resume();
+    }
+  }
+
+  // 2. JSNES MOTOR YAPILANDIRMASI
+  const nes = new jsnes.NES({
+    onFrame: function(frameBuffer) {
+      var i = 0;
+      for (var y = 0; y < 240; ++y) {
+        for (var x = 0; x < 256; ++x) {
+          i = y * 256 + x;
+          imageData.data[i * 4]     = frameBuffer[i] & 0xff;
+          imageData.data[i * 4 + 1] = (frameBuffer[i] >> 8) & 0xff;
+          imageData.data[i * 4 + 2] = (frameBuffer[i] >> 16) & 0xff;
+          imageData.data[i * 4 + 3] = 0xff;
+        }
+      }
+      ctx.putImageData(imageData, 0, 0);
+    },
+    onAudioSample: function(left, right) {
+      const nextWrite = (audioWriteIndex + 2) % (MAX_AUDIO_SAMPLES * 2);
+      if (nextWrite !== audioReadIndex) {
+        audioBuffer[audioWriteIndex] = left;
+        audioBuffer[audioWriteIndex + 1] = right;
+        audioWriteIndex = nextWrite;
+      }
+    }
+  });
+
+  const KEY_MAP = {
+    38: jsnes.Controller.BUTTON_UP,
+    40: jsnes.Controller.BUTTON_DOWN,
+    37: jsnes.Controller.BUTTON_LEFT,
+    39: jsnes.Controller.BUTTON_RIGHT,
+    13: jsnes.Controller.BUTTON_START,
+    16: jsnes.Controller.BUTTON_SELECT,
+    90: jsnes.Controller.BUTTON_A,      // Z
+    88: jsnes.Controller.BUTTON_B,      // X
+  };
+
+  window.addEventListener('keydown', e => {
+    ensureAudio();
+    if (KEY_MAP[e.keyCode] !== undefined) {
+      nes.buttonDown(1, KEY_MAP[e.keyCode]);
+      e.preventDefault();
+    }
+  });
+
+  window.addEventListener('keyup', e => {
+    if (KEY_MAP[e.keyCode] !== undefined) {
+      nes.buttonUp(1, KEY_MAP[e.keyCode]);
+      e.preventDefault();
+    }
+  });
+
+  window.addEventListener('click', () => {
+    ensureAudio();
+    canvas.focus();
+  });
+
+  window.addEventListener('focus', () => {
+    canvas.focus();
+  });
+
+  // 3. TEKİL VE KESİNTİSİZ rAF DÖNGÜSÜ
+  function frameLoop() {
+    if (!isPaused && romLoaded) {
+      nes.frame();
+    }
+    requestAnimationFrame(frameLoop);
+  }
+  requestAnimationFrame(frameLoop);
+
+  // 4. PAUSE / RESUME İLETİŞİMİ
+  window.addEventListener('message', e => {
+    if (e.data === 'PAUSE_GAME') {
+      isPaused = true;
+      if (audioCtx && audioCtx.state === 'running') audioCtx.suspend();
+    } else if (e.data === 'RESUME_GAME') {
+      isPaused = false;
+      ensureAudio();
+      window.focus();
+      canvas.focus();
+    }
+  });
+
+  // 5. CHUNK TABANLI OPTİMİZE EDİLMİŞ ROM YÜKLEYİCİ
+  const urlParams = new URLSearchParams(window.location.search);
+  const romFile = urlParams.get('rom');
+
+  if (!romFile) {
+    statusMsg.innerText = "ROM parametresi belirtilmedi!";
+  } else {
+    fetch(romFile)
+      .then(res => {
+        if (!res.ok) throw new Error("Dosya bulunamadı: " + romFile);
+        return res.arrayBuffer();
+      })
+      .then(buffer => {
+        const bytes = new Uint8Array(buffer);
+        let binaryString = '';
+        const chunkSize = 8192;
+        
+        for (let i = 0; i < bytes.length; i += chunkSize) {
+          binaryString += String.fromCharCode.apply(null, bytes.subarray(i, i + chunkSize));
+        }
+
+        try {
+          nes.loadROM(binaryString);
+          statusMsg.style.display = 'none';
+          romLoaded = true;
+          window.focus();
+          canvas.focus();
+        } catch (loadErr) {
+          statusMsg.innerText = "ROM çalıştırılamadı: " + loadErr.message;
+        }
+      })
+      .catch(err => {
+        statusMsg.innerText = "Hata: " + err.message;
+      });
+  }
+</script>
+</body>
+</html>

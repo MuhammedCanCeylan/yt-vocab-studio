@@ -1,0 +1,164 @@
+.view-section { display: none; padding: 0 16px; }
+.view-section.active { display: block; animation: fadeIn 0.2s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+
+/* GERİ BUTON ÇUBUĞU */
+.btn-back-row { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+.btn-back { background: var(--red); color: #FFF; border: 2.5px solid var(--border); padding: 6px 16px; border-radius: 12px; font-weight: 800; font-family: 'Space Grotesk'; font-size: 13px; box-shadow: var(--shadow-sm); cursor: pointer; }
+.page-title-center { font-family: 'Space Grotesk'; font-size: 20px; font-weight: 800; color: var(--text-dark); margin: 0 auto; transform: translateX(-24px); }
+
+/* SEVİYE KARTLARI */
+.level-card { 
+    width: 100%; 
+    height: 115px; 
+    border-radius: var(--radius-lg); 
+    margin-bottom: 14px; 
+    padding: 18px 22px; 
+    color: #171712; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    border: 3px solid var(--border);
+    box-shadow: var(--shadow-md); 
+    cursor: pointer; 
+    transition: transform 0.1s; 
+}
+.level-card:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0px var(--border); }
+.lvl-a1 { background: #BAE6FD; }
+.lvl-a2 { background: #BBF7D0; }
+.lvl-b1 { background: #FED7AA; }
+.lvl-b2 { background: #DDD6FE; }
+.lvl-c1 { background: #FECDD3; }
+.lvl-custom { background: #FEF08A; }
+.lvl-code { font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 800; color: #171712; }
+.lvl-badge { background: var(--primary); border: 1.5px solid #171712; color: #171712; font-size: 11px; font-weight: 800; padding: 2px 8px; border-radius: 8px; margin-left: 8px; }
+.prog-circle { width: 44px; height: 44px; border-radius: 50%; background: #FFF; border: 2.5px solid var(--border); display: flex; align-items: center; justify-content: center; font-weight: 800; font-family: 'Space Grotesk'; font-size: 13px; box-shadow: var(--shadow-sm); }
+
+/* STUDY SESSION */
+.session-card { 
+    background: var(--surface); 
+    border: 3.5px solid var(--border); 
+    border-radius: 22px; 
+    padding: 20px; 
+    color: var(--text-dark); 
+    box-shadow: var(--shadow-lg); 
+    min-height: 500px; 
+    display: flex; 
+    flex-direction: column; 
+}
+.session-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.score-pill { background: var(--bg); border: 2px solid var(--border); border-radius: 10px; padding: 6px 12px; display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 800; font-family: 'Space Grotesk'; }
+.progress-bar-wrap { width: 100%; height: 8px; background: var(--bg); border: 2px solid var(--border); border-radius: 6px; overflow: hidden; margin-bottom: 16px; }
+.progress-bar-fill { height: 100%; background: var(--primary); width: 0%; transition: width 0.3s ease; }
+
+.selector-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px; }
+.selector-btn { background: var(--bg); border: 2px solid var(--border); border-radius: 12px; padding: 8px 12px; cursor: pointer; box-shadow: var(--shadow-sm); }
+.selector-btn div:first-child { font-size: 10px; color: var(--text-muted); font-weight: 800; }
+.selector-btn div:last-child { font-size: 14px; font-weight: 800; font-family: 'Space Grotesk'; }
+
+.word-box-main { 
+    background: #FFFBEB; 
+    border: 2.5px solid var(--border); 
+    border-radius: 16px; 
+    padding: 24px; 
+    text-align: center; 
+    position: relative; 
+    margin-bottom: 14px; 
+    box-shadow: var(--shadow-sm);
+}
+.word-pos-tag { position: absolute; top: 10px; right: 12px; font-size: 11px; font-weight: 800; color: var(--text-muted); }
+.word-lvl-tag { position: absolute; top: 10px; left: 12px; font-size: 11px; font-weight: 800; background: var(--primary); border: 1.5px solid var(--border); padding: 2px 6px; border-radius: 6px; }
+.main-word-text { font-family: 'Space Grotesk'; font-size: 38px; font-weight: 800; margin: 10px 0; color: var(--text-dark); }
+
+.btn-hint { background: var(--primary); border: 2px solid var(--border); color: var(--text-dark); width: 100%; padding: 12px; border-radius: 12px; font-weight: 800; font-family: 'Space Grotesk'; font-size: 14px; margin-bottom: 14px; cursor: pointer; box-shadow: var(--shadow-sm); }
+.choice-btn { 
+    background: var(--surface); 
+    border: 2.5px solid var(--border); 
+    color: var(--text-dark); 
+    border-radius: 12px; 
+    padding: 14px 10px; 
+    font-size: 15px; 
+    font-weight: 800; 
+    cursor: pointer; 
+    box-shadow: var(--shadow-sm);
+    transition: 0.1s; 
+}
+.choice-btn:active { transform: translate(1.5px, 1.5px); box-shadow: 1px 1px 0px var(--border); }
+.choice-btn.correct { background: var(--green) !important; color: #FFF !important; }
+.choice-btn.wrong { background: var(--red) !important; color: #FFF !important; }
+.study-input { width: 100%; padding: 14px; border-radius: 12px; border: 2.5px solid var(--border); background: var(--bg); color: var(--text-dark); font-size: 15px; font-weight: 700; outline: none; margin-bottom: 12px; }
+
+/* SANDIK KARTLARI */
+.vault-card { background: var(--surface); border: 2.5px solid var(--border); border-radius: 16px; padding: 16px 18px; margin-bottom: 12px; display: flex; align-items: center; gap: 16px; box-shadow: var(--shadow-sm); cursor: pointer; }
+.vault-avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--primary); border: 2px solid var(--border); color: var(--text-dark); display: flex; align-items: center; justify-content: center; font-weight: 800; font-family: 'Space Grotesk'; font-size: 16px; }
+
+.word-row-card { width: 100%; border-radius: 14px; border: 2.5px solid var(--border); padding: 12px 16px; margin-bottom: 10px; color: var(--text-dark); display: flex; justify-content: space-between; align-items: center; box-shadow: var(--shadow-sm); cursor: pointer; }
+.wrc-known { background: #BAE6FD; }
+.wrc-learned { background: #BBF7D0; }
+.wrc-review { background: #FED7AA; }
+.wrc-new { background: var(--surface); }
+.badge-status { background: #FFF; border: 1.5px solid var(--border); padding: 3px 8px; border-radius: 8px; font-size: 11px; font-weight: 800; font-family: 'Space Grotesk'; }
+
+.filter-chip-bar { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 8px; margin-bottom: 12px; scrollbar-width: none; }
+.filter-chip { background: var(--surface); border: 2px solid var(--border); padding: 6px 14px; border-radius: 12px; font-size: 12px; font-weight: 800; font-family: 'Space Grotesk'; white-space: nowrap; cursor: pointer; box-shadow: var(--shadow-sm); }
+.filter-chip.active { background: var(--primary); }
+
+/* ================= SWIPE / HIZLI AYIRMA SAHNESİ ================= */
+.swipe-stage {
+    perspective: 1200px;
+    width: 100%;
+    height: 360px;
+    position: relative;
+    margin: 16px 0;
+}
+.swipe-card-box {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--surface);
+    border: 3.5px solid var(--border);
+    border-radius: 24px;
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    text-align: center;
+    cursor: grab;
+    touch-action: none;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease;
+}
+.swipe-card-box:active { cursor: grabbing; }
+
+.swipe-action-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    margin-top: 10px;
+}
+.btn-swipe-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 3px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    color: #FFF;
+    box-shadow: var(--shadow-md);
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+.btn-swipe-circle:active { transform: scale(0.92); }
+
+/* İLERLEMELER */
+.xp-banner { background: #DDD6FE; border: 3px solid var(--border); border-radius: 20px; padding: 20px; color: var(--text-dark); display: flex; align-items: center; gap: 16px; margin-bottom: 16px; box-shadow: var(--shadow-md); }
+.task-card { background: var(--surface); border: 2.5px solid var(--border); border-radius: 14px; padding: 14px 18px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; box-shadow: var(--shadow-sm); }
+
+/* SINAV */
+.exam-ticket-card { background: var(--orange); border: 3px solid var(--border); border-radius: 20px; padding: 20px; color: #FFF; display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; box-shadow: var(--shadow-md); }
+.exam-stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+.exam-stat-box { background: var(--surface); border: 2.5px solid var(--border); border-radius: 14px; padding: 12px; box-shadow: var(--shadow-sm); }

@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Vocab Mobile Studio</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Vocab Studio" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="theme-color" content="#F7F3EA" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.36.0/tabler-icons.min.css" />
+
+    <style>
+        :root {
+            --bg: #F7F3EA;
+            --surface: #FFFFFF;
+            --surface-hover: #EFE9DA;
+            --primary: #F5B700;
+            --primary-hover: #e6ab00;
+            --text: #171712;
+            --text-muted: #8A8578;
+            --danger: #E74C3C;
+            --orange: #E67E22;
+            --green: #4EBE59;
+            --purple: #7C3AED;
+            --border: #171712;
+            --radius: 18px;
+            --shadow: 3px 3px 0px #171712;
+            --shadow-sm: 2px 2px 0px #171712;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+        
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            min-height: 100dvh;
+            overflow: hidden;
+            user-select: none;
+        }
+
+        .toast {
+            position: fixed;
+            top: calc(14px + env(safe-area-inset-top, 0px));
+            left: 50%;
+            transform: translateX(-50%) translateY(-100px);
+            background: var(--text);
+            color: #FFF;
+            padding: 10px 20px;
+            border-radius: 24px;
+            font-size: 13px;
+            font-weight: 700;
+            font-family: 'Space Grotesk';
+            z-index: 99999;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+            pointer-events: none;
+        }
+        .toast.show { transform: translateX(-50%) translateY(0); }
+
+        .m-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: calc(14px + env(safe-area-inset-top, 0px)) 16px 10px;
+            background: var(--bg);
+            z-index: 50;
+        }
+        .m-title {
+            font-family: 'Space Grotesk';
+            font-weight: 800;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-sync {
+            background: var(--primary);
+            border: 2px solid var(--border);
+            border-radius: 20px;
+            padding: 6px 12px;
+            font-weight: 800;
+            font-family: 'Space Grotesk';
+            font-size: 12px;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .counter-badge {
+            background: var(--surface);
+            border: 2px solid var(--border);
+            border-radius: 20px;
+            padding: 5px 10px;
+            font-size: 11px;
+            font-weight: 800;
+            font-family: 'Space Grotesk';
+            color: var(--text-muted);
+        }
+
+        .screens-viewport {
+            display: flex;
+            width: 100vw;
+            height: calc(100dvh - 70px - env(safe-area-inset-top, 0px));
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+        .screens-viewport::-webkit-scrollbar { display: none; }
+
+        .screen-page {
+            flex: 0 0 100vw;
+            width: 100vw;
+            height: 100%;
+            scroll-snap-align: start;
+            padding: 4px 16px calc(90px + env(safe-area-inset-bottom, 0px));
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .card-stage {
+            perspective: 1200px;
+            width: 100%;
+            height: 340px;
+            position: relative;
+            margin-bottom: 14px;
+        }
+        .main-card {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            border-radius: 22px;
+            cursor: pointer;
+            transform-style: preserve-3d;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease;
+            touch-action: none;
+        }
+        .main-card.flipped { transform: rotateY(180deg); }
+
+        .card-face {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: var(--surface);
+            border: 3px solid var(--border);
+            border-radius: 22px;
+            box-shadow: 5px 5px 0px #171712;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            text-align: center;
+            pointer-events: none;
+        }
+        .card-face.back {
+            transform: rotateY(180deg);
+            background: #FFFBEB;
+        }
+        .card-word {
+            font-size: 34px;
+            font-weight: 800;
+            font-family: 'Space Grotesk';
+            word-break: break-word;
+            line-height: 1.2;
+        }
+        .card-subtext {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 10px;
+            font-weight: 600;
+        }
+        .card-tools-top {
+            position: absolute;
+            top: 16px; right: 18px;
+            font-size: 22px;
+            color: var(--text-muted);
+            z-index: 10;
+            pointer-events: auto;
+            display: flex; gap: 10px;
+        }
+        .card-tools-top i { cursor: pointer; }
+        .card-tools-top i.starred { color: var(--primary); }
+
+        .controls-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--surface);
+            border: 2.5px solid var(--border);
+            border-radius: 16px;
+            padding: 8px 14px;
+            box-shadow: var(--shadow);
+            margin-bottom: 14px;
+        }
+        .btn-round-ctrl {
+            background: var(--surface);
+            border: 2px solid var(--border);
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 18px;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+        }
+        .counter-pill-text { font-family: 'Space Grotesk'; font-weight: 800; font-size: 15px; }
+
+        .progress-indicator {
+            display: flex; justify-content: space-between;
+            font-family: 'Space Grotesk'; font-weight: 800; font-size: 13px; margin-bottom: 10px;
+        }
+        .pill-badge { border: 2px solid var(--border); border-radius: 20px; padding: 2px 10px; color: #FFF; }
+        .swipe-actions { display: flex; justify-content: center; align-items: center; gap: 24px; margin-top: 8px; }
+        .btn-swipe-circle {
+            width: 58px; height: 58px; border-radius: 50%; border: 2.5px solid var(--border);
+            display: flex; align-items: center; justify-content: center; font-size: 24px; color: #FFF;
+            box-shadow: var(--shadow); cursor: pointer;
+        }
+        .btn-swipe-circle.undo { width: 44px; height: 44px; background: var(--surface); color: var(--text); font-size: 20px; }
+
+        .summary-card {
+            background: var(--surface); border: 3px solid var(--border); border-radius: 22px;
+            box-shadow: 5px 5px 0px #171712; width: 100%; height: 340px; display: flex;
+            flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 24px;
+        }
+
+        .learn-stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 14px; }
+        .learn-stat-box { background: var(--surface); border: 2px solid var(--border); border-radius: 12px; padding: 8px; text-align: center; box-shadow: var(--shadow-sm); font-family: 'Space Grotesk'; font-weight: 800; }
+        .learn-q-box { background: var(--surface); border: 2.5px solid var(--border); border-radius: 18px; padding: 20px 16px; box-shadow: var(--shadow); position: relative; min-height: 270px; }
+        .learn-q-title { font-size: 22px; font-weight: 800; font-family: 'Space Grotesk'; text-align: center; margin-bottom: 16px; }
+        .learn-opt-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
+        .learn-opt-btn { background: var(--bg); border: 2px solid var(--border); padding: 12px; border-radius: 12px; font-size: 15px; font-weight: 700; text-align: center; cursor: pointer; box-shadow: var(--shadow-sm); }
+        
+        .feedback-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.96);
+            border-radius: 16px; border: 3px solid var(--danger); display: none; flex-direction: column;
+            align-items: center; justify-content: center; padding: 20px; text-align: center; z-index: 20;
+        }
+
+        .test-card { background: var(--surface); border: 2.5px solid var(--border); border-radius: 16px; padding: 14px; margin-bottom: 10px; box-shadow: var(--shadow-sm); }
+        .test-input-m { width: 100%; padding: 12px; border: 2px solid var(--border); border-radius: 10px; font-size: 15px; font-family: inherit; margin-top: 8px; background: var(--bg); outline: none; }
+
+        .match-m-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+        .match-m-tile { background: var(--surface); border: 2.5px solid var(--border); border-radius: 14px; padding: 16px 8px; min-height: 75px; display: flex; align-items: center; justify-content: center; text-align: center; font-weight: 700; font-size: 14px; box-shadow: var(--shadow-sm); cursor: pointer; }
+        .match-m-tile.selected { background: #FFFBEB; border-color: var(--primary); }
+        .match-m-tile.matched { opacity: 0; pointer-events: none; }
+        .match-m-tile.error { background: #FDEDEC; border-color: var(--danger); }
+
+        .search-m-row { display: flex; align-items: center; background: var(--surface); border: 2px solid var(--border); border-radius: 14px; padding: 10px 14px; gap: 8px; margin-bottom: 12px; box-shadow: var(--shadow-sm); }
+        .search-m-row input { border: none; outline: none; background: transparent; font-size: 14px; width: 100%; font-family: inherit; }
+        .word-m-item { background: var(--surface); border: 2px solid var(--border); border-radius: 12px; padding: 12px 14px; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between; box-shadow: var(--shadow-sm); }
+        .btn-action-sm { background: var(--surface); border: 2px solid var(--border); padding: 8px 14px; border-radius: 10px; font-weight: 700; font-family: 'Space Grotesk'; font-size: 13px; cursor: pointer; box-shadow: var(--shadow-sm); }
+
+        /* ================= LIQUID GLASS BAR & SCRUBBER ================= */
+        .floating-glass-bar-wrap {
+            position: fixed;
+            bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 24px);
+            max-width: 440px;
+            z-index: 1000;
+            filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.35));
+        }
+
+        .floating-glass-bar {
+            position: relative;
+            width: 100%;
+            height: 64px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 40%), rgba(20, 20, 18, 0.72);
+            backdrop-filter: blur(26px) saturate(180%);
+            -webkit-backdrop-filter: blur(26px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 5px 6px;
+            touch-action: none;
+        }
+
+        .nav-tabs-scroll {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            position: relative;
+            height: 100%;
+        }
+
+        .glass-nav-pill {
+            position: absolute;
+            top: 4px;
+            left: 0;
+            height: 46px;
+            width: 48px;
+            background: rgba(255, 255, 255, 0.22);
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            border-radius: 23px;
+            box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.15), 0 2px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), width 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .glass-nav-item {
+            position: relative;
+            z-index: 2;
+            flex: 1;
+            height: 46px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.55);
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 23px;
+            transition: color 0.2s;
+        }
+        .glass-nav-item span {
+            font-size: 9px;
+            font-weight: 800;
+            font-family: 'Space Grotesk';
+            max-width: 0;
+            opacity: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            transition: max-width 0.25s, opacity 0.2s;
+        }
+        .glass-nav-item.active {
+            color: #FFFFFF;
+        }
+        .glass-nav-item.active i {
+            color: var(--primary);
+            transform: scale(1.08);
+        }
+        .glass-nav-item.active span {
+            max-width: 60px;
+            opacity: 1;
+            margin-top: 1px;
+        }
+
+        /* SAĞ UYGULAMA DEĞİŞTİRİCİ (POPUP) */
+        .app-switcher-dock {
+            position: relative;
+            margin-left: 4px;
+            z-index: 10;
+        }
+        .btn-switcher-trigger {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #7C3AED, #9333EA);
+            border: 1.5px solid rgba(255, 255, 255, 0.4);
+            color: #FFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 19px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(124, 58, 237, 0.4);
+        }
+
+        .app-popup-menu {
+            position: absolute;
+            bottom: 58px;
+            right: 0;
+            background: rgba(23, 23, 18, 0.88);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1.5px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            width: 170px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(15px) scale(0.85);
+            transform-origin: bottom right;
+            transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .app-popup-menu.active {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0) scale(1);
+        }
+        .popup-app-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            border-radius: 12px;
+            color: #FFF;
+            font-size: 13px;
+            font-weight: 800;
+            font-family: 'Space Grotesk';
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.06);
+        }
+        .popup-app-item:active { background: rgba(255, 255, 255, 0.2); }
+        .popup-app-item.active { background: rgba(245, 183, 0, 0.25); color: var(--primary); }
+    </style>
+</head>
+<body>
+
+    <div id="m-toast" class="toast">Bildirim</div>
+
+    <header class="m-header">
+        <div class="m-title"><i class="ti ti-brand-youtube" style="color:var(--danger); font-size:24px;"></i> Vocab Studio</div>
+        <div class="header-actions">
+            <span class="counter-badge" id="m-word-badge">0 Kelime</span>
+            <button class="btn-sync" onclick="MobileApp.pullFromPC()"><i class="ti ti-refresh"></i> Çek</button>
+        </div>
+    </header>
+
+    <div class="screens-viewport" id="screens-viewport">
+        <!-- 1. KARTLAR -->
+        <section class="screen-page" id="page-cards">
+            <div class="card-stage">
+                <div class="main-card" id="classic-card" onclick="MobileApp.flipClassic()">
+                    <div class="card-face front">
+                        <div class="card-tools-top">
+                            <i class="ti ti-volume" onclick="event.stopPropagation(); MobileApp.speakClassic()"></i>
+                            <i class="ti ti-star" id="classic-star" onclick="event.stopPropagation(); MobileApp.toggleStarClassic()"></i>
+                        </div>
+                        <div class="card-word" id="classic-front">Yükleniyor...</div>
+                        <div class="card-subtext">Çevirmek için dokun</div>
+                    </div>
+                    <div class="card-face back">
+                        <div class="card-tools-top">
+                            <i class="ti ti-volume" onclick="event.stopPropagation(); MobileApp.speakClassic()"></i>
+                        </div>
+                        <div class="card-word" id="classic-back">...</div>
+                        <div class="card-subtext">İngilizceye dönmek için dokun</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls-row">
+                <button class="btn-round-ctrl" onclick="MobileApp.prevClassic()"><i class="ti ti-chevron-left"></i></button>
+                <div class="counter-pill-text" id="classic-counter">1 / 1</div>
+                <button class="btn-round-ctrl" onclick="MobileApp.nextClassic()"><i class="ti ti-chevron-right"></i></button>
+                <button class="btn-round-ctrl" onclick="MobileApp.shuffleClassic()"><i class="ti ti-arrows-shuffle"></i></button>
+                <button class="btn-round-ctrl" id="btn-m-autoplay" onclick="MobileApp.toggleAutoplay()"><i class="ti ti-player-play"></i></button>
+            </div>
+        </section>
+
+        <!-- 2. SWIPE / SINA -->
+        <section class="screen-page" id="page-swipe">
+            <div class="progress-indicator">
+                <div style="display:flex; align-items:center; gap:6px;">
+                    <span class="pill-badge" style="background:var(--orange);" id="count-unlearned">0</span>
+                    <span style="color:var(--orange);">Öğrenilecek</span>
+                </div>
+                <div style="display:flex; align-items:center; gap:6px;">
+                    <span style="color:var(--green);">Bilinenler</span>
+                    <span class="pill-badge" style="background:var(--green);" id="count-learned">0</span>
+                </div>
+            </div>
+
+            <div class="card-stage" id="swipe-stage">
+                <div class="main-card" id="swipe-card">
+                    <div class="card-face front">
+                        <div class="card-tools-top">
+                            <i class="ti ti-volume" onclick="event.stopPropagation(); MobileApp.speakSwipe()"></i>
+                            <i class="ti ti-star" id="swipe-star" onclick="event.stopPropagation(); MobileApp.toggleStarSwipe()"></i>
+                        </div>
+                        <div class="card-word" id="swipe-front">Yükleniyor...</div>
+                        <div class="card-subtext">Kaydır veya dokun</div>
+                    </div>
+                    <div class="card-face back">
+                        <div class="card-tools-top">
+                            <i class="ti ti-volume" onclick="event.stopPropagation(); MobileApp.speakSwipe()"></i>
+                        </div>
+                        <div class="card-word" id="swipe-back">...</div>
+                    </div>
+                </div>
+
+                <div class="summary-card" id="swipe-summary" style="display:none;">
+                    <h3 style="font-family:'Space Grotesk'; font-size:24px; font-weight:800; margin-bottom:8px;">Deste Bitti! 🎉</h3>
+                    <p id="swipe-summary-text" style="color:var(--text-muted); font-size:14px; margin-bottom:20px;">0 Bilinen | 0 Öğrenilecek</p>
+                    <div style="display:flex; flex-direction:column; gap:10px; width:100%; max-width:260px;">
+                        <button class="btn-action-sm" style="background:var(--danger); color:#FFF;" id="btn-unlearned-restart" onclick="MobileApp.restartUnlearnedOnly()"><i class="ti ti-rotate-2"></i> Bilinmeyenleri Tekrar Et</button>
+                        <button class="btn-action-sm" style="background:var(--primary);" onclick="MobileApp.startSwipeCards()"><i class="ti ti-reload"></i> Baştan Başlat</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swipe-actions">
+                <div class="btn-swipe-circle" style="background:var(--danger);" onclick="MobileApp.swipe('left')"><i class="ti ti-x"></i></div>
+                <div class="btn-swipe-circle undo" onclick="MobileApp.undoSwipe()"><i class="ti ti-arrow-back-up"></i></div>
+                <div class="btn-swipe-circle" style="background:var(--green);" onclick="MobileApp.swipe('right')"><i class="ti ti-check"></i></div>
+            </div>
+        </section>
+
+        <!-- 3. LEARN / ÖĞREN -->
+        <section class="screen-page" id="page-learn">
+            <div class="learn-stat-grid">
+                <div class="learn-stat-box"><span id="lrn-kalan" style="color:var(--text);">0</span><div style="font-size:10px; color:var(--text-muted);">Kalan</div></div>
+                <div class="learn-stat-box"><span id="lrn-asina" style="color:var(--orange);">0</span><div style="font-size:10px; color:var(--text-muted);">Aşina</div></div>
+                <div class="learn-stat-box"><span id="lrn-ogrenildi" style="color:var(--green);">0</span><div style="font-size:10px; color:var(--text-muted);">Bitti</div></div>
+            </div>
+
+            <div class="learn-q-box">
+                <div class="learn-q-title" id="learn-q-text">Soru Yükleniyor...</div>
+                <div class="learn-opt-grid" id="learn-options"></div>
+
+                <div id="learn-feedback" class="feedback-overlay">
+                    <h3 style="font-family:'Space Grotesk'; font-size:22px; color:var(--danger); margin-bottom:6px;">Yanlış!</h3>
+                    <div style="font-size:14px; font-weight:600; margin-bottom:16px;">
+                        Doğrusu: <span id="fb-correct" style="color:var(--green); font-size:18px; display:block; margin-top:4px;">-</span>
+                    </div>
+                    <button class="btn-action-sm" style="background:var(--primary);" onclick="MobileApp.nextLearn()">Devam Et</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. TEST -->
+        <section class="screen-page" id="page-test">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                <span style="font-family:'Space Grotesk'; font-weight:800; font-size:16px;">Yazılı / Çoktan Seçmeli</span>
+                <button class="btn-action-sm" onclick="MobileApp.startTest()"><i class="ti ti-reload"></i> Yeni</button>
+            </div>
+            <div id="test-container"></div>
+            <button class="btn-action-sm" style="background:var(--primary); width:100%; margin-top:10px; padding:12px;" id="btn-submit-test" onclick="MobileApp.submitTest()">Testi Tamamla</button>
+        </section>
+
+        <!-- 5. MATCH / EŞLEŞTİR -->
+        <section class="screen-page" id="page-match">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; font-family:'Space Grotesk'; font-weight:800; font-size:16px; background:var(--surface); border:2px solid var(--border); padding:10px 14px; border-radius:12px;">
+                <span>⏱️ <span id="match-timer-label">0.0</span>s</span>
+                <button class="btn-action-sm" onclick="MobileApp.startMatch()"><i class="ti ti-player-play"></i> Başlat</button>
+            </div>
+            <div class="match-m-grid" id="match-grid"></div>
+        </section>
+
+        <!-- 6. LIST / LİSTE -->
+        <section class="screen-page" id="page-list">
+            <div class="search-m-row">
+                <i class="ti ti-search" style="color:var(--text-muted);"></i>
+                <input type="text" id="m-search-input" placeholder="Kelimelerde ara..." oninput="MobileApp.renderList()" />
+            </div>
+            <div id="word-list-container"></div>
+        </section>
+    </div>
+
+    <!-- GLASS BAR & DOKUNMATİK SCRUBBER -->
+    <div class="floating-glass-bar-wrap">
+        <nav class="floating-glass-bar" id="glass-bar">
+            <div class="nav-tabs-scroll" id="nav-tabs-scroll">
+                <div class="glass-nav-pill" id="glass-nav-pill"></div>
+                <div class="glass-nav-item active" data-index="0">
+                    <i class="ti ti-cards"></i>
+                    <span>Kartlar</span>
+                </div>
+                <div class="glass-nav-item" data-index="1">
+                    <i class="ti ti-arrows-split-2"></i>
+                    <span>Sına</span>
+                </div>
+                <div class="glass-nav-item" data-index="2">
+                    <i class="ti ti-brain"></i>
+                    <span>Öğren</span>
+                </div>
+                <div class="glass-nav-item" data-index="3">
+                    <i class="ti ti-file-certificate"></i>
+                    <span>Test</span>
+                </div>
+                <div class="glass-nav-item" data-index="4">
+                    <i class="ti ti-grid-dots"></i>
+                    <span>Eşleştir</span>
+                </div>
+                <div class="glass-nav-item" data-index="5">
+                    <i class="ti ti-list"></i>
+                    <span>Liste</span>
+                </div>
+            </div>
+
+            <!-- Sağdaki Uygulama Değiştirici -->
+            <div class="app-switcher-dock">
+                <div class="app-popup-menu" id="app-popup-menu">
+                    <div class="popup-app-item active" onclick="MobileApp.switchPlatform('vocab')">
+                        <i class="ti ti-brand-youtube" style="color:var(--danger); font-size:18px;"></i>
+                        <span>Vocab Studio</span>
+                    </div>
+                    <div class="popup-app-item" onclick="MobileApp.switchPlatform('snakely')">
+                        <i class="ti ti-brand-snapseed" style="color:var(--purple); font-size:18px;"></i>
+                        <span>Snakely Studio</span>
+                    </div>
+                </div>
+                <button class="btn-switcher-trigger" id="btn-app-switcher" onclick="MobileApp.toggleAppSwitcher(event)">
+                    <i class="ti ti-apps"></i>
+                </button>
+            </div>
+        </nav>
+    </div>
+
+<script>
+const MobileApp = {
+    allWords: [],
+    currentIndex: 0,
+    tabNames: ['cards', 'swipe', 'learn', 'test', 'match', 'list'],
+    isScrubbing: false,
+
+    escapeHtml(str) {
+        if (!str) return '';
+        return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+    },
+
+    shuffle(array) {
+        const arr = [...array];
+        for (let i = arr.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+    },
+
+    toast(msg) {
+        const t = document.getElementById('m-toast');
+        t.innerText = msg;
+        t.classList.add('show');
+        setTimeout(() => t.classList.remove('show'), 2500);
+    },
+
+    init() {
+        const stored = localStorage.getItem('yt_vocab_data');
+        if (stored) {
+            try {
+                const parsed = JSON.parse(stored);
+                this.allWords = parsed.known_words || [];
+            } catch(e) {}
+        }
+        document.getElementById('m-word-badge').innerText = `${this.allWords.length} Kelime`;
+        this.startClassicCards();
+        this.bindSwipeTouch();
+        this.bindViewportScroll();
+        this.bindGlassScrubber();
+        this.bindAppSwitcher();
+
+        requestAnimationFrame(() => this.updatePillPosition(0));
+    },
+
+    /* ================= INSTAGRAM TARZI GLASS BAR SCRUBBER ================= */
+    bindGlassScrubber() {
+        const navContainer = document.getElementById('nav-tabs-scroll');
+        const viewport = document.getElementById('screens-viewport');
+        if (!navContainer) return;
+
+        const handleScrub = (clientX) => {
+            const items = Array.from(document.querySelectorAll('.glass-nav-item'));
+            let closestIdx = 0;
+            let minDiff = Infinity;
+
+            items.forEach((item, idx) => {
+                const rect = item.getBoundingClientRect();
+                const center = rect.left + rect.width / 2;
+                const diff = Math.abs(clientX - center);
+                if (diff < minDiff) {
+                    minDiff = diff;
+                    closestIdx = idx;
+                }
+            });
+
+            this.updatePillPosition(closestIdx);
+            viewport.scrollTo({
+                left: closestIdx * window.innerWidth,
+                behavior: 'smooth'
+            });
+        };
+
+        // Dokunmatik Scrubbing
+        navContainer.addEventListener('touchstart', (e) => {
+            this.isScrubbing = true;
+            handleScrub(e.touches[0].clientX);
+        }, { passive: true });
+
+        window.addEventListener('touchmove', (e) => {
+            if (!this.isScrubbing) return;
+            handleScrub(e.touches[0].clientX);
+        }, { passive: true });
+
+        window.addEventListener('touchend', () => {
+            if (!this.isScrubbing) return;
+            this.isScrubbing = false;
+            const index = Math.round(viewport.scrollLeft / window.innerWidth);
+            this.scrollToTab(index);
+        });
+
+        // Mouse Drag Scrubbing (PC / Emülatör Testi)
+        navContainer.addEventListener('mousedown', (e) => {
+            this.isScrubbing = true;
+            handleScrub(e.clientX);
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            if (!this.isScrubbing) return;
+            handleScrub(e.clientX);
+        });
+
+        window.addEventListener('mouseup', () => {
+            if (!this.isScrubbing) return;
+            this.isScrubbing = false;
+            const index = Math.round(viewport.scrollLeft / window.innerWidth);
+            this.scrollToTab(index);
+        });
+
+        // Tıklama ile geçiş
+        document.querySelectorAll('.glass-nav-item').forEach((item) => {
+            item.onclick = (e) => {
+                e.stopPropagation();
+                const idx = parseInt(item.dataset.index);
+                this.scrollToTab(idx);
+            };
+        });
+    },
+
+    scrollToTab(index) {
+        const viewport = document.getElementById('screens-viewport');
+        viewport.scrollTo({
+            left: index * window.innerWidth,
+            behavior: 'smooth'
+        });
+        this.updatePillPosition(index);
+        this.onTabActivated(index);
+    },
+
+    bindViewportScroll() {
+        const viewport = document.getElementById('screens-viewport');
+        let scrollTimeout = null;
+
+        viewport.addEventListener('scroll', () => {
+            if (this.isScrubbing) return;
+            const index = Math.round(viewport.scrollLeft / window.innerWidth);
+            this.updatePillPosition(index);
+
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                this.onTabActivated(index);
+            }, 120);
+        }, { passive: true });
+    },
+
+    updatePillPosition(index) {
+        const pill = document.getElementById('glass-nav-pill');
+        const items = document.querySelectorAll('.glass-nav-item');
+        const activeItem = items[index];
+        if (!activeItem || !pill) return;
+
+        items.forEach((it, i) => it.classList.toggle('active', i === index));
+
+        const left = activeItem.offsetLeft;
+        const width = activeItem.offsetWidth;
+
+        pill.style.width = `${width}px`;
+        pill.style.transform = `translateX(${left}px)`;
+    },
+
+    onTabActivated(index) {
+        const tab = this.tabNames[index];
+        if (this.matchInterval) { clearInterval(this.matchInterval); this.matchInterval = null; }
+        if (this.autoplayInterval) { clearInterval(this.autoplayInterval); this.autoplayInterval = null; }
+
+        if (tab === 'cards') this.startClassicCards();
+        if (tab === 'swipe') this.startSwipeCards();
+        if (tab === 'learn') this.startLearn();
+        if (tab === 'test') this.startTest();
+        if (tab === 'match') this.startMatch();
+        if (tab === 'list') this.renderList();
+    },
+
+    /* ================= APP SWITCHER ================= */
+    toggleAppSwitcher(e) {
+        e.stopPropagation();
+        document.getElementById('app-popup-menu').classList.toggle('active');
+    },
+
+    bindAppSwitcher() {
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.app-switcher-dock')) {
+                document.getElementById('app-popup-menu')?.classList.remove('active');
+            }
+        });
+    },
+
+    switchPlatform(platform) {
+        document.getElementById('app-popup-menu')?.classList.remove('active');
+        if (platform === 'snakely') {
+            // file:// veya localhost protokolüne göre akıllı geçiş
+            if (window.location.protocol === 'file:') {
+                window.location.href = '../snakely/index.html';
+            } else {
+                window.location.href = '/snakely';
+            }
+        } else {
+            this.toast("Zaten Vocab Studio'dasınız ✨");
+        }
+    },
+
+    /* ================= 1. KLASİK KARTLAR ================= */
+    classicIndex: 0,
+    classicIsFlipped: false,
+    autoplayInterval: null,
+
+    startClassicCards() {
+        this.classicIndex = 0;
+        this.classicIsFlipped = false;
+        this.showClassicCard();
+    },
+
+    showClassicCard() {
+        const card = document.getElementById('classic-card');
+        card.classList.remove('flipped');
+        this.classicIsFlipped = false;
+
+        if (this.allWords.length === 0) {
+            document.getElementById('classic-front').innerText = "Kelime Yok";
+            document.getElementById('classic-back').innerText = "PC'den Senkronize Edin";
+            document.getElementById('classic-counter').innerText = "0 / 0";
+            return;
+        }
+
+        if (this.classicIndex >= this.allWords.length) this.classicIndex = 0;
+        if (this.classicIndex < 0) this.classicIndex = this.allWords.length - 1;
+
+        const cur = this.allWords[this.classicIndex];
+        document.getElementById('classic-front').innerText = cur.en;
+        document.getElementById('classic-back').innerText = cur.tr || 'Çeviri yok';
+        document.getElementById('classic-counter').innerText = `${this.classicIndex + 1} / ${this.allWords.length}`;
+
+        const star = document.getElementById('classic-star');
+        star.className = cur.starred ? 'ti ti-star-filled starred' : 'ti ti-star';
+    },
+
+    flipClassic() {
+        if (this.allWords.length === 0) return;
+        this.classicIsFlipped = !this.classicIsFlipped;
+        document.getElementById('classic-card').classList.toggle('flipped', this.classicIsFlipped);
+    },
+
+    nextClassic() { this.classicIndex++; this.showClassicCard(); },
+    prevClassic() { this.classicIndex--; this.showClassicCard(); },
+    shuffleClassic() { this.allWords = this.shuffle(this.allWords); this.saveData(); this.showClassicCard(); this.toast("Karıştırıldı"); },
+
+    toggleStarClassic() {
+        if (this.allWords.length === 0) return;
+        this.allWords[this.classicIndex].starred = !this.allWords[this.classicIndex].starred;
+        this.saveData();
+        this.showClassicCard();
+    },
+
+    speakClassic() {
+        if (this.allWords.length === 0 || !window.speechSynthesis) return;
+        window.speechSynthesis.cancel();
+        const cur = this.allWords[this.classicIndex];
+        const text = this.classicIsFlipped ? (cur.tr || cur.en) : cur.en;
+        const utt = new SpeechSynthesisUtterance(text);
+        utt.lang = this.classicIsFlipped ? 'tr-TR' : 'en-US';
+        window.speechSynthesis.speak(utt);
+    },
+
+    toggleAutoplay() {
+        const btn = document.getElementById('btn-m-autoplay');
+        if (this.autoplayInterval) {
+            clearInterval(this.autoplayInterval);
+            this.autoplayInterval = null;
+            btn.innerHTML = '<i class="ti ti-player-play"></i>';
+        } else {
+            btn.innerHTML = '<i class="ti ti-player-pause"></i>';
+            this.autoplayInterval = setInterval(() => {
+                const card = document.getElementById('classic-card');
+                if (!card.classList.contains('flipped')) this.flipClassic();
+                else this.nextClassic();
+            }, 2500);
+        }
+    },
+
+    /* ================= 2. SWIPE ================= */
+    swipeQueue: [], swipeLearned: [], swipeUnlearned: [], swipeHistory: [],
+    swipeIsFlipped: false, isDragging: false, startX: 0, currentX: 0,
+
+    prepareSwipeDeck(pool) {
+        const cardEl = document.getElementById('swipe-card');
+        const sumEl = document.getElementById('swipe-summary');
+        cardEl.style.display = 'block';
+        sumEl.style.display = 'none';
+
+        this.swipeQueue = this.shuffle(pool);
+        this.swipeLearned = [];
+        this.swipeUnlearned = [];
+        this.swipeHistory = [];
+        this.updateSwipeCounts();
+        this.showSwipeCard();
+    },
+
+    startSwipeCards() { this.prepareSwipeDeck(this.allWords); },
+    restartUnlearnedOnly() { if (this.swipeUnlearned.length > 0) this.prepareSwipeDeck(this.swipeUnlearned); },
+
+    updateSwipeCounts() {
+        document.getElementById('count-unlearned').innerText = this.swipeUnlearned.length;
+        document.getElementById('count-learned').innerText = this.swipeLearned.length;
+    },
+
+    showSwipeCard() {
+        const cardEl = document.getElementById('swipe-card');
+        const sumEl = document.getElementById('swipe-summary');
+        cardEl.classList.remove('flipped');
+        this.swipeIsFlipped = false;
+        cardEl.style.transform = 'translate(0px, 0px) rotate(0deg)';
+        cardEl.style.opacity = '1';
+
+        if (this.swipeQueue.length === 0) {
+            cardEl.style.display = 'none';
+            sumEl.style.display = 'flex';
+            document.getElementById('swipe-summary-text').innerHTML = `
+                <span style="color:var(--green); font-weight:700;">${this.swipeLearned.length} Bilinen</span> | 
+                <span style="color:var(--orange); font-weight:700;">${this.swipeUnlearned.length} Öğrenilecek</span>
+            `;
+            document.getElementById('btn-unlearned-restart').style.display = this.swipeUnlearned.length > 0 ? 'block' : 'none';
+            return;
+        }
+
+        const cur = this.swipeQueue[0];
+        document.getElementById('swipe-front').innerText = cur.en;
+        document.getElementById('swipe-back').innerText = cur.tr || 'Çeviri yok';
+        const star = document.getElementById('swipe-star');
+        star.className = cur.starred ? 'ti ti-star-filled starred' : 'ti ti-star';
+    },
+
+    flipSwipe() {
+        if (this.swipeQueue.length === 0) return;
+        this.swipeIsFlipped = !this.swipeIsFlipped;
+        document.getElementById('swipe-card').classList.toggle('flipped', this.swipeIsFlipped);
+    },
+
+    swipe(dir) {
+        if (this.swipeQueue.length === 0) return;
+        const item = this.swipeQueue.shift();
+        const cardEl = document.getElementById('swipe-card');
+        const moveX = dir === 'right' ? 500 : -500;
+        cardEl.style.transform = `translate(${moveX}px, 0px) rotate(${dir === 'right' ? 20 : -20}deg)`;
+        cardEl.style.opacity = '0';
+
+        this.swipeHistory.push({ item, dir });
+        if (dir === 'right') this.swipeLearned.push(item);
+        else this.swipeUnlearned.push(item);
+
+        this.updateSwipeCounts();
+        setTimeout(() => this.showSwipeCard(), 220);
+    },
+
+    undoSwipe() {
+        if (this.swipeHistory.length === 0) return;
+        const last = this.swipeHistory.pop();
+        if (last.dir === 'right') this.swipeLearned.pop();
+        else this.swipeUnlearned.pop();
+        this.swipeQueue.unshift(last.item);
+        this.updateSwipeCounts();
+        this.showSwipeCard();
+    },
+
+    toggleStarSwipe() {
+        if (this.swipeQueue.length === 0) return;
+        this.swipeQueue[0].starred = !this.swipeQueue[0].starred;
+        this.saveData();
+        this.showSwipeCard();
+    },
+
+    speakSwipe() {
+        if (this.swipeQueue.length === 0 || !window.speechSynthesis) return;
+        window.speechSynthesis.cancel();
+        const cur = this.swipeQueue[0];
+        const text = this.swipeIsFlipped ? (cur.tr || cur.en) : cur.en;
+        const utt = new SpeechSynthesisUtterance(text);
+        utt.lang = this.swipeIsFlipped ? 'tr-TR' : 'en-US';
+        window.speechSynthesis.speak(utt);
+    },
+
+    /* ================= 3. LEARN ================= */
+    learnUnseen: [], learnFamiliar: [], learnMastered: [], currentLearn: null,
+
+    startLearn() {
+        if (this.allWords.length < 4) {
+            document.getElementById('learn-q-text').innerText = "Öğren modu için en az 4 kelime gerekli!";
+            document.getElementById('learn-options').innerHTML = "";
+            return;
+        }
+        this.learnUnseen = this.shuffle(this.allWords);
+        this.learnFamiliar = [];
+        this.learnMastered = [];
+        this.nextLearn();
+    },
+
+    nextLearn() {
+        document.getElementById('learn-feedback').style.display = 'none';
+        document.getElementById('lrn-kalan').innerText = this.learnUnseen.length;
+        document.getElementById('lrn-asina').innerText = this.learnFamiliar.length;
+        document.getElementById('lrn-ogrenildi').innerText = this.learnMastered.length;
+
+        if (this.learnUnseen.length === 0 && this.learnFamiliar.length === 0) {
+            document.getElementById('learn-q-text').innerText = "Hepsini Öğrendin! 🎉";
+            document.getElementById('learn-options').innerHTML = `<button class="btn-action-sm" style="background:var(--primary); width:100%; padding:14px;" onclick="MobileApp.startLearn()">Tekrar Başlat</button>`;
+            return;
+        }
+
+        const isUnseen = this.learnUnseen.length > 0 && (Math.random() > 0.4 || this.learnFamiliar.length === 0);
+        this.currentLearn = isUnseen ? this.learnUnseen.shift() : this.learnFamiliar.shift();
+        this.currentLearn._stage = isUnseen ? 'unseen' : 'familiar';
+
+        document.getElementById('learn-q-text').innerText = `"${this.currentLearn.en}"`;
+        let wrongs = this.shuffle(this.allWords.filter(w => w.en !== this.currentLearn.en)).slice(0, 3);
+        let opts = this.shuffle([this.currentLearn, ...wrongs]);
+
+        document.getElementById('learn-options').innerHTML = opts.map(o => `
+            <button class="learn-opt-btn" onclick="MobileApp.checkLearn('${(o.tr || o.en).replace(/'/g, "\\'")}', '${(this.currentLearn.tr || this.currentLearn.en).replace(/'/g, "\\'")}')">${this.escapeHtml(o.tr || o.en)}</button>
+        `).join('');
+    },
+
+    checkLearn(sel, corr) {
+        if (sel === corr) {
+            if (this.currentLearn._stage === 'unseen') this.learnFamiliar.push(this.currentLearn);
+            else this.learnMastered.push(this.currentLearn);
+            this.nextLearn();
+        } else {
+            if (this.currentLearn._stage === 'unseen') this.learnUnseen.push(this.currentLearn);
+            else this.learnFamiliar.push(this.currentLearn);
+            document.getElementById('fb-correct').innerText = corr;
+            document.getElementById('learn-feedback').style.display = 'flex';
+        }
+    },
+
+    /* ================= 4. TEST ================= */
+    testQuestions: [],
+
+    startTest() {
+        if (this.allWords.length < 4) {
+            document.getElementById('test-container').innerHTML = "<div style='padding:20px; font-weight:700;'>En az 4 kelime gerekli.</div>";
+            return;
+        }
+        document.getElementById('btn-submit-test').style.display = 'block';
+        let pool = this.shuffle(this.allWords).slice(0, 8);
+        this.testQuestions = pool.map((w, i) => {
+            let type = i % 2 === 0 ? 'mc' : 'written';
+            let opts = [];
+            if (type === 'mc') {
+                let wro = this.shuffle(this.allWords.filter(x => x.en !== w.en)).slice(0, 3);
+                opts = this.shuffle([w, ...wro]);
+            }
+            return { word: w, type, options: opts };
+        });
+
+        document.getElementById('test-container').innerHTML = this.testQuestions.map((q, i) => `
+            <div class="test-card">
+                <div style="font-weight:800; font-family:'Space Grotesk'; font-size:15px;">${i+1}. "${this.escapeHtml(q.word.en)}"</div>
+                ${q.type === 'mc' ? `
+                    <div style="display:grid; grid-template-columns:1fr; gap:6px; margin-top:8px;">
+                        ${q.options.map(opt => `
+                            <label style="background:var(--bg); border:1.5px solid var(--border); padding:8px 12px; border-radius:8px; font-size:13px; font-weight:700; display:flex; align-items:center; gap:8px;">
+                                <input type="radio" name="mq_${i}" value="${this.escapeHtml(opt.tr || opt.en)}"> ${this.escapeHtml(opt.tr || opt.en)}
+                            </label>
+                        `).join('')}
+                    </div>
+                ` : `
+                    <input type="text" id="mq_${i}" class="test-input-m" placeholder="Türkçe anlamı..." autocomplete="off">
+                `}
+                <div id="mres_${i}" style="font-size:13px; font-weight:800; margin-top:6px; display:none;"></div>
+            </div>
+        `).join('');
+    },
+
+    submitTest() {
+        let correct = 0;
+        this.testQuestions.forEach((q, i) => {
+            let ans = '';
+            if (q.type === 'mc') {
+                let checked = document.querySelector(`input[name="mq_${i}"]:checked`);
+                if (checked) ans = checked.value;
+            } else {
+                let el = document.getElementById(`mq_${i}`);
+                if (el) ans = el.value.trim().toLowerCase();
+            }
+
+            const res = document.getElementById(`mres_${i}`);
+            res.style.display = 'block';
+            if (ans === (q.word.tr || '').toLowerCase() || ans === q.word.en.toLowerCase()) {
+                correct++;
+                res.style.color = 'var(--green)';
+                res.innerText = '✓ Doğru';
+            } else {
+                res.style.color = 'var(--danger)';
+                res.innerText = `✕ Yanlış (${q.word.tr || q.word.en})`;
+            }
+        });
+
+        document.getElementById('btn-submit-test').style.display = 'none';
+        this.toast(`Test Tamamlandı: ${correct}/${this.testQuestions.length}`);
+    },
+
+    /* ================= 5. MATCH ================= */
+    matchTimer: 0, matchInterval: null, matchSelected: null, matchPairsLeft: 0,
+
+    startMatch() {
+        if (this.allWords.length < 3) return;
+        clearInterval(this.matchInterval);
+        this.matchTimer = 0;
+        document.getElementById('match-timer-label').innerText = "0.0";
+
+        let pool = this.shuffle(this.allWords).slice(0, 4);
+        this.matchPairsLeft = pool.length;
+        let tiles = [];
+        pool.forEach(w => {
+            tiles.push({ id: w.en, text: w.en, type: 'en' });
+            tiles.push({ id: w.en, text: w.tr || w.en, type: 'tr' });
+        });
+        tiles = this.shuffle(tiles);
+
+        document.getElementById('match-grid').innerHTML = tiles.map(t => `
+            <div class="match-m-tile" data-id="${this.escapeHtml(t.id)}" data-type="${t.type}" onclick="MobileApp.handleMatchTile(this)">${this.escapeHtml(t.text)}</div>
+        `).join('');
+
+        this.matchInterval = setInterval(() => {
+            this.matchTimer += 0.1;
+            document.getElementById('match-timer-label').innerText = this.matchTimer.toFixed(1);
+        }, 100);
+    },
+
+    handleMatchTile(tile) {
+        if (tile.classList.contains('matched')) return;
+
+        if (!this.matchSelected) {
+            this.matchSelected = tile;
+            tile.classList.add('selected');
+        } else {
+            if (this.matchSelected === tile) return;
+            const id1 = this.matchSelected.dataset.id;
+            const id2 = tile.dataset.id;
+            const t1 = this.matchSelected.dataset.type;
+            const t2 = tile.dataset.type;
+
+            if (id1 === id2 && t1 !== t2) {
+                this.matchSelected.classList.add('matched');
+                tile.classList.add('matched');
+                this.matchSelected = null;
+                this.matchPairsLeft--;
+                if (this.matchPairsLeft === 0) {
+                    clearInterval(this.matchInterval);
+                    this.toast(`🎉 Süre: ${this.matchTimer.toFixed(1)} sn!`);
+                }
+            } else {
+                tile.classList.add('error');
+                this.matchSelected.classList.add('error');
+                const p1 = this.matchSelected, p2 = tile;
+                this.matchSelected = null;
+                setTimeout(() => {
+                    p1.classList.remove('selected', 'error');
+                    p2.classList.remove('error');
+                }, 350);
+            }
+        }
+    },
+
+    /* ================= 6. LIST ================= */
+    renderList() {
+        const query = (document.getElementById('m-search-input')?.value || '').toLowerCase().trim();
+        const container = document.getElementById('word-list-container');
+        if (!container) return;
+
+        let filtered = this.allWords;
+        if (query) {
+            filtered = filtered.filter(w => w.en.toLowerCase().includes(query) || (w.tr && w.tr.toLowerCase().includes(query)));
+        }
+
+        container.innerHTML = filtered.map(w => `
+            <div class="word-m-item">
+                <div>
+                    <div style="font-weight:800; font-family:'Space Grotesk'; font-size:16px;">${this.escapeHtml(w.en)}</div>
+                    <div style="font-size:13px; color:var(--text-muted);">${this.escapeHtml(w.tr || '-')}</div>
+                </div>
+                <div style="font-size:20px; color:var(--text-muted); cursor:pointer;" onclick="MobileApp.toggleStarByWord('${w.en.replace(/'/g, "\\'")}')">
+                    <i class="${w.starred ? 'ti ti-star-filled' : 'ti ti-star'}" style="color:${w.starred ? 'var(--primary)' : 'inherit'};"></i>
+                </div>
+            </div>
+        `).join('');
+    },
+
+    toggleStarByWord(en) {
+        const target = this.allWords.find(w => w.en === en);
+        if (target) {
+            target.starred = !target.starred;
+            this.saveData();
+            this.renderList();
+        }
+    },
+
+    /* ================= PC SYNC ================= */
+    async pullFromPC() {
+        try {
+            const res = await fetch('/api/sync/get');
+            const data = await res.json();
+            if (data && data.known_words) {
+                localStorage.setItem('yt_vocab_data', JSON.stringify(data));
+                this.allWords = data.known_words || [];
+                document.getElementById('m-word-badge').innerText = `${this.allWords.length} Kelime`;
+                this.startClassicCards();
+                this.toast('PC Verileri Yüklendi! ✓');
+            } else {
+                this.toast('PC üzerinde hazır veri yok.');
+            }
+        } catch(e) {
+            this.toast('Bağlantı hatası!');
+        }
+    },
+
+    /* ================= TOUCH GESTURES ================= */
+    bindSwipeTouch() {
+        const cardEl = document.getElementById('swipe-card');
+        const stage = document.getElementById('swipe-stage');
+
+        cardEl.onclick = (e) => {
+            if (!e.target.closest('i') && Math.abs(this.currentX) < 10) this.flipSwipe();
+        };
+
+        const onStart = (cx) => {
+            if (this.swipeQueue.length === 0) return;
+            this.isDragging = true;
+            this.startX = cx;
+            cardEl.style.transition = 'none';
+        };
+        const onMove = (cx) => {
+            if (!this.isDragging) return;
+            this.currentX = cx - this.startX;
+            const rotate = this.currentX * 0.04;
+            const baseRot = this.swipeIsFlipped ? 180 : 0;
+            cardEl.style.transform = `translate(${this.currentX}px, 0px) rotate(${rotate}deg) rotateY(${baseRot}deg)`;
+        };
+        const onEnd = () => {
+            if (!this.isDragging) return;
+            this.isDragging = false;
+            cardEl.style.transition = 'transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease';
+            if (this.currentX > 85) this.swipe('right');
+            else if (this.currentX < -85) this.swipe('left');
+            else cardEl.style.transform = `translate(0px, 0px) rotate(0deg) rotateY(${this.swipeIsFlipped ? 180 : 0}deg)`;
+            this.currentX = 0;
+        };
+
+        stage.addEventListener('touchstart', (e) => onStart(e.touches[0].clientX), { passive: true });
+        window.addEventListener('touchmove', (e) => onMove(e.touches[0].clientX), { passive: true });
+        window.addEventListener('touchend', onEnd);
+    },
+
+    saveData() {
+        let fullData = {};
+        const stored = localStorage.getItem('yt_vocab_data');
+        if (stored) fullData = JSON.parse(stored);
+        fullData.known_words = this.allWords;
+        localStorage.setItem('yt_vocab_data', JSON.stringify(fullData));
+        document.getElementById('m-word-badge').innerText = `${this.allWords.length} Kelime`;
+    }
+};
+
+window.addEventListener('DOMContentLoaded', () => MobileApp.init());
+</script>
+</body>
+</html>

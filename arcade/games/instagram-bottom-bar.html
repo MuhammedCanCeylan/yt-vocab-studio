@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instagram Tarzı Alt Bar</title>
+<style>
+  :root{
+    --bar-bg: #ffffff;
+    --bar-border: #dbdbdb;
+    --icon-inactive: #262626;
+    --icon-active: #262626;
+    --bar-height: 50px;
+  }
+
+  * { box-sizing: border-box; }
+
+  body{
+    margin:0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background:#fafafa;
+  }
+
+  /* Demo içerik - kendi sitenizde bu kısmı silebilirsiniz */
+  .demo-content{
+    padding: 24px 16px 90px;
+    color:#8e8e8e;
+    text-align:center;
+  }
+
+  /* ALT BAR */
+  .ig-bottom-bar{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: var(--bar-height);
+    background: var(--bar-bg);
+    border-top: 1px solid var(--bar-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 1000;
+    padding-bottom: env(safe-area-inset-bottom, 0);
+  }
+
+  .ig-tab{
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    padding: 0;
+  }
+
+  .ig-tab svg{
+    width: 24px;
+    height: 24px;
+    stroke: var(--icon-inactive);
+    fill: none;
+    stroke-width: 1.5;
+    transition: transform .12s ease;
+  }
+
+  .ig-tab.active svg{
+    stroke: var(--icon-active);
+    fill: var(--icon-active);
+  }
+
+  .ig-tab:active svg{
+    transform: scale(0.88);
+  }
+
+  /* Profil avatarı - aktifken halka çıkar */
+  .ig-avatar{
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    border: 1px solid transparent;
+    transition: border-color .12s ease;
+  }
+
+  .ig-tab.active .ig-avatar{
+    border-color: var(--icon-active);
+  }
+</style>
+</head>
+<body>
+
+<div class="demo-content">
+  <p>Sayfa içeriğiniz burada olacak.<br>Alt bar sabit (fixed) şekilde ekranın altında kalır.</p>
+</div>
+
+<!-- ================= INSTAGRAM TARZI ALT BAR ================= -->
+<nav class="ig-bottom-bar" id="igBottomBar">
+
+  <!-- Ana Sayfa -->
+  <button class="ig-tab active" data-tab="home" aria-label="Ana Sayfa">
+    <svg viewBox="0 0 24 24"><path d="M3 10.5L12 3l9 7.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 9.5V21h14V9.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+
+  <!-- Ara -->
+  <button class="ig-tab" data-tab="search" aria-label="Ara">
+    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg>
+  </button>
+
+  <!-- Ekle (+) -->
+  <button class="ig-tab" data-tab="add" aria-label="Ekle">
+    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M12 8v8M8 12h8" stroke-linecap="round"/></svg>
+  </button>
+
+  <!-- Reels -->
+  <button class="ig-tab" data-tab="reels" aria-label="Reels">
+    <svg viewBox="0 0 24 24"><path d="M3 7.5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-9z" stroke-linejoin="round"/><path d="M7 5.5l3 4M13 5.5l3 4" stroke-linecap="round"/><path d="M10.5 11.2v3.6l3-1.8-3-1.8z" fill="currentColor" stroke="none"/></svg>
+  </button>
+
+  <!-- Profil -->
+  <button class="ig-tab" data-tab="profile" aria-label="Profil">
+    <span class="ig-avatar" style="background-image:url('https://i.pravatar.cc/48');"></span>
+  </button>
+
+</nav>
+
+<script>
+  // Sekmeler arası aktif durum geçişi
+  const bar = document.getElementById('igBottomBar');
+  const tabs = bar.querySelectorAll('.ig-tab');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      // Kendi yönlendirme / sayfa değiştirme mantığınızı buraya ekleyin:
+      const target = tab.dataset.tab;
+      console.log('Seçilen sekme:', target);
+      // Örn: window.location.href = '/' + target;
+    });
+  });
+</script>
+
+</body>
+</html>

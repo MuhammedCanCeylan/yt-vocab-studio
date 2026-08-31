@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Minecraft 1.8.8</title>
+    <link rel="shortcut icon" href="favicon.png" type="image/png" />
+
+    <!-- 🔥 1. LOG SUSTURUCU VE KELİME KÖPRÜSÜ 🔥 -->
+    <script type="text/javascript">
+        (function() {
+            const _log = console.log;
+            const _warn = console.warn;
+
+            // Sadece VOCAB MINER loglarını konsola basar
+            console.log = function(...args) {
+                if (args[0] && typeof args[0] === 'string' && args[0].includes('[VOCAB MINER')) {
+                    _log.apply(console, args);
+                }
+            };
+
+            console.debug = function() {}; // OptiFine doku spamını keser
+
+            console.warn = function(...args) {
+                // Eksik müzik uyarılarını susturur
+                if (args[0] && typeof args[0] === 'string' && args[0].includes('minecraft:sounds')) {
+                    return;
+                }
+                _warn.apply(console, args);
+            };
+        })();
+
+        // Siteden gönderilen kelimeleri yakalayıp hafızaya yazar
+        window.addEventListener("message", function(event) {
+            if (event.data && event.data.type === "VOCAB_LIST") {
+                try {
+                    localStorage.setItem("vocab_pool_data", JSON.stringify(event.data));
+                    console.log("[VOCAB MINER] Kelimeler başarıyla hafızaya aktarıldı!");
+                } catch(e) {}
+            }
+        });
+    </script>
+
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #141414;
+            color: #FFFFFF;
+            font-family: sans-serif;
+        }
+        #game_frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+    </style>
+    <script type="text/javascript" src="classes.js"></script>
+    <script type="text/javascript">
+        window.addEventListener("load", () => {
+            const opts = {
+                container: "game_frame",
+                assetsURI: "assets.epk",
+                localesURI: "lang/",
+                worldsDB: "worlds",
+                servers: []
+            };
+            main(opts);
+        });
+    </script>
+</head>
+<body id="game_frame">
+</body>
+</html>

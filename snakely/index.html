@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Snakely Studio</title>
+    <base href="/snakely/" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.36.0/tabler-icons.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/views.css" />
+</head>
+<body>
+
+    <!-- ÖZEL SİTE İÇİ BİLDİRİM (TOAST) -->
+    <div id="snakely-toast" class="toast-popup"></div>
+
+    <!-- ÜST HEADER -->
+    <header class="snakely-header">
+        <div class="brand"><i class="ti ti-brand-snapseed"></i> Snakely</div>
+        <div class="header-pills">
+            <div class="top-pill exam" id="hdr-exam-pill"><i class="ti ti-file-certificate"></i> Sınav <span id="hdr-tickets">3</span></div>
+            <div class="top-pill"><i class="ti ti-flame" style="color:var(--orange);"></i> <span id="hdr-streak">0</span></div>
+            <div class="top-pill free" id="hdr-free-pill">Serbest <i class="ti ti-arrow-right"></i></div>
+        </div>
+    </header>
+
+    <!-- GÖRÜNÜMLER -->
+    <main id="view-home" class="view-section active"></main>
+    <main id="view-study" class="view-section"></main>
+    <main id="view-vault-overview" class="view-section"></main>
+    <main id="view-vault-detail" class="view-section"></main>
+    <main id="view-vault-swipe" class="view-section"></main>
+    <main id="view-progress" class="view-section"></main>
+    <main id="view-exam-lobby" class="view-section"></main>
+    <main id="view-exam-session" class="view-section"></main>
+    <main id="view-exam-result" class="view-section"></main>
+    <main id="view-account" class="view-section"></main>
+
+    <!-- ÇEKMECELER -->
+    <div class="sheet-overlay" id="type-sheet">
+        <div class="sheet-content">
+            <div class="sheet-handle"></div>
+            <h4 style="font-size:17px; font-weight:800; font-family:'Space Grotesk'; margin-bottom:12px;">Soru Tipi</h4>
+            <div class="sheet-item" data-type="sikli">Şıklı <i class="ti ti-check"></i></div>
+            <div class="sheet-item" data-type="yazmali">Yazmalı</div>
+            <div class="sheet-item" data-type="karisik">Karışık</div>
+        </div>
+    </div>
+
+    <div class="sheet-overlay" id="filter-sheet">
+        <div class="sheet-content">
+            <div class="sheet-handle"></div>
+            <h4 style="font-size:17px; font-weight:800; font-family:'Space Grotesk'; margin-bottom:12px;">Kelime Filtresi</h4>
+            <div class="sheet-item" data-filter="karisik">Karışık (Tümü) <i class="ti ti-check"></i></div>
+            <div class="sheet-item" data-filter="pekistirme">Pekiştirme (Tekrar Edilecek)</div>
+            <div class="sheet-item" data-filter="ogrenilmis">Öğrenilmiş (Usta)</div>
+            <div class="sheet-item" data-filter="asina">Bilinen</div>
+            <div class="sheet-item" data-filter="yeni">Yeni / Karşılaşılmamış</div>
+        </div>
+    </div>
+
+    <!-- ALT NAVBAR (5 TAB - TERTEMİZ DÜZEN) -->
+    <nav class="snakely-nav-bar">
+        <div class="nav-item active" data-view="home">
+            <div class="nav-icon-wrap"><i class="ti ti-home"></i></div>
+            <span>Seviyeler</span>
+        </div>
+        <div class="nav-item" id="nav-btn-hearts">
+            <div class="nav-icon-wrap"><i class="ti ti-heart" style="color:var(--red);"></i></div>
+            <span>5 Can</span>
+        </div>
+        <div class="nav-item" data-view="progress">
+            <div class="nav-icon-wrap"><i class="ti ti-trophy"></i></div>
+            <span>İlerlemeler</span>
+        </div>
+        <div class="nav-item" data-view="vault">
+            <div class="nav-icon-wrap"><i class="ti ti-archive"></i></div>
+            <span>Sandık</span>
+        </div>
+        <div class="nav-item" data-view="account">
+            <div class="nav-icon-wrap"><i class="ti ti-user"></i></div>
+            <span>Hesap</span>
+        </div>
+    </nav>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>

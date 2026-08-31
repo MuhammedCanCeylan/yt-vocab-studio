@@ -1,0 +1,6288 @@
+[
+  {
+    "id": "00092354-13f5-47aa-94c6-3312579db388",
+    "en": "difference",
+    "tr": "Fark",
+    "pos": "NOUN",
+    "def": "The quality of being different."
+  },
+  {
+    "id": "0037e237-072d-4af2-8d3a-dea99fa6c6a5",
+    "en": "cow",
+    "tr": "Inek",
+    "pos": "NOUN",
+    "def": "ISO 639-3 language code for Cowlitz."
+  },
+  {
+    "id": "0056af7a-dc76-45d4-83fb-bb090b2b673a",
+    "en": "funny",
+    "tr": "Eğlenceli",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "006e3372-af9d-425e-99db-621f15dff500",
+    "en": "band",
+    "tr": "Bant",
+    "pos": "NOUN",
+    "def": "A strip of material used for strengthening or coupling.\nA strip of material wrapped around things to hold them together.\n\nA narrow strip of cloth or other material on clothing, to bind, strengthen, or ornament it.\n\nA strip along the spine of a book where the pages are attached.\nA belt or strap that is part of a machine."
+  },
+  {
+    "id": "00b948f4-d29c-4883-b76a-0d79f3f9a3ce",
+    "en": "breakfast",
+    "tr": "Kahvaltı",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "01349ddb-dd2f-4dc6-a4bc-7b0d04ca744e",
+    "en": "grandmother",
+    "tr": "Büyükanne",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "0183f0aa-0190-40e9-81c7-876959a5f8ae",
+    "en": "hobby",
+    "tr": "Hobi",
+    "pos": "NOUN",
+    "def": "An activity that one enjoys doing in one's spare time."
+  },
+  {
+    "id": "02003e54-c1ca-47cb-b1cd-22a5ab1d5f98",
+    "en": "tomato",
+    "tr": "Domates",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "0207c3e9-e099-43b8-a155-11c44ac28b87",
+    "en": "fill",
+    "tr": "Doldurmak",
+    "pos": "VERB",
+    "def": "To make full\nTo add contents to  so that it is full."
+  },
+  {
+    "id": "0248069c-0eda-408c-aef6-e526e49a6c5e",
+    "en": "exercise",
+    "tr": "Egzersiz yapmak",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "027138a6-6353-48c4-a9d8-07a23cf72cc3",
+    "en": "any",
+    "tr": "Herhangi",
+    "pos": "NOUN",
+    "def": "ISO 639-3 language code for Anyi."
+  },
+  {
+    "id": "02c7675e-96a6-432b-a68e-c8d3019f19dd",
+    "en": "writing",
+    "tr": "Yazma",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "0322f09c-3a0d-4a3d-bdcd-2b632de16261",
+    "en": "repeat",
+    "tr": "Tekrarlamak",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "0366ac58-5779-4f02-8c67-4ad73e13caf2",
+    "en": "phone",
+    "tr": "Telefon",
+    "pos": "NOUN",
+    "def": "A device for transmitting conversations and other sounds in real time across distances, now often a small portable unit also capable of running software etc."
+  },
+  {
+    "id": "03aaa565-23dc-46de-9511-0651be792617",
+    "en": "driver",
+    "tr": "Sürücü",
+    "pos": "NOUN",
+    "def": "One who drives something.\n\n A person who drives a motorized vehicle such as a car, truck, bus, train, forklift, etc."
+  },
+  {
+    "id": "03b05bb5-4c78-452a-94f8-46dca7cb295a",
+    "en": "build",
+    "tr": "Inşa etmek",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "041bf091-7e2a-47a8-a580-372fc0fe2ff1",
+    "en": "nine",
+    "tr": "Dokuz",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "0491b52a-ee6a-4534-975c-ab30d2ad9be9",
+    "en": "sell",
+    "tr": "Satmak",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "049b49a3-809f-4144-9157-a9b639327bac",
+    "en": "somebody",
+    "tr": "Birisi",
+    "pos": "NOUN",
+    "def": "Some unspecified person."
+  },
+  {
+    "id": "053b81ad-d564-45e3-bcec-494dfb23c2ed",
+    "en": "dad",
+    "tr": "Baba",
+    "pos": "NOUN",
+    "def": "ISO 639-3 language code for Marik."
+  },
+  {
+    "id": "05cb3c08-794d-401e-b6d0-216bce36f4e7",
+    "en": "future",
+    "tr": "Gelecek",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "06cf29d6-1905-4365-9257-f5ee7d840cdc",
+    "en": "want",
+    "tr": "Istek",
+    "pos": "VERB",
+    "def": "To wish for or desire (something); to feel a need or desire for; to crave, hanker, or demand. .mw-parser-output .defdate{font-size:smaller}"
+  },
+  {
+    "id": "075bae0c-83ff-4071-89cb-775697b1784e",
+    "en": "common",
+    "tr": "Yaygın",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "0773a14d-aa43-444d-8f4f-c8c5ced0a8b2",
+    "en": "wake",
+    "tr": "Uyanmak",
+    "pos": "VERB",
+    "def": "(often followed by up) To stop sleeping."
+  },
+  {
+    "id": "07c7bb30-9e4a-4319-a634-563f869dc04e",
+    "en": "go",
+    "tr": "Gitmek",
+    "pos": "VERB",
+    "def": "To move, either physically or in an abstract sense:"
+  },
+  {
+    "id": "07df5b5c-b5f4-420e-8aa8-adfcb3fce0bf",
+    "en": "result",
+    "tr": "Sonuç",
+    "pos": "NOUN",
+    "def": "To proceed, spring up or rise, as a consequence, from facts, arguments, premises, combination of circumstances, consultation, thought or endeavor."
+  },
+  {
+    "id": "07f7f34d-0619-4f00-8e66-328e324f348f",
+    "en": "prefer",
+    "tr": "Tercih etmek",
+    "pos": "VERB",
+    "def": "To be in the habit of choosing something rather than something else; to favor; to like better."
+  },
+  {
+    "id": "086d39da-ae67-4f7b-974c-7f6eeab1e7c5",
+    "en": "chicken",
+    "tr": "Tavuk",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "08b6fe1e-acee-45a0-91a5-6cb97bfd6e71",
+    "en": "nice",
+    "tr": "Güzel",
+    "pos": "ADJ",
+    "def": "Pleasant, satisfactory, complimentary. .mw-parser-output .defdate{font-size:smaller}"
+  },
+  {
+    "id": "0901759f-7f26-4ae1-9f09-0fbfe3b8bc79",
+    "en": "job",
+    "tr": "Iş",
+    "pos": "NOUN",
+    "def": "ISO 639-3 language code for Joba."
+  },
+  {
+    "id": "09125c99-791f-434a-b5e5-8e4e2b344064",
+    "en": "January",
+    "tr": "Ocak",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "096d8228-32d2-48f8-9d4d-6e785d2fdb0b",
+    "en": "fantastic",
+    "tr": "Fantastik",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "096e8cc0-4c1e-4b51-9366-47e388d9e7a2",
+    "en": "shower",
+    "tr": "Duş",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "0973d09f-51f3-4c2f-8bfe-f864c5f2429e",
+    "en": "girl",
+    "tr": "Kız",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "0979d8df-f8f0-45ef-8489-956623e91109",
+    "en": "back",
+    "tr": "Geri",
+    "pos": "ADV",
+    "def": "At or near the rear."
+  },
+  {
+    "id": "098fbc4b-63d2-4b55-8e5a-b085b24ef01c",
+    "en": "bath",
+    "tr": "Banyo",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "09ad069b-072d-478e-87c3-2afbab485ce1",
+    "en": "fifty",
+    "tr": "Elli",
+    "pos": "NOUN",
+    "def": "The cardinal number occurring after forty-nine and before fifty-one."
+  },
+  {
+    "id": "09c9539a-3d18-4f05-b9fc-691058a8530b",
+    "en": "rich",
+    "tr": "Zengin",
+    "pos": "ADJ",
+    "def": "Wealthy: having a lot of money and possessions."
+  },
+  {
+    "id": "09e551f8-c3ed-45d5-b5a0-75ee7a88530b",
+    "en": "full",
+    "tr": "Tam dolu",
+    "pos": "ADJ",
+    "def": "Containing the maximum possible amount that can fit in the space available."
+  },
+  {
+    "id": "09ee12a9-a866-4823-827e-8161340bf8f3",
+    "en": "song",
+    "tr": "Şarkı",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "0a2def2a-6ce1-4460-88e2-1db414d871d3",
+    "en": "euro",
+    "tr": "Euro",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "0a5f8c8a-e224-42ef-8f66-2c45e20a46bc",
+    "en": "now",
+    "tr": "Şimdi",
+    "pos": "ADV",
+    "def": "ISO 639-3 language code for Nyambo."
+  },
+  {
+    "id": "0a603060-6dd3-485f-8d5b-a0ee0a59db86",
+    "en": "brother",
+    "tr": "Erkek kardeş",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "0ac28b61-2721-4c9a-81cd-83ae78347e09",
+    "en": "dancer",
+    "tr": "Dansçı",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "0b4d6d77-039c-49a0-aeff-1d32dbed9ca1",
+    "en": "form",
+    "tr": "Biçim",
+    "pos": "NOUN",
+    "def": "To do with shape.\nThe shape or visible structure of a thing or person.\n\nA thing that gives shape to other things as in a mold.\nRegularity, beauty, or elegance.\n The inherent nature of an object; that which the mind itself contributes as the condition of knowing; that in which the essence of a thing consists.\nCharacteristics not involving atomic components. (Can we add an example for this sense?)\n A long bench with no back.\n\n The boundary line of a material object. In painting, more generally, the human body.\n The combination of planes included under a general crystallographic symbol. It is not necessarily a closed solid."
+  },
+  {
+    "id": "0b66a823-7066-4da4-8738-1a812a35a754",
+    "en": "ice",
+    "tr": "Buz",
+    "pos": "NOUN",
+    "def": "ISO 639-2/B language code for Icelandic."
+  },
+  {
+    "id": "0be40177-84fd-4cc2-b54c-04493a3f889c",
+    "en": "dark",
+    "tr": "Karanlık",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "0ce8960a-5cd8-4219-9b76-39b08677e70f",
+    "en": "office",
+    "tr": "Ofis",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "0d93032a-d00c-44c3-9308-cbea09a2f0a1",
+    "en": "photograph",
+    "tr": "Fotoğraf",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "0de7d945-aeb5-4f5c-986b-193c17ce44e1",
+    "en": "tourist",
+    "tr": "Turist",
+    "pos": "NOUN",
+    "def": "Someone who travels for pleasure rather than for business; a leisure visitor. .mw-parser-output .defdate{font-size:smaller}"
+  },
+  {
+    "id": "0ded42af-c9e6-427d-8aaf-2d26eb2b63ea",
+    "en": "ago",
+    "tr": "Evvel",
+    "pos": "ADV",
+    "def": "ISO 639-3 language code for Tainae."
+  },
+  {
+    "id": "0dfce055-0b57-4991-b1ed-50ced580a4fe",
+    "en": "mistake",
+    "tr": "Hata",
+    "pos": "NOUN",
+    "def": "To understand wrongly, taking one thing or person for another."
+  },
+  {
+    "id": "0e1d0468-abfc-4ff3-aa62-5762139fccf3",
+    "en": "change",
+    "tr": "Değiştirmek",
+    "pos": "NOUN",
+    "def": "To become something different."
+  },
+  {
+    "id": "0e229d71-e03e-4c2d-9882-50a9e4fa32b6",
+    "en": "chart",
+    "tr": "Çizelge",
+    "pos": "NOUN",
+    "def": "A map.\nA map illustrating the geography of a specific phenomenon.\nA navigator's map."
+  },
+  {
+    "id": "0e8fa335-60ea-4be9-b85b-a8a208847b1c",
+    "en": "road",
+    "tr": "Yol",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "0eaa87ba-7330-4ad1-b064-7ea4282166e8",
+    "en": "dance",
+    "tr": "Dans",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "0f643721-b60e-40ec-951b-f03992e49fa7",
+    "en": "what",
+    "tr": "Ne",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "0f8caadc-078c-4947-b14b-b71d29f03371",
+    "en": "pay",
+    "tr": "Ödemek",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "0fd15840-8eed-4d73-b552-80b28bb6a5ba",
+    "en": "theatre",
+    "tr": "Tiyatro",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "0fdd2cda-0918-42f4-829f-3bdbceb7cb92",
+    "en": "hate",
+    "tr": "Nefret",
+    "pos": "VERB",
+    "def": "An object of hatred."
+  },
+  {
+    "id": "1011d201-d238-4ab6-84f7-57aee7fd76ce",
+    "en": "through",
+    "tr": "Başından sonuna kadar",
+    "pos": "ADV",
+    "def": "From one side or end of (something) to the other. \nSo as to enter (something), pass within or across, and then leave."
+  },
+  {
+    "id": "10e6a07b-f45e-4264-a9bb-b66d7f8169c2",
+    "en": "business",
+    "tr": "Işletme",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "11408a8d-b5f2-4fe5-8496-14e51a820ac0",
+    "en": "plant",
+    "tr": "Bitki",
+    "pos": "NOUN",
+    "def": "An organism that is not an animal, especially an organism capable of photosynthesis, and typically a small or herbaceous organism of this kind, rather than a tree."
+  },
+  {
+    "id": "12046561-ce9b-4ada-b10f-c4443c14da3a",
+    "en": "read",
+    "tr": "Okumak",
+    "pos": "VERB",
+    "def": "To look at and interpret letters or other information that is written."
+  },
+  {
+    "id": "121d1a02-b76f-4010-a88f-a2cd6ac1bb43",
+    "en": "quarter",
+    "tr": "Çeyrek",
+    "pos": "NOUN",
+    "def": "A fourth part of something.\n Each of four equal parts into which something can be divided; a fourth part. .mw-parser-output .defdate{font-size:smaller}"
+  },
+  {
+    "id": "12389183-d42f-4f2d-a403-d8de8ddabb1b",
+    "en": "reading",
+    "tr": "Okuma",
+    "pos": "NOUN",
+    "def": "present participle and gerund of read"
+  },
+  {
+    "id": "124b747f-3785-4998-92a5-5eeed3606899",
+    "en": "short",
+    "tr": "Kısa",
+    "pos": "ADJ",
+    "def": "Having a small distance from one end or edge to another, either horizontally or vertically."
+  },
+  {
+    "id": "1270b0c5-7999-4aef-b16b-535938134199",
+    "en": "after",
+    "tr": "Sonrasında",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "1277303c-cf94-43fa-ab53-780500d9104f",
+    "en": "late",
+    "tr": "Geç",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "12d7d899-42d8-4cbc-ba7e-81c86ea3bbf8",
+    "en": "someone",
+    "tr": "Birisi",
+    "pos": "NOUN",
+    "def": "One or some person of unspecified or indefinite identity."
+  },
+  {
+    "id": "1317feb8-9070-41a9-9a03-c06065d195ab",
+    "en": "beginning",
+    "tr": "Başlangıç",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "13e3887d-ed29-4adc-b6eb-d7b9c8764994",
+    "en": "negative",
+    "tr": "Negatif",
+    "pos": "ADJ",
+    "def": "Not positive or neutral; bad; undesirable; unfavourable."
+  },
+  {
+    "id": "14a331fe-1084-40cc-9d25-98409dbf3f01",
+    "en": "also",
+    "tr": "Ayrıca",
+    "pos": "ADV",
+    "def": "In addition; besides; as well; further; too. .mw-parser-output .defdate{font-size:smaller}"
+  },
+  {
+    "id": "14c5d8b8-48d7-45c8-b2ed-833d73ce5a65",
+    "en": "dangerous",
+    "tr": "Tehlikeli",
+    "pos": "ADJ",
+    "def": "Full of danger."
+  },
+  {
+    "id": "14ef223c-4749-4699-890a-452f8bbfbbdf",
+    "en": "never",
+    "tr": "Asla",
+    "pos": "ADV",
+    "def": "At no time; on no occasion; in no circumstance."
+  },
+  {
+    "id": "14f1ea10-1a68-4c5c-9f93-145def1a0080",
+    "en": "everyone",
+    "tr": "Herkes",
+    "pos": "NOUN",
+    "def": "Every person."
+  },
+  {
+    "id": "1508a206-397d-4c3c-9228-ae9869530c3b",
+    "en": "boyfriend",
+    "tr": "Erkek arkadaş",
+    "pos": "NOUN",
+    "def": "A male partner in an unmarried romantic relationship."
+  },
+  {
+    "id": "1580180b-4be0-4aae-8ce3-f5a3a3fad703",
+    "en": "baby",
+    "tr": "Bebek",
+    "pos": "NOUN",
+    "def": "A very young human, particularly from birth to a couple of years old or until walking is fully mastered.\n\nA very young human, even if not yet born."
+  },
+  {
+    "id": "158e0b9a-6eb7-4fdb-8e2c-aafd9f173797",
+    "en": "me",
+    "tr": "Ben",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "15adf4aa-5041-4ec0-80e4-b9d1b0adc2bd",
+    "en": "ninety",
+    "tr": "Doksan",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "15ffe3e9-3396-460a-9260-06392b80f927",
+    "en": "pig",
+    "tr": "Domuz",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "1639bf64-e1f8-4913-ad0c-e4f14e52665c",
+    "en": "bank",
+    "tr": "Banka",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "1660f087-6ea0-4ae0-b015-d6d1a346d1d6",
+    "en": "family",
+    "tr": "Aile",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "169651e9-bc5a-4b63-980e-cc2b2a8600bf",
+    "en": "love",
+    "tr": "Aşk",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "16e64ef2-5c78-4ea7-9c23-c13a95c4e9c4",
+    "en": "idea",
+    "tr": "Fikir",
+    "pos": "NOUN",
+    "def": "An abstract archetype of a given thing, compared to which real-life examples are seen as imperfect approximations; pure essence, as opposed to actual examples. .mw-parser-output .defdate{font-size:smaller}"
+  },
+  {
+    "id": "17e81917-e2bb-4b31-ba7c-a9bd4738d1e0",
+    "en": "eighty",
+    "tr": "Seksen",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "18d3b0e3-2ebb-46c1-a79b-43722dc22df8",
+    "en": "section",
+    "tr": "Bölüm",
+    "pos": "NOUN",
+    "def": "A cutting; a part cut out from the rest of something."
+  },
+  {
+    "id": "18dfd36b-86e4-44f5-89ef-96cfead59ce0",
+    "en": "at",
+    "tr": "En",
+    "pos": "NOUN",
+    "def": "In, near, or in the general vicinity of (a particular place)."
+  },
+  {
+    "id": "18eacc09-584a-46d3-ad45-d861f083b349",
+    "en": "busy",
+    "tr": "Meşgul",
+    "pos": "ADJ",
+    "def": "Crowded with business or activities; having a great deal going on."
+  },
+  {
+    "id": "192501c8-7503-42ed-bae4-f3e6511b176d",
+    "en": "tree",
+    "tr": "Ağaç",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "1944937c-2743-4af9-b6e5-5406456fb24a",
+    "en": "interview",
+    "tr": "Röportaj",
+    "pos": "NOUN",
+    "def": "An official face-to-face meeting of monarchs or other important figures. .mw-parser-output .defdate{font-size:smaller}"
+  },
+  {
+    "id": "198f0687-da38-4278-a3be-0f8cf785ab49",
+    "en": "enough",
+    "tr": "Yeterli",
+    "pos": "ADV",
+    "def": "Sufficient; all that is required, needed, or appropriate.\nUsed before a noun in the manner of words like some, a bit of, and so on."
+  },
+  {
+    "id": "19a1f51e-9dcf-4891-9b54-223f1db1656c",
+    "en": "but",
+    "tr": "Ancak",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "19befc21-4530-4563-af01-3a6df11249c6",
+    "en": "child",
+    "tr": "Çocuk",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "19f24fdf-b2e4-4790-809d-5688c5813e7e",
+    "en": "neighbour",
+    "tr": "Komşu",
+    "pos": "NOUN",
+    "def": "A person living on adjacent or nearby land; a person situated adjacently or nearby; anything (of the same type of thing as the subject) in an adjacent or nearby position."
+  },
+  {
+    "id": "1a1f40a3-f68a-4b8d-bd05-e2a74da50c42",
+    "en": "hear",
+    "tr": "Duymak",
+    "pos": "VERB",
+    "def": "To perceive sounds through the ear. .mw-parser-output .defdate{font-size:smaller}"
+  },
+  {
+    "id": "1a9b08af-2ee2-4416-adf9-2b280c9aa6be",
+    "en": "good",
+    "tr": "Iyi",
+    "pos": "ADJ",
+    "def": "Of a person or an animal:\nActing in the interest of what is beneficial, ethical, or moral."
+  },
+  {
+    "id": "1ab259d6-2f13-46cb-99f0-3e549c01e0b2",
+    "en": "bored",
+    "tr": "Sıkılmış",
+    "pos": "ADJ",
+    "def": "simple past and past participle of bore"
+  },
+  {
+    "id": "1ae0232e-c595-4bbe-85ce-965138d8f8ff",
+    "en": "million",
+    "tr": "Milyon",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "1b40714e-c264-4bc4-92c6-4d3c4fa3232d",
+    "en": "meeting",
+    "tr": "Toplantı",
+    "pos": "NOUN",
+    "def": "The act of persons or things that meet."
+  },
+  {
+    "id": "1b5423b1-372b-463f-9a28-a9db8c36b7b9",
+    "en": "healthy",
+    "tr": "Sağlıklı",
+    "pos": "ADJ",
+    "def": "Enjoying good health; free from disease or disorder."
+  },
+  {
+    "id": "1b5fe7d5-2747-46a4-93e8-72eeb6e8e88f",
+    "en": "next",
+    "tr": "Sonraki",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "1bbb86b2-0484-45d3-b645-b045a657f075",
+    "en": "weather",
+    "tr": "Hava durumu",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "1bd9d5e0-0028-4d1d-b251-5cb0b675d528",
+    "en": "meaning",
+    "tr": "Anlam",
+    "pos": "NOUN",
+    "def": "The denotation, referent, or idea connected with a word, expression, or symbol.\n\nThe connotation associated with a word, expression, or symbol."
+  },
+  {
+    "id": "1be6f5d7-6674-40b8-b8e3-2440a72c6521",
+    "en": "of",
+    "tr": "Ile ilgili",
+    "pos": "NOUN",
+    "def": "Expressing distance or motion.\n From (a place); off. .mw-parser-output .defdate{font-size:smaller}"
+  },
+  {
+    "id": "1c1df333-c492-4b4a-b0b3-93a7c007a838",
+    "en": "message",
+    "tr": "Mesaj",
+    "pos": "NOUN",
+    "def": "A communication, or what is communicated; any concept or information conveyed."
+  },
+  {
+    "id": "1c4c6910-71a7-4020-a417-e6a9024298e2",
+    "en": "prepare",
+    "tr": "Hazırlanmak",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "1c954bf9-170e-412b-879c-5c4aa05d8618",
+    "en": "east",
+    "tr": "Doğu",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "1cd14a0b-2521-411f-b1b3-667a45ab7d59",
+    "en": "hat",
+    "tr": "Şapka",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "1cda512f-d0d5-4976-bf4f-c1e80eb34907",
+    "en": "actress",
+    "tr": "Aktris",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "1cec4bca-2f81-422a-9017-d8ef6b820013",
+    "en": "horse",
+    "tr": "Atış",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "1ceec17d-9556-43b3-abe5-6bf85404013d",
+    "en": "window",
+    "tr": "Pencere",
+    "pos": "NOUN",
+    "def": "An opening, usually covered by one or more panes of clear glass, to allow light and air from outside to enter a building or vehicle."
+  },
+  {
+    "id": "1d738c36-ae83-4834-9394-b241ce563c3e",
+    "en": "friendly",
+    "tr": "Arkadaşça",
+    "pos": "ADJ",
+    "def": "Generally warm, approachable and easy to relate with in character."
+  },
+  {
+    "id": "1dad7104-7b10-4adb-9e28-a48885d876c0",
+    "en": "three",
+    "tr": "Üç",
+    "pos": "NOUN",
+    "def": "NATO &amp; ICAO radiotelephony clear code (spelling-alphabet name) for the digit 3."
+  },
+  {
+    "id": "1e012958-8c90-4332-a1a9-ff52211679b3",
+    "en": "sorry",
+    "tr": "Üzgünüm",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "1e53597b-61ae-4a58-b12b-19f46db1a1ca",
+    "en": "country",
+    "tr": "Ülke",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "1f16b06d-113f-4b3a-af37-ec2ded8d8051",
+    "en": "ten",
+    "tr": "On",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "1f711b59-2f8d-46c1-9ff8-5086fc0c10f3",
+    "en": "down",
+    "tr": "Aşağı",
+    "pos": "ADV",
+    "def": "From a higher position to a lower one; downwards."
+  },
+  {
+    "id": "1f77b8f0-6385-4541-bda6-6a7293da2e63",
+    "en": "left",
+    "tr": "Sol",
+    "pos": "ADJ",
+    "def": "Designating the side of the body toward the west when one is facing north; the side of the body on which the heart is located in most humans; the opposite of right. This arrow points to the reader's left: ←"
+  },
+  {
+    "id": "1faa8a9f-6d68-487b-b7e0-7ece393056e1",
+    "en": "train",
+    "tr": "Tren",
+    "pos": "NOUN",
+    "def": "Elongated or trailing portion.\nThe elongated back portion of a dress or skirt (or an ornamental piece of material added to similar effect), which drags along the ground. .mw-parser-output .defdate{font-size:smaller}"
+  },
+  {
+    "id": "2014c4c3-6a73-4635-8b00-a71d324bc8de",
+    "en": "lion",
+    "tr": "Aslan",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "2014f6e1-cb35-4ce5-959f-5367aa3a1cae",
+    "en": "tell",
+    "tr": "Söylemek",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "204ec551-01d1-48ba-8013-331ecbb59ec2",
+    "en": "August",
+    "tr": "Ağustos",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "213497f9-a741-43b6-bd2a-d2c27f605fc9",
+    "en": "amazing",
+    "tr": "Inanılmaz",
+    "pos": "ADJ",
+    "def": "present participle and gerund of amaze"
+  },
+  {
+    "id": "213e3a20-8f86-46b7-8fd8-34695f331090",
+    "en": "price",
+    "tr": "Fiyat",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "214cd526-6f62-403f-ba6d-61da312da9a4",
+    "en": "compare",
+    "tr": "Karşılaştırmak",
+    "pos": "VERB",
+    "def": "To assess the similarities and differences between two or more things [\"to compare X with Y\"]. Having made the comparison of X with Y, one might have found it similar to Y or different from Y."
+  },
+  {
+    "id": "2180fe0a-5524-4ea8-8686-4209e306fcf0",
+    "en": "star",
+    "tr": "Yıldız",
+    "pos": "NOUN",
+    "def": "Any small, natural and bright dot in the sky, most visible in the night or twilight sky. This sense includes the planets, but it is now sometimes used in exclusion of them due to influence from the technical astronomical sense."
+  },
+  {
+    "id": "22017fff-d261-4cbc-b46b-005169748eaa",
+    "en": "you",
+    "tr": "Sen",
+    "pos": "NOUN",
+    "def": "The people spoken, or written to, as an object. .mw-parser-output .defdate{font-size:smaller}"
+  },
+  {
+    "id": "2280cc69-37d3-44eb-adbc-27d07389eb15",
+    "en": "ear",
+    "tr": "Kulak",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "23835e2d-b0ff-48aa-a3e7-53e20e06f224",
+    "en": "foot",
+    "tr": "Ayak",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "2396b586-79a9-42d3-97fd-5a436f246b6a",
+    "en": "out",
+    "tr": "Dışarı",
+    "pos": "ADV",
+    "def": ""
+  },
+  {
+    "id": "23e158a8-ae09-4ccf-b287-b579b6e820f4",
+    "en": "red",
+    "tr": "Kırmızı",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "23ec9523-d0f9-4204-865c-dadd72206f11",
+    "en": "flower",
+    "tr": "Çiçek",
+    "pos": "NOUN",
+    "def": "A colorful, conspicuous structure associated with angiosperms, frequently scented and attracting various insects, and which may or may not be used for sexual reproduction."
+  },
+  {
+    "id": "23fabbac-c516-4575-8aad-3ca80b3247a2",
+    "en": "know",
+    "tr": "Bilmek",
+    "pos": "VERB",
+    "def": "To perceive the truth or factuality of; to be certain of; to be certain that."
+  },
+  {
+    "id": "2422aed1-bc72-4d7d-b34e-3edd5b244bce",
+    "en": "a",
+    "tr": "A",
+    "pos": "NOUN",
+    "def": "The first letter of the basic modern Latin alphabet."
+  },
+  {
+    "id": "2425b9a6-9362-442e-b208-f4c8f211e45f",
+    "en": "twice",
+    "tr": "Iki kere",
+    "pos": "ADV",
+    "def": "Two times."
+  },
+  {
+    "id": "2451bda8-e797-4bff-83d4-6ea916eee679",
+    "en": "worker",
+    "tr": "Işçi",
+    "pos": "NOUN",
+    "def": "One who works: a person who performs labor for a living; traditionally, especially, manual labor."
+  },
+  {
+    "id": "24586f4d-9809-4742-87c0-4a6deeb30b3a",
+    "en": "house",
+    "tr": "Ev",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "24e7567b-951a-4e22-8216-27ba4644657f",
+    "en": "move",
+    "tr": "Taşınmak",
+    "pos": "VERB",
+    "def": "To change place or posture; to go, in any manner, from one place or position to another."
+  },
+  {
+    "id": "24e845b4-a82a-4bb0-a5d8-4e41a808d2ec",
+    "en": "food",
+    "tr": "Yiyecek",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "251fad2d-f422-4836-96df-5563bc79adc3",
+    "en": "scientist",
+    "tr": "Bilim adamı",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "259ce34a-bce9-4443-b6b4-b7bbd2a8b85b",
+    "en": "thirty",
+    "tr": "Otuz",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "260d19a6-48b4-4367-ad06-4ebf871147db",
+    "en": "ice cream",
+    "tr": "Dondurma",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "2645b689-037c-452f-a5e0-84006ce9dee8",
+    "en": "they",
+    "tr": "Onlar",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "264a7909-6d57-4256-bd80-e8a9771bb94b",
+    "en": "oh",
+    "tr": "Ah",
+    "pos": "NOUN",
+    "def": "Expression of surprise."
+  },
+  {
+    "id": "26af6bde-245d-4048-aa22-8dc90a36b708",
+    "en": "sixty",
+    "tr": "Altmış",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "27eb8b75-b2e2-4536-9eb0-25de8095bd96",
+    "en": "date",
+    "tr": "Tarih",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "28007540-077f-4e71-b722-eed0dce2b359",
+    "en": "festival",
+    "tr": "Festival",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "285442cd-b06a-4e4f-b33c-6d7498c272a5",
+    "en": "today",
+    "tr": "Bugün",
+    "pos": "ADV",
+    "def": "On the current day or date."
+  },
+  {
+    "id": "28ae3933-11ae-403b-a09f-8fbef5de406b",
+    "en": "people",
+    "tr": "Insanlar",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "29dc1368-14a0-4ed1-a778-db3090d8b783",
+    "en": "lose",
+    "tr": "Kaybetmek",
+    "pos": "VERB",
+    "def": "To cease to have (something) in one's possession or capability."
+  },
+  {
+    "id": "2a050ae3-8179-4358-b8e0-ea07d852ac52",
+    "en": "carry",
+    "tr": "Taşımak",
+    "pos": "VERB",
+    "def": "To lift (something) and take it to another place; to transport (something) by lifting."
+  },
+  {
+    "id": "2a0b7cc7-acec-4e52-b17e-e3e059e0c0f3",
+    "en": "advice",
+    "tr": "Tavsiye",
+    "pos": "NOUN",
+    "def": "An opinion offered to guide behavior in an effort to be helpful."
+  },
+  {
+    "id": "2a239555-389e-49d4-aef8-36de85872435",
+    "en": "student",
+    "tr": "Öğrenci",
+    "pos": "NOUN",
+    "def": "A person who studies or learns about a particular subject."
+  },
+  {
+    "id": "2a2bb583-d857-4507-9a19-53bb09850603",
+    "en": "July",
+    "tr": "Temmuz",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "2a601eae-4268-4c6e-9a48-3f1f57ad8d4a",
+    "en": "why",
+    "tr": "Neden",
+    "pos": "ADV",
+    "def": "For what cause, reason, or purpose.\nIntroducing a complete question."
+  },
+  {
+    "id": "2ae66ab7-ce68-431a-be47-43360f57a7e9",
+    "en": "agree",
+    "tr": "Kabul etmek",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "2b177f11-4e72-4828-9da8-362b55b7569b",
+    "en": "bill",
+    "tr": "Fatura",
+    "pos": "NOUN",
+    "def": "A written list or inventory. (Now obsolete except in specific senses or set phrases; bill of lading, bill of goods, etc.)"
+  },
+  {
+    "id": "2bc90208-47e4-4115-ad7d-e14cec464dc2",
+    "en": "far",
+    "tr": "Uzak",
+    "pos": "ADV",
+    "def": "ISO 639-3 language code for Fataleka."
+  },
+  {
+    "id": "2c6bc479-b385-4b9e-98bc-145b041997bc",
+    "en": "hand",
+    "tr": "El",
+    "pos": "NOUN",
+    "def": "The part of the forelimb below the forearm or wrist in a human, and the corresponding part in many other animals."
+  },
+  {
+    "id": "2ca6da00-dbea-431d-b348-1578c693e697",
+    "en": "design",
+    "tr": "Tasarım",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "2cb3cb62-9038-45d3-b319-b9c9cd54523a",
+    "en": "happen",
+    "tr": "Olmak",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "2cf09caa-6f3f-4300-af22-b9fe0a9b28ce",
+    "en": "picture",
+    "tr": "Resim",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "2d05e24f-6ec2-44c1-9af9-fe57d5631327",
+    "en": "front",
+    "tr": "Ön",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "2d240800-b125-4694-9844-6fdf0a709650",
+    "en": "topic",
+    "tr": "Başlık",
+    "pos": "NOUN",
+    "def": "topical"
+  },
+  {
+    "id": "2d2b3dd0-d9e0-49e4-a938-69543ef96e3c",
+    "en": "high",
+    "tr": "Yüksek",
+    "pos": "ADJ",
+    "def": "Physically elevated, extending above a base or average level:\nVery elevated; extending or being far above a base; tall; lofty."
+  },
+  {
+    "id": "2d474175-4ea9-4d03-b0f9-9bb3738436f7",
+    "en": "must",
+    "tr": "Mutlak",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "2d925dca-bf94-474e-bb5e-268c0fbc9457",
+    "en": "classroom",
+    "tr": "Sınıf",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "2d9947e5-92bd-4b65-b7a9-af7bf04ca59f",
+    "en": "off",
+    "tr": "Kapalı",
+    "pos": "ADV",
+    "def": ""
+  },
+  {
+    "id": "2df31e7d-d521-479e-a4b2-e629e6dee015",
+    "en": "singer",
+    "tr": "Şarkıcı",
+    "pos": "NOUN",
+    "def": "A person who sings, often professionally."
+  },
+  {
+    "id": "2e570bc9-4de9-487d-ac0c-ff52c7e6f163",
+    "en": "fish",
+    "tr": "Balık",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "2fc5242c-a304-4676-a00e-ff51856bc28d",
+    "en": "hard",
+    "tr": "Zor",
+    "pos": "ADJ",
+    "def": "Solid and firm.\n\nResistant to pressure; difficult to break, cut, or penetrate."
+  },
+  {
+    "id": "2ffe9d0b-7c59-4916-a650-511c01bd4baa",
+    "en": "angry",
+    "tr": "Sinirli",
+    "pos": "ADJ",
+    "def": "Displaying or feeling anger."
+  },
+  {
+    "id": "300b4fbe-4ffd-4ef0-a2a2-a877bd7330fb",
+    "en": "kitchen",
+    "tr": "Mutfak",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "3042ab62-521e-407d-8dfa-cbdc42c29615",
+    "en": "return",
+    "tr": "Geri dönmek",
+    "pos": "NOUN",
+    "def": "To come or go back (to a place or person)."
+  },
+  {
+    "id": "30b91d12-1b59-4130-90e2-2a9770a48ef8",
+    "en": "blonde",
+    "tr": "Sarışın",
+    "pos": "ADJ",
+    "def": "Alternative form of blond (“person with fair hair”)."
+  },
+  {
+    "id": "3153a234-77ee-49b7-a22d-5f35a13d2a77",
+    "en": "spell",
+    "tr": "Hecelemek",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "3163af8b-2ee5-46aa-84d8-a84ad159ffea",
+    "en": "cool",
+    "tr": "Serin",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "317e64ee-fe6a-4ee7-8b3a-838b89c74ae3",
+    "en": "cake",
+    "tr": "Kek",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "3205131c-3fab-429f-ad98-070827b9de05",
+    "en": "correct",
+    "tr": "Doğru",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "3217125b-82ae-4a0a-8033-9ee599e08d22",
+    "en": "into",
+    "tr": "Içine",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "325eaee2-7fd9-4362-967a-f14a09bf38d7",
+    "en": "article",
+    "tr": "Madde",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "32d12e9f-4717-4ade-b170-be9bf55c90ff",
+    "en": "weekend",
+    "tr": "Hafta sonu",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "331f6e43-5992-423b-8340-54e5fef1ac3f",
+    "en": "both",
+    "tr": "Ikisi birden",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "33369a45-0197-4dac-87bf-6fe7023cbf49",
+    "en": "mouse",
+    "tr": "Fare",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "336815c8-217a-411f-bdb0-1b171dfd7645",
+    "en": "fifteen",
+    "tr": "On beş",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "33868383-6da2-4258-9371-1a067ac7a734",
+    "en": "style",
+    "tr": "Stil",
+    "pos": "NOUN",
+    "def": "Senses relating to a thin, pointed object.\n A sharp stick used for writing on clay tablets or other surfaces; a stylus;  an instrument used to write with ink; a pen.\n\nA tool with a sharp point used in engraving; a burin, a graver, a stylet, a stylus.\n\nThe gnomon or pin of a sundial, the shadow of which indicates the hour.\n\n The stalk that connects the stigma(s) to the ovary in a pistil of a flower."
+  },
+  {
+    "id": "33b4222b-86e6-4325-b1e8-800dfa35d98e",
+    "en": "life",
+    "tr": "Hayat",
+    "pos": "NOUN",
+    "def": "The state of organisms preceding their death, characterized by biological processes such as metabolism and reproduction and distinguishing them from inanimate objects; the state of being alive and living."
+  },
+  {
+    "id": "33f62b55-b774-42e4-be32-1b2697557dfe",
+    "en": "hope",
+    "tr": "Umut",
+    "pos": "VERB",
+    "def": "To want (something) to happen, with a sense of expectation that it might .mw-parser-output .object-usage-tag{font-style:italic}.mw-parser-output .deprecated{color:var(--wikt-palette-grey-lime-8,olivedrab)}[with that (+ clause); or  with clause; or with so or  not]."
+  },
+  {
+    "id": "3463ad94-6063-40f6-9819-4d7f33f303f7",
+    "en": "chair",
+    "tr": "Sandalye",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "346d67cd-069b-4ffd-b797-7fe300a3c9bb",
+    "en": "dialogue",
+    "tr": "Diyalog",
+    "pos": "NOUN",
+    "def": "A conversation or other form of discourse between two or more individuals."
+  },
+  {
+    "id": "35b7addb-e8c2-41fe-822c-802901bcfb36",
+    "en": "day",
+    "tr": "Gün",
+    "pos": "NOUN",
+    "def": "ISO 639-2 &amp; ISO 639-5 language code for Land Dayak languages."
+  },
+  {
+    "id": "35ba69db-192a-4ff9-814d-cced5d6ebbc2",
+    "en": "card",
+    "tr": "Kart",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "35ea7f32-683e-48dc-ac7d-3508cab53d12",
+    "en": "one",
+    "tr": "Bir",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "365e5a60-5904-4a6c-86c7-5bbd0b60702d",
+    "en": "college",
+    "tr": "Üniversite",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "369fa53d-54ff-45bf-b6a7-0191c1320719",
+    "en": "pair",
+    "tr": "Çift",
+    "pos": "NOUN",
+    "def": "Two alike or identical things taken together; often followed by of."
+  },
+  {
+    "id": "36fe0fc3-2a8a-4dda-bece-b3015242179e",
+    "en": "painting",
+    "tr": "Tablo",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "370b9d31-55fe-4391-80e3-11a5f4b91997",
+    "en": "wife",
+    "tr": "Eş",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "37155e77-1509-4300-8e49-de9b474d0c4c",
+    "en": "wear",
+    "tr": "Giymek",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "374bd492-9d95-4eaf-9309-24faa6c8c88f",
+    "en": "under",
+    "tr": "Altında",
+    "pos": "ADV",
+    "def": "Beneath; below; at or to the bottom of, or the area covered or surmounted by."
+  },
+  {
+    "id": "3764fb35-7d8d-482d-b602-5ff0d8f1d962",
+    "en": "bathroom",
+    "tr": "Banyo",
+    "pos": "NOUN",
+    "def": "A room containing a shower or bathtub, and  a toilet."
+  },
+  {
+    "id": "377fbea0-6003-49ce-9d47-2f376103b980",
+    "en": "address",
+    "tr": "Adres",
+    "pos": "NOUN",
+    "def": "Direction.\n Guidance; help. .mw-parser-output .defdate{font-size:smaller}\n A polite approach made to another person, especially of a romantic nature; an amorous advance. \n\nA manner of speaking or writing to another; language, style."
+  },
+  {
+    "id": "383b283d-9d2f-42bb-ae81-31f336175ba2",
+    "en": "its",
+    "tr": "Onun",
+    "pos": "NOUN",
+    "def": "ISO 639-3 language code for Itsekiri."
+  },
+  {
+    "id": "384462c4-c0ac-4119-b560-ff20b74b0d51",
+    "en": "quite",
+    "tr": "Epeyce",
+    "pos": "ADV",
+    "def": ""
+  },
+  {
+    "id": "38c5ace5-5d5f-4b7f-93a1-521708a788db",
+    "en": "exam",
+    "tr": "Sınav",
+    "pos": "NOUN",
+    "def": "Clipping of examination, especially when meaning “test” or in compound terms."
+  },
+  {
+    "id": "38d78fbf-8330-46c1-b601-7fc5f2103c90",
+    "en": "cent",
+    "tr": "Sent",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "3997523b-b77e-48e9-a009-11a73364c37b",
+    "en": "person",
+    "tr": "Kişi",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "39b0ccfe-b88a-4ca2-a83f-55f891bbcd4f",
+    "en": "stop",
+    "tr": "Durmak",
+    "pos": "NOUN",
+    "def": "ITU &amp; IMO radiotelephony clear code (spelling-alphabet name) for  full stop / period."
+  },
+  {
+    "id": "39f457c4-3a45-4995-b221-4a9bf099cfa8",
+    "en": "pink",
+    "tr": "Pembe",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "3a2bd649-ce02-4706-8f8d-c456e7423552",
+    "en": "street",
+    "tr": "Sokak",
+    "pos": "NOUN",
+    "def": "A paved part of road, usually in a village or a town."
+  },
+  {
+    "id": "3a32c43e-97a6-431a-b184-820c58e191b0",
+    "en": "not",
+    "tr": "Olumsuz",
+    "pos": "ADV",
+    "def": ""
+  },
+  {
+    "id": "3a795390-9642-4b38-8655-123eedbd19ea",
+    "en": "sit",
+    "tr": "Oturmak",
+    "pos": "VERB",
+    "def": "ISO 639-2 &amp; ISO 639-5 language code for Sino-Tibetan languages."
+  },
+  {
+    "id": "3a796800-b26e-4ff0-b42b-9a4333b23eb2",
+    "en": "the",
+    "tr": "The",
+    "pos": "NOUN",
+    "def": "ISO 639-3 language code for Chitwania Tharu."
+  },
+  {
+    "id": "3a9f2338-2ded-447f-b78f-f38d50bc00f9",
+    "en": "nurse",
+    "tr": "Hemşire",
+    "pos": "NOUN",
+    "def": "A person involved in providing direct care for the sick:\n Anyone performing this role, regardless of training or profession."
+  },
+  {
+    "id": "3adf2579-1bae-4d01-ab0a-7996cdf9f69a",
+    "en": "age",
+    "tr": "Yaş",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "3b5004c1-c3c6-43f6-a196-1a52a35b44f2",
+    "en": "sheep",
+    "tr": "Koyun",
+    "pos": "NOUN",
+    "def": "A woolly ruminant of the genus Ovis."
+  },
+  {
+    "id": "3b5989e1-6c53-4563-8504-eccfa3aa51f2",
+    "en": "eat",
+    "tr": "Yemek yemek",
+    "pos": "VERB",
+    "def": "To ingest; to be ingested.\n To consume (something solid or semi-solid, usually food) by putting it into the mouth and swallowing it."
+  },
+  {
+    "id": "3bb625d0-473b-4d23-9a4a-dccfa7c4072d",
+    "en": "see",
+    "tr": "Görmek",
+    "pos": "VERB",
+    "def": "ISO 639-3 language code for Seneca."
+  },
+  {
+    "id": "3bc64123-5b9d-44b9-a0b0-93865f4549cf",
+    "en": "up",
+    "tr": "Yukarı",
+    "pos": "ADV",
+    "def": ""
+  },
+  {
+    "id": "3bdbbdf6-9a08-4276-9e0c-b7afd9aa417d",
+    "en": "sometimes",
+    "tr": "Bazen",
+    "pos": "ADV",
+    "def": ""
+  },
+  {
+    "id": "3ccb103b-7d6c-49da-a8e4-7639de2e682b",
+    "en": "hospital",
+    "tr": "Hastane",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "3cd2d2bf-9b59-42c1-9fb9-48ddfae88d20",
+    "en": "north",
+    "tr": "Kuzey",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "3cd2f4c9-6ecb-49e1-a3e8-6059b3efdab4",
+    "en": "aunt",
+    "tr": "Hala",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "3ce9c68a-8a96-40dc-87b7-14cb3bfaab3b",
+    "en": "or",
+    "tr": "Veya",
+    "pos": "NOUN",
+    "def": "ISO 639-1 language code for Odia."
+  },
+  {
+    "id": "3d2e2a0b-2bfc-486f-adce-386cbd31ed9a",
+    "en": "bad",
+    "tr": "Kötü",
+    "pos": "ADJ",
+    "def": "ISO 639-2 &amp; ISO 639-5 language code for Banda languages."
+  },
+  {
+    "id": "3d623311-5f3d-44ed-8de7-a5b668e82185",
+    "en": "old",
+    "tr": "Eskimiş",
+    "pos": "ADJ",
+    "def": "ISO 639-3 language code for Mochi."
+  },
+  {
+    "id": "3e5b1874-88ad-4ad6-9146-295f3f2c029e",
+    "en": "partner",
+    "tr": "Ortak",
+    "pos": "NOUN",
+    "def": "Either of a pair of people or things that belong together."
+  },
+  {
+    "id": "3ec15132-a122-4f49-a27a-db83aaf09896",
+    "en": "very",
+    "tr": "Çok",
+    "pos": "ADV",
+    "def": ""
+  },
+  {
+    "id": "3fd2f7fe-0d95-4cf4-bfa4-6c2d37bd7efe",
+    "en": "six",
+    "tr": "Altı",
+    "pos": "NOUN",
+    "def": "NATO &amp; ICAO radiotelephony clear code (spelling-alphabet name) for the digit 6."
+  },
+  {
+    "id": "404e1f00-9a62-4aeb-b40b-4ac26b5918e0",
+    "en": "teacher",
+    "tr": "Öğretmen",
+    "pos": "NOUN",
+    "def": "A person who teaches, especially one employed in a school; preceptor."
+  },
+  {
+    "id": "4112ec42-ca70-4b43-af70-510c80c51358",
+    "en": "have",
+    "tr": "Sahip olmak",
+    "pos": "VERB",
+    "def": "To possess, own."
+  },
+  {
+    "id": "41d7ae82-5baa-4ac0-ab3c-606cc56a876e",
+    "en": "reader",
+    "tr": "Okuyucu",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "423f3c00-ad56-4bab-9bfd-7b5c2b84f716",
+    "en": "place",
+    "tr": "Yer",
+    "pos": "NOUN",
+    "def": "An area; somewhere within an area.\nAn open space, particularly a city square, market square, or courtyard.\n\n A street, sometimes but not always surrounding a public place, square, or plaza of the same name."
+  },
+  {
+    "id": "42e3d5f7-16ef-4755-9c91-cfd1e634db82",
+    "en": "yes",
+    "tr": "Evet",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "42f153b2-c19e-489c-9028-010803d06fcb",
+    "en": "centre",
+    "tr": "Merkez",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "4306c97f-9027-41f3-a9eb-440d840eadf7",
+    "en": "talk",
+    "tr": "Konuşmak",
+    "pos": "VERB",
+    "def": "To communicate, usually by means of speech."
+  },
+  {
+    "id": "44657ebd-c144-4c99-bbdd-325de21fef77",
+    "en": "paper",
+    "tr": "Kağıt",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "44804882-7548-4aa3-8a2f-b248576a2a09",
+    "en": "example",
+    "tr": "Örnek",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "44862993-66e2-418c-8445-64142b2cb95a",
+    "en": "tooth",
+    "tr": "Diş",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "449a19a2-a1f3-4d34-a5c7-4413c3350f21",
+    "en": "face",
+    "tr": "Yüz",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "44a59f54-9447-485e-8186-09861ff6e834",
+    "en": "anything",
+    "tr": "Herhangi bir şey",
+    "pos": "NOUN",
+    "def": "Any object, act, state, event, or fact whatsoever; a thing of any kind; something or other."
+  },
+  {
+    "id": "44c2f4d0-674a-4057-9071-40e068424def",
+    "en": "present",
+    "tr": "Sunmak",
+    "pos": "ADJ",
+    "def": "Relating to now, for the time being; current."
+  },
+  {
+    "id": "44fa2f1f-9061-4c48-ab0f-ad99fbf56951",
+    "en": "television",
+    "tr": "Televizyon",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "456c0beb-9b4f-4d99-b0be-90f4e72ad8e9",
+    "en": "cat",
+    "tr": "Kedi",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "458b7429-61be-48bb-a857-0be12e3a4331",
+    "en": "where",
+    "tr": "Neresi",
+    "pos": "ADV",
+    "def": ""
+  },
+  {
+    "id": "45e1a71c-aa4c-4199-a453-19793ee71243",
+    "en": "have to",
+    "tr": "Zorunda",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "45f2e4ff-e9be-472e-a3ab-e5a628fcf1e1",
+    "en": "win",
+    "tr": "Kazanç",
+    "pos": "VERB",
+    "def": "ISO 639-3 language code for Winnebago."
+  },
+  {
+    "id": "46964b80-81f5-4f9b-9104-b92775208a67",
+    "en": "club",
+    "tr": "Kulüp",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "46bc3e7a-c6c5-48df-b368-623250653fcd",
+    "en": "school",
+    "tr": "Okul",
+    "pos": "NOUN",
+    "def": "An institution dedicated to teaching and learning; an educational institution."
+  },
+  {
+    "id": "46f026c8-6ccf-4015-b2cc-219470dcd0fc",
+    "en": "always",
+    "tr": "Her zaman",
+    "pos": "ADV",
+    "def": ""
+  },
+  {
+    "id": "47502622-ec12-41e7-933f-7ff62a401638",
+    "en": "class",
+    "tr": "Sınıf",
+    "pos": "NOUN",
+    "def": "A group, collection, category or set sharing characteristics or attributes."
+  },
+  {
+    "id": "4752e771-294b-4c2c-8c5c-6275518ca326",
+    "en": "map",
+    "tr": "Harita",
+    "pos": "NOUN",
+    "def": "ISO 639-2 &amp; ISO 639-5 language code for Austronesian languages."
+  },
+  {
+    "id": "477fcaaa-871f-4ab2-ad9a-93ac25a00ad4",
+    "en": "drive",
+    "tr": "Sürmek",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "47cb80b4-ba7a-433c-868b-cb203efe5b01",
+    "en": "radio",
+    "tr": "Radyo",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "47ee6d38-66fc-407b-b377-a50b02a15114",
+    "en": "famous",
+    "tr": "Ünlü",
+    "pos": "ADJ",
+    "def": "Well known."
+  },
+  {
+    "id": "47f02b99-dc8e-483e-810a-df0716cef0c2",
+    "en": "waiter",
+    "tr": "Garson",
+    "pos": "NOUN",
+    "def": "A male or female attendant who serves customers at their tables in a restaurant, café or similar."
+  },
+  {
+    "id": "486219b8-3f34-43c7-825c-c9dbaee788a4",
+    "en": "blue",
+    "tr": "Mavi",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "48b7a0d3-c8f6-45a0-a300-f33a9e9ceded",
+    "en": "study",
+    "tr": "Çalışmak",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "48bd8960-6617-4e03-ad01-ce8f251fad89",
+    "en": "history",
+    "tr": "Tarih",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "48f643ec-4d71-45f0-878d-16aec77e9a4c",
+    "en": "friend",
+    "tr": "Arkadaş",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "495a4908-6bd4-42d4-bc6d-0ee0a5c6d166",
+    "en": "mean",
+    "tr": "Anlam",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "498885c6-378a-4e8c-989d-cd38d07984da",
+    "en": "above",
+    "tr": "Üstünde",
+    "pos": "ADV",
+    "def": "Physically over; on top of; worn on top of, said of clothing. .mw-parser-output .defdate{font-size:smaller}"
+  },
+  {
+    "id": "49eddeca-4b9a-448e-8354-9573e76c7bb5",
+    "en": "dollar",
+    "tr": "Dolar",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "49f843ce-adcf-4f48-893d-718548efe5d2",
+    "en": "number",
+    "tr": "Sayı",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "4a68d3fe-4b4e-4b09-a804-97858a9609b9",
+    "en": "would",
+    "tr": "Istemek",
+    "pos": "VERB",
+    "def": "Past tense of will; usually followed by a bare infinitive.\nUsed to form the \"anterior future\", or \"future in the past\", indicating a futurity relative to a past time. .mw-parser-output .defdate{font-size:smaller}"
+  },
+  {
+    "id": "4a74ad8b-55a5-46d2-812f-a13b90fb6086",
+    "en": "police",
+    "tr": "Polis",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "4a827096-7b89-4ede-aa29-0f6fe853465b",
+    "en": "cream",
+    "tr": "Krem",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "4b075a09-888b-4859-b7da-519acdc57ab4",
+    "en": "girlfriend",
+    "tr": "Kız arkadaş",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "4b5db7f1-768a-46ed-a758-8011adec03ba",
+    "en": "early",
+    "tr": "Erken",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "4b7d2f66-fc85-4cdc-8365-5ff6ded500bb",
+    "en": "tall",
+    "tr": "Uzun",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "4bd3e818-b1aa-4796-878d-c830ca554203",
+    "en": "create",
+    "tr": "Yaratmak",
+    "pos": "VERB",
+    "def": "To bring into existence;"
+  },
+  {
+    "id": "4bdac555-0488-45a0-b362-1079f9607e86",
+    "en": "shopping",
+    "tr": "Alışveriş",
+    "pos": "NOUN",
+    "def": "present participle and gerund of shop"
+  },
+  {
+    "id": "4bef2554-d8f8-45a8-be05-b77658745362",
+    "en": "fat",
+    "tr": "Yağ",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "4c39ad4e-060f-4cca-9f78-11cf804e1bde",
+    "en": "world",
+    "tr": "Dünya",
+    "pos": "NOUN",
+    "def": "The subjective human experience, regarded collectively; human collective existence; existence in general; the reality we live in."
+  },
+  {
+    "id": "4c744ae3-40b1-483d-8ce0-84880edcd696",
+    "en": "describe",
+    "tr": "Betimlemek",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "4d610a5f-a53d-4059-a63a-554a1bbef42d",
+    "en": "floor",
+    "tr": "Zemin",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "4d87ee68-41e4-4c3a-8005-75da7f476d0b",
+    "en": "choose",
+    "tr": "Seçmek",
+    "pos": "VERB",
+    "def": "To pick; to make the choice of; to select."
+  },
+  {
+    "id": "4dd758c4-f564-4b7b-b956-60c35b21cd10",
+    "en": "artist",
+    "tr": "Sanatçı",
+    "pos": "NOUN",
+    "def": "A person who creates art.\nA person who creates art as an occupation."
+  },
+  {
+    "id": "4e452459-3092-44bf-9a02-84c687c53a7b",
+    "en": "station",
+    "tr": "Istasyon",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "4e93fbd0-d480-4f23-aec1-01f605914c91",
+    "en": "later",
+    "tr": "Daha sonra",
+    "pos": "ADV",
+    "def": ""
+  },
+  {
+    "id": "4e94a8dd-2618-4fd4-bd9a-ce5498108e84",
+    "en": "sugar",
+    "tr": "Şeker",
+    "pos": "NOUN",
+    "def": "A food consisting of small, sweet crystals, principally of sucrose, obtained from sugar cane or sugar beet and used as sweetener and preservative."
+  },
+  {
+    "id": "4eeb1e0c-5ce7-4d2a-afba-7bfaaba5c0cf",
+    "en": "online",
+    "tr": "Çevrimiçi",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "4ef4e5d0-4ff8-4cf3-976c-945b0fe48e67",
+    "en": "share",
+    "tr": "Paylaşmak",
+    "pos": "VERB",
+    "def": "A portion of something, especially a portion given or allotted to someone."
+  },
+  {
+    "id": "4f672244-3766-4b18-82e7-138f0aa94ca3",
+    "en": "dancing",
+    "tr": "Dans",
+    "pos": "NOUN",
+    "def": "The activity of taking part in a dance."
+  },
+  {
+    "id": "4f7db8da-23af-4e44-861b-038c79fc7a1a",
+    "en": "thirsty",
+    "tr": "Susuz",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "4fd8aa37-6986-43ec-8d54-6fce5aeaa7ee",
+    "en": "piano",
+    "tr": "Piyano",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "50be28a6-a2a4-4a9a-b386-8186ef29dc48",
+    "en": "email",
+    "tr": "E-posta",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "50cfb26e-11a9-4e56-9463-917ecd0e9391",
+    "en": "month",
+    "tr": "Ay",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "50eea4db-40bf-4c14-acdb-c12fbd62daaa",
+    "en": "sentence",
+    "tr": "Cümle",
+    "pos": "NOUN",
+    "def": "The decision or judgement of a jury or court; a verdict. .mw-parser-output .defdate{font-size:smaller}"
+  },
+  {
+    "id": "51108c0e-3965-4695-bae3-51c3d2581d58",
+    "en": "work",
+    "tr": "Iş",
+    "pos": "NOUN",
+    "def": "Employment.\nLabour, occupation, job."
+  },
+  {
+    "id": "51114f00-1c64-4673-88dc-af10f1dd5701",
+    "en": "decide",
+    "tr": "Karar vermek",
+    "pos": "VERB",
+    "def": "To resolve (a contest, problem, dispute, etc.); to choose, determine, or settle."
+  },
+  {
+    "id": "51195835-58ed-47d9-a0ce-73d88949403b",
+    "en": "terrible",
+    "tr": "Korkunç",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "51c86b7f-6e96-4bda-bca8-822e2d71bdad",
+    "en": "night",
+    "tr": "Gece",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "520316e3-5586-4b96-ad75-a677ab6b6fdc",
+    "en": "supermarket",
+    "tr": "Süpermarket",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "52293f0c-d22f-44d4-afd1-cbdab6e0ad8d",
+    "en": "possible",
+    "tr": "Olası",
+    "pos": "ADJ",
+    "def": "Able but not certain to happen; neither inevitable nor impossible."
+  },
+  {
+    "id": "52ac6ffd-5a73-4562-9d4a-7e625615b155",
+    "en": "room",
+    "tr": "Oda",
+    "pos": "NOUN",
+    "def": "An opportunity or scope (to do something). .mw-parser-output .defdate{font-size:smaller}"
+  },
+  {
+    "id": "52accc52-6e89-4bb0-bc2f-649be2862f88",
+    "en": "say",
+    "tr": "Söylemek",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "52c3548d-5bca-426f-bf85-c560e07fddd6",
+    "en": "all",
+    "tr": "Tümü",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "52eec182-5a5b-49cf-a33a-3e77a9694230",
+    "en": "show",
+    "tr": "Göstermek",
+    "pos": "NOUN",
+    "def": "To display or exhibit; to have somebody see (something); to direct attention to something."
+  },
+  {
+    "id": "53168dfa-f28f-4e59-986f-0a3c21a3a7a5",
+    "en": "lie",
+    "tr": "Yalan",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "5329e79d-7b51-435c-a89e-d7b0a1266843",
+    "en": "walk",
+    "tr": "Yürümek",
+    "pos": "NOUN",
+    "def": "To move on the feet by alternately setting each foot (or pair or group of feet, in the case of animals with four or more feet) forward, with at least one foot on the ground at all times. Compare run."
+  },
+  {
+    "id": "533cd4e8-4ef1-472d-98cf-d0ca1f1139ef",
+    "en": "afraid",
+    "tr": "Korkmuş",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "537473bd-1c3b-44fd-a040-df981ac15b0f",
+    "en": "next to",
+    "tr": "Yanında",
+    "pos": "NOUN",
+    "def": "Beside, alongside, by, adjacent to, or near."
+  },
+  {
+    "id": "5386f52b-4dfc-4881-9934-1f974382da4d",
+    "en": "south",
+    "tr": "Güney",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "53b735b0-aa93-433e-beee-e28f3e15fa45",
+    "en": "meal",
+    "tr": "Yemek",
+    "pos": "NOUN",
+    "def": "Correct quotes"
+  },
+  {
+    "id": "54e1b56c-d0ad-44a6-a9c2-71d95d0968c4",
+    "en": "how",
+    "tr": "Nasıl",
+    "pos": "ADV",
+    "def": "ISO 639-3 language code for Honi."
+  },
+  {
+    "id": "54fb4f46-a7f6-4f0e-b729-364530f665f7",
+    "en": "word",
+    "tr": "Kelime",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "557c4642-4210-456d-baf4-e96e25fba46c",
+    "en": "green",
+    "tr": "Yeşil",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "55c97d0f-ef0a-4a09-b15f-9cce32b53d9e",
+    "en": "need",
+    "tr": "Ihtiyaç",
+    "pos": "VERB",
+    "def": "A requirement for something; something needed."
+  },
+  {
+    "id": "56409588-04b2-4aff-b00d-229d7ebee4d0",
+    "en": "fourth",
+    "tr": "Dördüncü",
+    "pos": "NOUN",
+    "def": "The ordinal form of the number four."
+  },
+  {
+    "id": "564f9df5-66fd-4e45-a092-ff6e1cf6215c",
+    "en": "boy",
+    "tr": "Erkek çocuk",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "565af305-4bf2-4622-adc4-49a743961800",
+    "en": "birthday",
+    "tr": "Doğum günü",
+    "pos": "NOUN",
+    "def": "The anniversary of the day on which someone is born. .mw-parser-output .defdate{font-size:smaller}"
+  },
+  {
+    "id": "5675ead3-f968-41fd-9dab-d3129172c9f1",
+    "en": "sweater",
+    "tr": "Kazak",
+    "pos": "NOUN",
+    "def": "A knitted jacket or jersey, usually of thick wool, worn by athletes before or after exercise."
+  },
+  {
+    "id": "581b13a3-5069-479f-b59e-537874079806",
+    "en": "complete",
+    "tr": "Tamamlamak",
+    "pos": "ADJ",
+    "def": "To finish; to make done; to reach the end."
+  },
+  {
+    "id": "583a67a8-0020-43f1-ab10-409c17f35fbf",
+    "en": "laugh",
+    "tr": "Gülmek",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "58ccd036-824a-463f-9784-3d20c7c25dcf",
+    "en": "March",
+    "tr": "Mart",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "58f892cc-5062-4e41-9fb0-a357d7d3cd50",
+    "en": "model",
+    "tr": "Modeli",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "5918ac9c-1bdd-46de-9e1f-49d7e190f8ae",
+    "en": "cooking",
+    "tr": "Yemek pişirmek",
+    "pos": "NOUN",
+    "def": "The process of preparing food by using heat."
+  },
+  {
+    "id": "591b7090-2f3e-499e-b50c-81efd9756517",
+    "en": "name",
+    "tr": "Isim",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "598edb84-1acf-408f-99d6-366b710f1579",
+    "en": "yellow",
+    "tr": "Sarı",
+    "pos": "ADJ",
+    "def": "The color of sunflower petals and lemons; the color obtained by mixing green and red light, or by subtracting blue from white light; the color evoked by light of wavelength around 580 nm; one of the three primary colors in subtractive color systems."
+  },
+  {
+    "id": "59cfb4d7-092b-4530-881c-df1588c017f5",
+    "en": "shoe",
+    "tr": "Ayakkabı",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "59f62b81-c8d7-4656-b12f-5ef10235942c",
+    "en": "parent",
+    "tr": "Ebeveyn",
+    "pos": "NOUN",
+    "def": "A person who raises a child (which they have made, adopted, fostered, taken as their own, etc.). .mw-parser-output .defdate{font-size:smaller}"
+  },
+  {
+    "id": "5a62e5d9-e43c-4c5f-aa95-890169ff4561",
+    "en": "quiet",
+    "tr": "Sessizlik",
+    "pos": "ADJ",
+    "def": "With little or no sound; free of disturbing noise."
+  },
+  {
+    "id": "5c9b5785-ee22-4609-83a7-9e544213a756",
+    "en": "half",
+    "tr": "Yarım",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "5cae7837-78d9-45b0-bc87-a67fef9efed9",
+    "en": "anyone",
+    "tr": "Herhangi biri",
+    "pos": "NOUN",
+    "def": "Any person; anybody."
+  },
+  {
+    "id": "5d5f70a2-5975-48de-9cde-7e4a0f76cb0c",
+    "en": "fall",
+    "tr": "Düşmek",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "5de949ce-5fcb-4161-b7ec-e3a2179c8b83",
+    "en": "arm",
+    "tr": "Kol",
+    "pos": "NOUN",
+    "def": "ISO 639-2/B language code for Armenian."
+  },
+  {
+    "id": "5e00bb08-3a6c-4d53-9eb8-c4076447f8b8",
+    "en": "October",
+    "tr": "Ekim",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "5e07bad2-0ebb-481c-aaab-f799280deefe",
+    "en": "moment",
+    "tr": "An",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "5e341c31-d483-4b23-a769-ed9aabf5d5dd",
+    "en": "fine",
+    "tr": "Iyi",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "5e563089-8fed-4385-a439-ff006973e7eb",
+    "en": "summer",
+    "tr": "Yaz",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "5e5bec72-c97a-4297-91f2-ceeef4c4a14e",
+    "en": "computer",
+    "tr": "Bilgisayar",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "5ea66aa0-6d80-4576-9025-efafa585ec86",
+    "en": "period",
+    "tr": "Dönem",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "5f3e35a8-0996-40eb-b624-d79dd64167a7",
+    "en": "special",
+    "tr": "Özel",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "5f4de075-4170-4399-b8ef-2a31816187b0",
+    "en": "so",
+    "tr": "Bu yüzden",
+    "pos": "ADV",
+    "def": ""
+  },
+  {
+    "id": "5f4dfe24-0edb-4dc2-9acb-e1c200a80526",
+    "en": "geography",
+    "tr": "Coğrafya",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "5f63b57f-2141-4a31-93d7-4212425f1484",
+    "en": "December",
+    "tr": "Aralık",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "5f978194-1ef4-4d12-82cd-43ec02031128",
+    "en": "delicious",
+    "tr": "Lezzetli",
+    "pos": "ADJ",
+    "def": "Pleasing to the sense of taste; tasty."
+  },
+  {
+    "id": "5fcb9c77-1d8b-4614-8a47-3f6127f2df86",
+    "en": "orange",
+    "tr": "Turuncu",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "6022dd0b-e86e-4e68-abae-4388e3ebae79",
+    "en": "title",
+    "tr": "Başlık",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "60bde9e0-cc25-408b-925c-ef50b0ac1f37",
+    "en": "holiday",
+    "tr": "Tatil",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "60ffd4b7-e8b8-4432-96aa-c926246315e8",
+    "en": "photo",
+    "tr": "Fotoğraf",
+    "pos": "NOUN",
+    "def": "A photograph."
+  },
+  {
+    "id": "61484309-3ab5-4832-879f-bceae54cd359",
+    "en": "city",
+    "tr": "Şehir",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "619e7ab4-c82d-4d3c-9400-d78816242cb5",
+    "en": "visit",
+    "tr": "Ziyaret etmek",
+    "pos": "NOUN",
+    "def": "To habitually go to (someone in distress, sickness etc.) to comfort them. (Now generally merged into later senses, below.) .mw-parser-output .defdate{font-size:smaller}"
+  },
+  {
+    "id": "61f6eb3c-519e-4a45-ac2b-6047681d9969",
+    "en": "finish",
+    "tr": "Sona ermek",
+    "pos": "VERB",
+    "def": "An end; the end of anything."
+  },
+  {
+    "id": "6209357b-a7f7-4bcb-ae61-02edb9a4cd84",
+    "en": "plan",
+    "tr": "Planı",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "620e2256-7d21-4c33-bd66-97dd407cc3c1",
+    "en": "cafe",
+    "tr": "Kafe",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "623a77f0-448a-465b-901a-dbabb58d68f8",
+    "en": "and",
+    "tr": "Ve",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "6261262e-0c94-4709-883b-51cdf0b32a40",
+    "en": "camera",
+    "tr": "Kamera",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "627f87d2-f778-44a4-bc4a-01a2515b3856",
+    "en": "free",
+    "tr": "Özgür",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "62d568be-c5be-4876-af4e-76479b61b4cc",
+    "en": "evening",
+    "tr": "Akşam",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "634e0f64-a4b7-4063-9f11-50842895792e",
+    "en": "watch",
+    "tr": "Kol saati",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "6362e66d-6096-49dd-a291-7df4416a1c5c",
+    "en": "line",
+    "tr": "Astar",
+    "pos": "NOUN",
+    "def": "A path through two or more points (compare ‘segment’); a continuous mark, including as made by a pen; any path, curved or straight."
+  },
+  {
+    "id": "6374285f-a9ef-4b87-9cec-5dc0d02a1ec9",
+    "en": "many",
+    "tr": "Birçok",
+    "pos": "NOUN",
+    "def": "before a countable noun: A large, indefinite number of."
+  },
+  {
+    "id": "645303e1-ef6f-4a15-8f2e-1727bb6da92a",
+    "en": "answer",
+    "tr": "Cevap",
+    "pos": "NOUN",
+    "def": "A response or reply; something said or done in reaction to a statement or question."
+  },
+  {
+    "id": "64576c6a-9f0a-4b48-a757-b0814965c3ce",
+    "en": "understand",
+    "tr": "Anlamak",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "64693f2e-b9a6-4647-b4b6-3910b7ac71e1",
+    "en": "dog",
+    "tr": "Köpek",
+    "pos": "NOUN",
+    "def": "A mammal of the family Canidae:\n The species Canis familiaris (sometimes designated Canis lupus familiaris), domesticated for thousands of years and of highly variable appearance because of human breeding."
+  },
+  {
+    "id": "646cc5fa-90d6-4fce-87c8-bc4e86e92755",
+    "en": "climb",
+    "tr": "Tırmanmak",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "658370aa-5259-498e-ab34-b0955a0a1878",
+    "en": "clothes",
+    "tr": "Kıyafetler",
+    "pos": "NOUN",
+    "def": "Items of clothing; apparel."
+  },
+  {
+    "id": "66f12f61-aad5-46f9-8d70-334fe300ee12",
+    "en": "spring",
+    "tr": "Bahar",
+    "pos": "NOUN",
+    "def": "To move or burst forth."
+  },
+  {
+    "id": "66f169f3-cd8a-42b4-93a1-e94dd1571446",
+    "en": "metre",
+    "tr": "Metre",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "670f752d-98eb-46ec-a599-da80efaaa1bc",
+    "en": "meet",
+    "tr": "Tanışmak",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "67647f3b-1374-4e69-8576-f928ebd59d38",
+    "en": "young",
+    "tr": "Genç",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "6783afa3-8d13-4407-8ae8-ec9370b1e011",
+    "en": "will",
+    "tr": "Irade",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "67f06b24-75b2-4b49-81e7-d1a4e476d665",
+    "en": "white",
+    "tr": "Beyaz",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "685848b2-cff6-433b-83d3-d6b5e660a1eb",
+    "en": "sleep",
+    "tr": "Uyumak",
+    "pos": "VERB",
+    "def": "To rest in a state of reduced consciousness."
+  },
+  {
+    "id": "687951dd-cdeb-41b3-aea8-5d1c2c6771a4",
+    "en": "traffic",
+    "tr": "Trafik",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "693ee0ba-fe75-447a-b0f7-1ff35709fc5b",
+    "en": "thing",
+    "tr": "Şey",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "6940a4d0-eeef-4bd1-bd53-1db07e14db12",
+    "en": "between",
+    "tr": "Arasında",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "69af82b6-93fb-48ff-8b1a-d9178f120e2b",
+    "en": "better",
+    "tr": "Daha iyi",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "6a28032d-a27b-49df-8771-aa7a4ab1fea8",
+    "en": "on",
+    "tr": "Açık",
+    "pos": "ADV",
+    "def": ""
+  },
+  {
+    "id": "6a3d8935-10cf-45be-b919-79b662b08a4f",
+    "en": "trip",
+    "tr": "Seyahat",
+    "pos": "NOUN",
+    "def": "A journey; an excursion or jaunt."
+  },
+  {
+    "id": "6b066470-c245-4d57-929c-dd3e923b169e",
+    "en": "even",
+    "tr": "Eşit",
+    "pos": "ADV",
+    "def": ""
+  },
+  {
+    "id": "6b4305dc-608c-4a1e-a3c8-58dfb9ae6ca6",
+    "en": "story",
+    "tr": "Hikaye",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "6bb4dfb9-4cef-45f1-bc40-69b39fb7e3f6",
+    "en": "across",
+    "tr": "Karşısında",
+    "pos": "ADV",
+    "def": ""
+  },
+  {
+    "id": "6c39de7c-c35b-49b4-8542-16f651f8d767",
+    "en": "remember",
+    "tr": "Unutma",
+    "pos": "VERB",
+    "def": "To recall from one's memory; to have an image in one's memory."
+  },
+  {
+    "id": "6c7d56df-0d93-4852-87dd-27c1acee4d4b",
+    "en": "much",
+    "tr": "Fazla",
+    "pos": "ADV",
+    "def": "A large amount of. .mw-parser-output .defdate{font-size:smaller}"
+  },
+  {
+    "id": "6cbf0dc4-076a-4cb1-8ccc-98fb0e69f6f3",
+    "en": "match",
+    "tr": "Kibrit",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "6ccb8d4c-61b4-4283-973c-819065aedf25",
+    "en": "dirty",
+    "tr": "Kirli",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "6cf2d759-c486-4728-ba47-b12eb59a090b",
+    "en": "policeman",
+    "tr": "Polis",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "6cf48f7f-b28f-40bc-a680-f9f9354802e2",
+    "en": "own",
+    "tr": "Sahip olmak",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "6d43e3ef-d9db-46ee-9a35-a4e94afef1b2",
+    "en": "team",
+    "tr": "Takım",
+    "pos": "NOUN",
+    "def": "A set of draught animals, such as two horses in front of a carriage."
+  },
+  {
+    "id": "6d55f5f6-47d9-4d39-9aec-6794779eac5f",
+    "en": "sing",
+    "tr": "Şarkı söylemek",
+    "pos": "VERB",
+    "def": "To produce musical or harmonious sounds with one’s voice."
+  },
+  {
+    "id": "6d6a395e-0844-4c35-8e9d-3c60bca3b802",
+    "en": "salt",
+    "tr": "Tuz",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "6dce3a2b-9f8d-47c0-b3c0-fe6d32376ce0",
+    "en": "think",
+    "tr": "Düşünmek",
+    "pos": "VERB",
+    "def": "To ponder, to go over in one's mind."
+  },
+  {
+    "id": "6e240f73-7f0f-4973-b7bc-32eff9d8e84f",
+    "en": "actor",
+    "tr": "Aktör",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "6eba967d-9eef-431d-9e89-0e4c390b0a80",
+    "en": "dear",
+    "tr": "Sayın",
+    "pos": "ADJ",
+    "def": "High in price; expensive."
+  },
+  {
+    "id": "6f1bb64b-282d-4490-8e8a-aa8d3ad36717",
+    "en": "opposite",
+    "tr": "Zıt",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "6f4b335b-cafd-4c2f-a0d6-3275422a1deb",
+    "en": "paint",
+    "tr": "Boyamak",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "6f8b2421-8764-411f-976e-05156b4af1d0",
+    "en": "different",
+    "tr": "Farklı",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "705c9beb-1035-4710-8efe-2bdf5238eeae",
+    "en": "I",
+    "tr": "Ben",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "70b171e6-7946-4939-9405-0918c9ebbecb",
+    "en": "speak",
+    "tr": "Konuşmak",
+    "pos": "VERB",
+    "def": "To communicate with one's voice, to say words out loud."
+  },
+  {
+    "id": "70b6d75d-cefd-40cd-aee6-e390fa100607",
+    "en": "travel",
+    "tr": "Seyahat",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "71031b9e-9fc8-4b58-8ba2-61488c942157",
+    "en": "machine",
+    "tr": "Makine",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "7132d76f-e806-4571-a9fd-3c703042305f",
+    "en": "vacation",
+    "tr": "Tatil",
+    "pos": "NOUN",
+    "def": "An extended trip or journey away from home for rest or pleasure. .mw-parser-output .defdate{font-size:smaller}"
+  },
+  {
+    "id": "71995e37-ec31-47a0-b675-9ce8ded65fcb",
+    "en": "poor",
+    "tr": "Fakir",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "722ccd8c-594e-4a97-8cd6-50fd1b6c33f2",
+    "en": "join",
+    "tr": "Katılmak",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "722e3c2e-edc2-4505-bdd3-46de16b653e6",
+    "en": "spelling",
+    "tr": "Yazım",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "725d8468-219b-40a3-a179-027daeb38fc1",
+    "en": "father",
+    "tr": "Baba",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "727d6f2f-b914-439e-b294-05d591537e61",
+    "en": "eighteen",
+    "tr": "On sekiz",
+    "pos": "NOUN",
+    "def": "The cardinal number occurring after seventeen and before nineteen, represented in Roman numerals as XVIII and in Arabic numerals as 18."
+  },
+  {
+    "id": "72835a5f-ec84-4b17-b839-33964fedc961",
+    "en": "September",
+    "tr": "Eylül",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "72d19577-1be5-42eb-8fdb-cc3b85dc2d2d",
+    "en": "fact",
+    "tr": "Hakikat",
+    "pos": "NOUN",
+    "def": "Something actual as opposed to invented."
+  },
+  {
+    "id": "73252ead-9428-4aff-afe8-49ff34dc6c1b",
+    "en": "music",
+    "tr": "Müzik",
+    "pos": "NOUN",
+    "def": "A series of sounds organized in time, usually employing some combination of harmony, melody, rhythm, tempo, etc., often to convey a mood."
+  },
+  {
+    "id": "73269b5d-6f31-49ea-9592-3fbd93d51c9b",
+    "en": "there",
+    "tr": "Orası",
+    "pos": "ADV",
+    "def": ""
+  },
+  {
+    "id": "73349ec3-b350-49ed-b07d-43162e7bca22",
+    "en": "yesterday",
+    "tr": "Dün",
+    "pos": "ADV",
+    "def": ""
+  },
+  {
+    "id": "735b8409-84da-4dd5-8dcc-1b5575e58e49",
+    "en": "pencil",
+    "tr": "Kalem",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "738b379e-ccab-4c66-b1e4-0d2b93397d1a",
+    "en": "boot",
+    "tr": "Bot",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "73bc2ea8-c861-41c9-aa6b-8cb71833e949",
+    "en": "first",
+    "tr": "Birinci",
+    "pos": "ADV",
+    "def": ""
+  },
+  {
+    "id": "73c64ceb-7c0a-421f-800a-054a8fed4023",
+    "en": "take",
+    "tr": "Almak",
+    "pos": "VERB",
+    "def": "To get into one's hands, possession, or control, with or without force."
+  },
+  {
+    "id": "73f92d3c-d981-45d1-8a46-40981e51e268",
+    "en": "fire",
+    "tr": "Ateş",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "73fc6a97-49b0-4bb2-a826-1da4ac3ff788",
+    "en": "egg",
+    "tr": "Yumurta",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "7425ab02-7f17-41a1-8b73-f7f527f9e877",
+    "en": "teach",
+    "tr": "Öğretmek",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "742bafa3-33a8-46f2-a781-8a40a4fa78e8",
+    "en": "November",
+    "tr": "Kasım",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "7435488e-9256-4546-92a9-f077cf6cc923",
+    "en": "hotel",
+    "tr": "Otel",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "74dbcdf6-4df3-42d8-b9ba-7caf26305e87",
+    "en": "river",
+    "tr": "Nehir",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "753f3b2d-93ac-4119-af39-f491db7f0a24",
+    "en": "he",
+    "tr": "O",
+    "pos": "NOUN",
+    "def": "ISO 639-1 language code for Hebrew."
+  },
+  {
+    "id": "75a98fd4-7d59-4a87-89d8-429168fa9f57",
+    "en": "movie",
+    "tr": "Film",
+    "pos": "NOUN",
+    "def": "A recorded sequence of images displayed on a screen at a rate sufficiently fast to create the appearance of motion; a film; a video."
+  },
+  {
+    "id": "76869330-b69f-45f4-a63a-d28e0a7dbe46",
+    "en": "town",
+    "tr": "Şehir",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "76c23834-63a7-4c6e-b3e6-abb38f3212e3",
+    "en": "pound",
+    "tr": "Pound",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "7724d056-eda8-4d02-9c02-85e5696fd15f",
+    "en": "for",
+    "tr": "Için",
+    "pos": "NOUN",
+    "def": "ISO 639-3 language code for Fore."
+  },
+  {
+    "id": "777ad4ee-d981-4d0a-9efb-d02c714de391",
+    "en": "game",
+    "tr": "Oyun",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "77b9c2d0-53f2-4873-a53b-c6e7f4def821",
+    "en": "often",
+    "tr": "Sıklıkla",
+    "pos": "ADV",
+    "def": ""
+  },
+  {
+    "id": "786ac45c-2a70-45d7-ae7c-6c3fa5aec474",
+    "en": "adult",
+    "tr": "Yetişkin",
+    "pos": "NOUN",
+    "def": "An animal that is full-grown."
+  },
+  {
+    "id": "78ffc75d-6ca7-43e3-9d3b-65c77cc73f3a",
+    "en": "event",
+    "tr": "Etkinlik",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "7908393d-8690-4e22-929a-bbb0f1ec2fd8",
+    "en": "guess",
+    "tr": "Tahmin etmek",
+    "pos": "NOUN",
+    "def": "To reach a partly (or totally) unconfirmed conclusion; to engage in conjecture; to speculate."
+  },
+  {
+    "id": "7945e7e4-0824-4cfd-8b2c-cc05ea7b4e9f",
+    "en": "play",
+    "tr": "Oynamak",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "79c7a902-9625-4645-885b-cd7b2a1bfafb",
+    "en": "just",
+    "tr": "Sadece",
+    "pos": "ADV",
+    "def": "Factually right, correct; factual."
+  },
+  {
+    "id": "7a3a26f9-3f52-4e6c-abb2-f8492ca11d1f",
+    "en": "pen",
+    "tr": "Dolma kalem",
+    "pos": "NOUN",
+    "def": "Former ISO 639-3 language code for Penesak."
+  },
+  {
+    "id": "7a8a9a76-3e21-41fe-b63f-fd417dca6f5f",
+    "en": "Saturday",
+    "tr": "Cumartesi",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "7acda5e8-a85e-487a-a3b6-f101ecee0d8b",
+    "en": "turn",
+    "tr": "Dönüş",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "7ade2c3b-b984-4090-97db-95ad26dfde23",
+    "en": "customer",
+    "tr": "Müşteri",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "7af5b43b-127b-416f-bb66-2e30992fb518",
+    "en": "let",
+    "tr": "Izin vermek",
+    "pos": "VERB",
+    "def": "ISO 639-3 language code for Lesing-Gelimi."
+  },
+  {
+    "id": "7afa4f47-3ea5-45b3-aee7-ee1b2ef988ef",
+    "en": "pepper",
+    "tr": "Biber",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "7b09b2ce-9af1-43ab-a3ae-ce8b82554774",
+    "en": "bottle",
+    "tr": "Şişe",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "7b14d29f-dd83-4bba-9c71-8d5b735bea55",
+    "en": "bag",
+    "tr": "Çanta",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "7b2bae02-275d-46df-9140-300c5d6b662d",
+    "en": "cup",
+    "tr": "Bardak",
+    "pos": "NOUN",
+    "def": "ISO 639-3 language code for Cupeño."
+  },
+  {
+    "id": "7c0daf23-a6e9-4519-9cff-a159e4f5dda6",
+    "en": "man",
+    "tr": "Adam",
+    "pos": "NOUN",
+    "def": "ISO 639-2 &amp; ISO 639-3 language code for Mandingo."
+  },
+  {
+    "id": "7c3c4db4-91e8-4fd4-a04c-eabec5c01f7b",
+    "en": "time",
+    "tr": "Zaman",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "7c46a689-f67c-4434-854d-d2989e05d8ef",
+    "en": "menu",
+    "tr": "Menü",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "7c719cb9-a259-4331-9a84-24134e81e5d5",
+    "en": "nose",
+    "tr": "Burun",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "7c96bd66-9f84-48f1-83fd-9790a37e3be6",
+    "en": "rice",
+    "tr": "Pirinç",
+    "pos": "NOUN",
+    "def": "Cereal plants, Oryza sativa of the grass family whose seeds are used as food."
+  },
+  {
+    "id": "7d26f0f2-3288-4576-8338-ac4de25fc5ad",
+    "en": "clean",
+    "tr": "Temiz",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "7d2b0e3e-3a45-410e-a405-3873bd52662b",
+    "en": "sad",
+    "tr": "Üzgün",
+    "pos": "ADJ",
+    "def": "ISO 639-2 &amp; ISO 639-3 language code for Sandawe."
+  },
+  {
+    "id": "7d90d673-b5ad-4a75-8256-c76a2e7ead2a",
+    "en": "together",
+    "tr": "Birlikte",
+    "pos": "ADV",
+    "def": "At the same time, in the same place; in close association or proximity."
+  },
+  {
+    "id": "7e01022f-c1bc-4aff-8f58-d6659b9de22a",
+    "en": "library",
+    "tr": "Kütüphane",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "7e47518a-5cf7-4c83-a937-9f8809e6af9a",
+    "en": "thirteen",
+    "tr": "On üç",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "7e5cac82-80f0-418b-9c07-c52faf4e8a24",
+    "en": "programme",
+    "tr": "Programı",
+    "pos": "NOUN",
+    "def": "UK, New Zealand, and India standard spelling of program."
+  },
+  {
+    "id": "7ede3887-6f31-474f-a6a7-46793beba608",
+    "en": "type",
+    "tr": "Tip",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "7f0f7fe3-bd2d-4f02-985e-c1c27e0e23fd",
+    "en": "fast",
+    "tr": "Hızlı",
+    "pos": "ADV",
+    "def": ""
+  },
+  {
+    "id": "7f24ff4d-bad3-4f67-a949-cc4dd646b9f4",
+    "en": "fruit",
+    "tr": "Meyve",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "7f492386-87f0-4ec6-b8a6-e61e558413d2",
+    "en": "black",
+    "tr": "Siyah",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "7fde39aa-a881-4946-ba53-4aac20ab7ea9",
+    "en": "please",
+    "tr": "Lütfen",
+    "pos": "NOUN",
+    "def": "To make happy or satisfy; to give pleasure to."
+  },
+  {
+    "id": "80b7c460-e4b1-4384-934e-9796516bf58e",
+    "en": "come",
+    "tr": "Gelmek",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "80d5301b-cfc1-4e2c-99cf-dca3831b3184",
+    "en": "again",
+    "tr": "Tekrar",
+    "pos": "ADV",
+    "def": "Another time: indicating a repeat of an action. .mw-parser-output .defdate{font-size:smaller}"
+  },
+  {
+    "id": "80f569a6-e258-4870-94f3-8f819b3f928f",
+    "en": "welcome",
+    "tr": "Hoş geldin",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "812be89f-15e7-4176-9e9c-179a4f623660",
+    "en": "hundred",
+    "tr": "Yüz",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "81a81454-e8a9-4c31-a62f-a4bcb7f3c04b",
+    "en": "imagine",
+    "tr": "Hayal etmek",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "81ac2612-a18f-4119-9f56-b457eafb475c",
+    "en": "airport",
+    "tr": "Havalimanı",
+    "pos": "NOUN",
+    "def": "An airfield (an area designated for the takeoff and landing of aircraft), including one or more runways and (for commercial airports) one or more passenger terminals."
+  },
+  {
+    "id": "81ed73a4-ccb9-462d-a4bc-0db39c994482",
+    "en": "open",
+    "tr": "Açık",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "82840a1b-4d97-483f-98fa-4d81bc73e708",
+    "en": "sick",
+    "tr": "Hasta",
+    "pos": "ADJ",
+    "def": "In poor health; ill."
+  },
+  {
+    "id": "828811d4-702f-43e7-b483-f8df4bf010bc",
+    "en": "ask",
+    "tr": "Sormak",
+    "pos": "VERB",
+    "def": "ISO 639-3 language code for Ashkun."
+  },
+  {
+    "id": "828e529b-78a2-4770-b5d5-9231f6d24408",
+    "en": "close",
+    "tr": "Kapalı",
+    "pos": "VERB",
+    "def": "To remove or block an opening, gap or passage through.\n To move a thing, or part of a thing, nearer to another so that the gap or opening between the two is removed."
+  },
+  {
+    "id": "82c87f62-048e-41a9-b8b8-2b8e7f5fb7ff",
+    "en": "leg",
+    "tr": "Bacak",
+    "pos": "NOUN",
+    "def": "A limb or appendage that an animal uses for support or locomotion on land."
+  },
+  {
+    "id": "832e4610-4375-4a69-8374-3685ca1bd33e",
+    "en": "o'clock",
+    "tr": "Saat",
+    "pos": "ADV",
+    "def": "NATO, ICAO, ITU &amp; IMO radiotelephony code word used with numerals up to twelve to indicate direction"
+  },
+  {
+    "id": "833645db-04b3-4572-8059-0ebf2a15a5cd",
+    "en": "doctor",
+    "tr": "Doktor",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "838f97b3-dae7-4335-8934-90fb16f36fd8",
+    "en": "flight",
+    "tr": "Uçuş",
+    "pos": "NOUN",
+    "def": "The act of flying."
+  },
+  {
+    "id": "839a752f-7822-41ca-8dbb-d50ddc0a8888",
+    "en": "April",
+    "tr": "Nisan",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "83bca646-d105-42c1-803a-764833714f31",
+    "en": "strong",
+    "tr": "Güçlü",
+    "pos": "ADJ",
+    "def": "Capable of producing great physical force."
+  },
+  {
+    "id": "841d4967-6615-4b8d-9dc4-9fc6991caf2d",
+    "en": "important",
+    "tr": "Önemli",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "8429cfb7-e5ca-4daf-ba92-0fbbaf5d517e",
+    "en": "plane",
+    "tr": "Uçak",
+    "pos": "NOUN",
+    "def": "Of a surface: flat or level."
+  },
+  {
+    "id": "8489646c-d40e-477c-870b-61967dd2e79b",
+    "en": "blog",
+    "tr": "Blog",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "84918cb6-7791-4533-bc53-49c5c56d76e0",
+    "en": "send",
+    "tr": "Göndermek",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "85015d45-ac94-49a3-b516-8cf4e6f5a0ce",
+    "en": "paragraph",
+    "tr": "Paragraf",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "8533700f-c848-433c-91b2-68efb085c363",
+    "en": "door",
+    "tr": "Kapı",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "854fbe88-f4a1-4a69-bbc6-716e6de6a63d",
+    "en": "around",
+    "tr": "Etrafında",
+    "pos": "ADV",
+    "def": "Forming a circle or closed curve containing (something)."
+  },
+  {
+    "id": "856d7ff8-b2ef-46bb-9927-a7c6b95b2f98",
+    "en": "February",
+    "tr": "Şubat",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "85e5acea-79a2-40c3-9d64-6efe899f546b",
+    "en": "large",
+    "tr": "Büyük",
+    "pos": "ADJ",
+    "def": "Of considerable or relatively great size or extent."
+  },
+  {
+    "id": "862fe509-c299-4938-9d5e-d1bc404c2522",
+    "en": "company",
+    "tr": "Şirket",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "8633410b-ad68-485d-9da3-773497e66ae5",
+    "en": "quickly",
+    "tr": "Hızlıca",
+    "pos": "ADV",
+    "def": ""
+  },
+  {
+    "id": "8643cd5d-c73e-4c51-9382-828b03f13f74",
+    "en": "them",
+    "tr": "Onlara",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "86623f20-21b8-48ac-b106-9592217a43c4",
+    "en": "sound",
+    "tr": "Ses",
+    "pos": "NOUN",
+    "def": "Healthy."
+  },
+  {
+    "id": "86aac4c1-9497-44a3-b434-f9eff72d9ce7",
+    "en": "sister",
+    "tr": "Kız kardeş",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "86d0622f-200e-4422-814f-9ff8293c3a1b",
+    "en": "information",
+    "tr": "Bilgi",
+    "pos": "NOUN",
+    "def": "Something that provides a definitive characterization or description of the nature and attributes of a specified entity."
+  },
+  {
+    "id": "86e53aa0-36c0-4c48-9a77-22cf7e505148",
+    "en": "relax",
+    "tr": "Rahatlamak",
+    "pos": "VERB",
+    "def": "To make something loose."
+  },
+  {
+    "id": "87970e19-a358-4ad5-8389-4cdc3df89ce4",
+    "en": "feeling",
+    "tr": "His",
+    "pos": "NOUN",
+    "def": "Emotionally sensitive."
+  },
+  {
+    "id": "87bbe43c-21ce-48d2-b69d-c7d359f0f768",
+    "en": "building",
+    "tr": "Bina",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "880eeacf-f72a-492a-90ea-ce46480de511",
+    "en": "money",
+    "tr": "Para",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "884ca873-1f34-4838-ab30-33e422f3e775",
+    "en": "second",
+    "tr": "Ikinci",
+    "pos": "NOUN",
+    "def": "Number-two; following after the first one with nothing between them. The ordinal number corresponding to the cardinal number two."
+  },
+  {
+    "id": "885dfd8e-1ece-4bb0-bb60-e0f6ace9c49d",
+    "en": "colour",
+    "tr": "Renk",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "8864715d-a4ae-42e4-859e-db7a746313f8",
+    "en": "question",
+    "tr": "Soru",
+    "pos": "NOUN",
+    "def": "A worded or expressed sentence, phrase, or only a word on its own, which asks for information, a reply, or a response; an interrogative."
+  },
+  {
+    "id": "88661020-ccf9-434b-bb08-77e3c5bbe765",
+    "en": "minute",
+    "tr": "Dakika",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "887d70a2-c8da-4f8b-9255-721a664530b3",
+    "en": "bicycle",
+    "tr": "Bisiklet",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "8895c610-be4e-44a6-9404-aaefefbbcdac",
+    "en": "four",
+    "tr": "Dört",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "889c61fc-9a21-48ca-ad95-32df00ed3d36",
+    "en": "discuss",
+    "tr": "Tartışmak",
+    "pos": "VERB",
+    "def": "To converse or debate concerning a particular topic."
+  },
+  {
+    "id": "893ac233-e919-4c4c-b531-1332c99dc5be",
+    "en": "fly",
+    "tr": "Uçmak",
+    "pos": "VERB",
+    "def": "ISO 639-3 language code for Tsotsitaal."
+  },
+  {
+    "id": "897189ba-9cab-47d4-8b3f-01c36ac865e8",
+    "en": "clock",
+    "tr": "Saat",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "89936a04-1e49-4451-a0ed-6a5528121935",
+    "en": "other",
+    "tr": "Diğer",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "89a581df-834d-45d8-a641-96281368ac30",
+    "en": "introduce",
+    "tr": "Tanıtmak",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "8a085746-06fb-4b3e-a083-3699cac09632",
+    "en": "career",
+    "tr": "Kariyer",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "8ad976c0-1b50-4f72-9add-a705dcc535de",
+    "en": "forty",
+    "tr": "Kırk",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "8b0b276d-1461-46cc-8b1a-796ed0498b75",
+    "en": "CD",
+    "tr": "Cd",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "8b161dc2-f650-4898-8856-03db9b73d556",
+    "en": "buy",
+    "tr": "Satın almak",
+    "pos": "VERB",
+    "def": "ISO 639-3 language code for Mmani."
+  },
+  {
+    "id": "8c718db4-bdb6-436d-bb09-23de00e6b4ee",
+    "en": "description",
+    "tr": "Tanım",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "8c7fa4cc-f40e-40dc-9214-7bbee5d59f84",
+    "en": "include",
+    "tr": "Katmak",
+    "pos": "VERB",
+    "def": "To bring into a group, class, set, or total as a (new) part or member."
+  },
+  {
+    "id": "8c95d112-96f9-4b17-8786-b97167f44a2b",
+    "en": "add",
+    "tr": "Eklemek",
+    "pos": "VERB",
+    "def": "ISO 639-3 language code for Dzodinka."
+  },
+  {
+    "id": "8d624a5e-b7c7-4c97-97f5-fc48254bc8c2",
+    "en": "rain",
+    "tr": "Yağmur",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "8e289f75-b647-473b-bc7f-b260d347b7a0",
+    "en": "lot",
+    "tr": "Pay",
+    "pos": "ADV",
+    "def": ""
+  },
+  {
+    "id": "8e315747-f6b7-458b-b9d1-9f50117508be",
+    "en": "seventy",
+    "tr": "Yetmiş",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "8e38e014-a00d-41da-a37d-549084773e73",
+    "en": "concert",
+    "tr": "Konser",
+    "pos": "NOUN",
+    "def": "To plan together; to settle or adjust by conference, agreement, or consultation."
+  },
+  {
+    "id": "8e6ea36f-fcce-4454-a9d6-5723b15c7d5b",
+    "en": "well",
+    "tr": "Peki",
+    "pos": "ADJ",
+    "def": "Accurately, competently, satisfactorily."
+  },
+  {
+    "id": "8e9516f4-b815-4cee-a87c-c5f21f51229e",
+    "en": "without",
+    "tr": "Olmadan",
+    "pos": "NOUN",
+    "def": "Outside, externally."
+  },
+  {
+    "id": "8ed0ca4e-eb40-4a41-85fd-efe6d499eaad",
+    "en": "university",
+    "tr": "Üniversite",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "8f293d66-1339-4187-9c8e-c85db1a180be",
+    "en": "behind",
+    "tr": "Arka",
+    "pos": "ADV",
+    "def": "At or to the back or far side of."
+  },
+  {
+    "id": "8f933104-ac47-4cb6-ab8f-a3db48363e50",
+    "en": "to",
+    "tr": "Ile",
+    "pos": "NOUN",
+    "def": "ISO 639-1 language code for Tongan."
+  },
+  {
+    "id": "8fc9be01-4965-4e66-9bcb-dd6ee81ef539",
+    "en": "land",
+    "tr": "Kara",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "905d2fde-a35c-4887-91fa-cc488267bf15",
+    "en": "mother",
+    "tr": "Anne",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "9193c3bb-56f0-4710-add3-dcfc8f99ee22",
+    "en": "passport",
+    "tr": "Pasaport",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "91a026da-e6d2-4355-8e63-58851bcf06bf",
+    "en": "natural",
+    "tr": "Doğal",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "91c39224-7dfc-43fd-aacd-46682b59853d",
+    "en": "difficult",
+    "tr": "Zor",
+    "pos": "ADJ",
+    "def": "Hard, not easy, requiring much effort."
+  },
+  {
+    "id": "9269f186-fb37-42e9-8933-5411537d6cb1",
+    "en": "beach",
+    "tr": "Sahil",
+    "pos": "NOUN",
+    "def": "The shore of a body of water, especially when sandy or pebbly."
+  },
+  {
+    "id": "92721927-3c35-45c0-bb7a-714cfadf1dfc",
+    "en": "situation",
+    "tr": "Durum",
+    "pos": "NOUN",
+    "def": "The combination of circumstances at a given moment; a state of affairs."
+  },
+  {
+    "id": "929c6d40-9313-4e0e-b6cf-f74f3ec75a90",
+    "en": "way",
+    "tr": "Yol",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "9303d173-18d3-4ad7-a042-9f409e1746bf",
+    "en": "usually",
+    "tr": "Genellikle",
+    "pos": "ADV",
+    "def": ""
+  },
+  {
+    "id": "930b7a4d-b526-45bd-9499-d9361b53906b",
+    "en": "false",
+    "tr": "Yanliş",
+    "pos": "ADJ",
+    "def": "Untrue, not factual, factually incorrect."
+  },
+  {
+    "id": "9317d216-14fe-462f-a552-c07ab2e79f5b",
+    "en": "pretty",
+    "tr": "Tatlı",
+    "pos": "ADJ",
+    "def": "Pleasant to the sight or other senses; attractive, especially of women or children. .mw-parser-output .defdate{font-size:smaller}"
+  },
+  {
+    "id": "9342f9a5-98da-4bbc-9c3e-32ac4e1d38c5",
+    "en": "tonight",
+    "tr": "Bu akşam",
+    "pos": "ADV",
+    "def": ""
+  },
+  {
+    "id": "93e75f81-e251-4bce-acf8-b93d64e950c6",
+    "en": "midnight",
+    "tr": "Gece yarısı",
+    "pos": "NOUN",
+    "def": "The middle of the night: the sixth temporal hour, equidistant between sunset and sunrise."
+  },
+  {
+    "id": "93f3cfb9-898f-4a88-9b58-394cda122ae3",
+    "en": "bedroom",
+    "tr": "Yatak odası",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "94136389-8da4-4d3e-9156-720233439b7a",
+    "en": "upstairs",
+    "tr": "Üst katta",
+    "pos": "ADV",
+    "def": "Located on a higher floor or level of a building."
+  },
+  {
+    "id": "9452f777-0025-449d-9c15-b9681c886d90",
+    "en": "yeah",
+    "tr": "Evet",
+    "pos": "NOUN",
+    "def": "Yes."
+  },
+  {
+    "id": "94db24dc-663d-440b-b33f-34fb597f6a67",
+    "en": "banana",
+    "tr": "Muz",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "94f63c41-c59f-4d25-8a01-caaaac2b1056",
+    "en": "Thursday",
+    "tr": "Perşembe",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "955dcd41-3258-4594-9779-1260c7ed549e",
+    "en": "June",
+    "tr": "Haziran",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "9599e519-a03b-4129-9700-e89e5ede1804",
+    "en": "trousers",
+    "tr": "Pantolonlar",
+    "pos": "NOUN",
+    "def": "An article of clothing that covers the part of the body between the waist and the ankles or knees, and is divided into a separate part for each leg."
+  },
+  {
+    "id": "95a098d6-d625-461f-b405-1fe3c82459fd",
+    "en": "call",
+    "tr": "Arama",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "96030a9f-14d3-42ab-8294-4d5dd16edc06",
+    "en": "arrive",
+    "tr": "Varmak",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "962a022e-aa1b-494f-bb5f-d8531d18bce6",
+    "en": "wonderful",
+    "tr": "Müthiş",
+    "pos": "ADJ",
+    "def": "Tending to excite wonder; surprising, extraordinary."
+  },
+  {
+    "id": "962a5006-c75a-4525-8ba7-88cb0f4b492c",
+    "en": "near",
+    "tr": "Yakın",
+    "pos": "ADJ",
+    "def": "Physically close."
+  },
+  {
+    "id": "968a3cc0-49d8-4a5c-9365-3d7f147f1b81",
+    "en": "great",
+    "tr": "Harika",
+    "pos": "ADJ",
+    "def": "Taking much space; large.\n\n Much, more than usual."
+  },
+  {
+    "id": "96e5b3f8-8c71-4810-b384-cf60f1150e4d",
+    "en": "small",
+    "tr": "Küçük",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "973fb9f9-b8e5-4dd5-b40d-19019afbb545",
+    "en": "main",
+    "tr": "Ana",
+    "pos": "ADJ",
+    "def": "Of chief or leading importance; prime, principal. .mw-parser-output .defdate{font-size:smaller}"
+  },
+  {
+    "id": "97781b24-9ffa-433a-86bf-f5e2ce9b0078",
+    "en": "over",
+    "tr": "Üzerinde",
+    "pos": "ADV",
+    "def": ""
+  },
+  {
+    "id": "97bb5e94-b76e-4ebd-9eb1-9ede81c2f6e1",
+    "en": "die",
+    "tr": "Ölmek",
+    "pos": "VERB",
+    "def": "To stop living; to become dead; to undergo death.\n\nfollowed by of as an indication of direct cause; general use:"
+  },
+  {
+    "id": "9804faf2-04e2-440f-b27b-aee398c19dc3",
+    "en": "water",
+    "tr": "Su",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "992fbff0-dca3-461f-97e7-021f85b16f23",
+    "en": "post",
+    "tr": "Postalamak",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "99a86570-672a-42c3-b95c-9d320e271600",
+    "en": "no one",
+    "tr": "Hiç kimse",
+    "pos": "NOUN",
+    "def": "Used in contrast to anyone, someone or everyone: not one person; nobody."
+  },
+  {
+    "id": "99ed7c1f-a475-4e27-bed5-d354044d7338",
+    "en": "T-shirt",
+    "tr": "Tişört",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "9a406537-a987-4b77-ad9b-8223f2934812",
+    "en": "below",
+    "tr": "Altında",
+    "pos": "ADV",
+    "def": "Lower in spatial position than."
+  },
+  {
+    "id": "9aaf1a35-3237-4397-8a68-ac3a9dadb712",
+    "en": "activity",
+    "tr": "Aktivite",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "9af18e2e-4ccf-4e19-9c86-5fd3a193178d",
+    "en": "boring",
+    "tr": "Sıkıcı",
+    "pos": "ADJ",
+    "def": "The act or process of boring holes; such practice as an area of expertise in manufacturing.\n  Enlarging an existing hole with a single-point cutting tool or a boring head (usually with high precision and accuracy regarding the roundness and size of the hole)."
+  },
+  {
+    "id": "9b34c950-7385-4720-aa70-fca15e37e4af",
+    "en": "swim",
+    "tr": "Yüzmek",
+    "pos": "VERB",
+    "def": "To move through the water, without touching the bottom; to propel oneself in water by natural means."
+  },
+  {
+    "id": "9b965404-89ad-488a-ba24-c8c4d738ca02",
+    "en": "then",
+    "tr": "Daha sonra",
+    "pos": "ADV",
+    "def": ""
+  },
+  {
+    "id": "9bcc8c22-bacd-442b-9fdf-5b0db10bb6ee",
+    "en": "past",
+    "tr": "Geçmiş",
+    "pos": "ADJ",
+    "def": "The period of time that has already happened, in contrast to the present and the future."
+  },
+  {
+    "id": "9bdfed26-189e-45d3-bdc2-971f5e5b8861",
+    "en": "tomorrow",
+    "tr": "Yarın",
+    "pos": "ADV",
+    "def": "On the day after the present day."
+  },
+  {
+    "id": "9c87e21e-cec9-4681-94e5-bd7d4cbbe365",
+    "en": "party",
+    "tr": "Parti",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "9ca89b00-b4da-425c-a2b3-fed63d08c0cf",
+    "en": "big",
+    "tr": "Büyük",
+    "pos": "ADJ",
+    "def": "ISO 639-3 language code for Biangai."
+  },
+  {
+    "id": "9d10a2db-8952-4b24-a7aa-1459446479ad",
+    "en": "cold",
+    "tr": "Soğuk",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "9d1b40a2-d92b-41ba-8fb2-2565206841f6",
+    "en": "grandfather",
+    "tr": "Büyükbaba",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "9d55b8b8-9346-4786-80cb-a67016a0035a",
+    "en": "cost",
+    "tr": "Maliyet",
+    "pos": "NOUN",
+    "def": "To incur a charge of; to require payment of a (specified) price."
+  },
+  {
+    "id": "9d7b5907-7ade-4b82-bcee-334915420aec",
+    "en": "key",
+    "tr": "Anahtar",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "9db75fd3-6caf-49f4-99f4-af4b3ed9eb8f",
+    "en": "list",
+    "tr": "Liste",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "9de87809-cb87-4b19-8733-cbe3719a2424",
+    "en": "however",
+    "tr": "Yine de",
+    "pos": "ADV",
+    "def": ""
+  },
+  {
+    "id": "9deeba8e-75bc-4dea-9578-b3787c413c85",
+    "en": "writer",
+    "tr": "Yazar",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "9e6132c4-6a47-47e8-b47b-231a4a8f9dbf",
+    "en": "conversation",
+    "tr": "Konuşma",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "9e7d2ff3-872e-435e-9988-96ed0ab32e0d",
+    "en": "by",
+    "tr": "Ile",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "a01f0d22-39a6-43b4-a3b0-6d53ac618980",
+    "en": "light",
+    "tr": "Işık",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "a0302e18-ec19-42ea-90fa-6bb41b61f99a",
+    "en": "art",
+    "tr": "Sanat",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "a0360b2f-ab60-4935-8430-9cfb1a2a4733",
+    "en": "detail",
+    "tr": "Detay",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "a071f0d0-628d-415b-bcb7-9b3c63dd8093",
+    "en": "skirt",
+    "tr": "Etek",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "a0a0b4ef-7764-4086-ada6-4c919a984c14",
+    "en": "internet",
+    "tr": "Internet",
+    "pos": "NOUN",
+    "def": "Alternative letter-case form of Internet (“the specific internet consisting of a global network of computers that communicate using Internet Protocol (IP) and that use Border Gateway Protocol (BGP) to identify the best paths to route those communications”)."
+  },
+  {
+    "id": "a0a4da02-e40f-4933-bbc2-0ce322867043",
+    "en": "news",
+    "tr": "Haberler",
+    "pos": "NOUN",
+    "def": "New information of interest."
+  },
+  {
+    "id": "a11da9a1-5542-45ba-9191-a51ba0de6e20",
+    "en": "wash",
+    "tr": "Yıkamak",
+    "pos": "VERB",
+    "def": "To clean with water."
+  },
+  {
+    "id": "a18a0e49-894c-4947-ad20-a2a9d613da1e",
+    "en": "Tuesday",
+    "tr": "Salı",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "a204c74c-63cd-4929-9c2b-03ebc48bc465",
+    "en": "maybe",
+    "tr": "Belki",
+    "pos": "ADV",
+    "def": "Perhaps, possibly."
+  },
+  {
+    "id": "a287bbb2-f422-4758-8a01-1b6547b44571",
+    "en": "piece",
+    "tr": "Parça",
+    "pos": "NOUN",
+    "def": "A part of a larger whole, usually in such a form that it is able to be separated from other parts."
+  },
+  {
+    "id": "a29f3e0b-ef86-46f2-b566-411b2e7b4c21",
+    "en": "most",
+    "tr": "En",
+    "pos": "ADV",
+    "def": ""
+  },
+  {
+    "id": "a2a2cb31-0d7f-49a1-b440-9ee4a7a6e280",
+    "en": "air",
+    "tr": "Hava",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "a31e4d5a-4181-417d-80ad-b490349464a9",
+    "en": "carrot",
+    "tr": "Havuç",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "a3710ea8-d974-4c37-8263-d871210168c1",
+    "en": "afternoon",
+    "tr": "Öğleden sonra",
+    "pos": "NOUN",
+    "def": "The part of the day from noon or lunchtime until sunset, evening, or suppertime or 6pm."
+  },
+  {
+    "id": "a3727313-2e83-4532-b0ac-ff01eada9566",
+    "en": "last",
+    "tr": "Son",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "a394dafc-d5bf-48b3-9a7c-c98dadb932a2",
+    "en": "become",
+    "tr": "Haline gelmek",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "a3d9977a-eb98-4de7-b44d-453a92413325",
+    "en": "his",
+    "tr": "Onun",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "a41bd947-4b33-4d69-b71b-730f6cda8701",
+    "en": "sport",
+    "tr": "Spor",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "a45e319a-1645-412f-a6b7-77da5622725c",
+    "en": "third",
+    "tr": "Üçüncü",
+    "pos": "NOUN",
+    "def": "The ordinal form of the cardinal number three; Coming after the second."
+  },
+  {
+    "id": "a46210c4-1531-4fcb-9153-c48c82022dfc",
+    "en": "extra",
+    "tr": "Ekstra",
+    "pos": "ADJ",
+    "def": "Beyond what is due, usual, expected, or necessary; extraneous; additional; supernumerary."
+  },
+  {
+    "id": "a46dfbc4-c774-46d2-a45c-e6a5b98a953e",
+    "en": "beer",
+    "tr": "Bira",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "a4875fdb-f64a-4a31-8dd4-edaab7a6a460",
+    "en": "glass",
+    "tr": "Bardak",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "a5883e67-1549-454a-9158-f6f4cd7f582f",
+    "en": "your",
+    "tr": "Senin",
+    "pos": "NOUN",
+    "def": "Belonging to you; of you; related to you (singular; one owner)."
+  },
+  {
+    "id": "a66d3886-d8a7-4e89-b244-8dc52931cf25",
+    "en": "can",
+    "tr": "Olabilmek",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "a72018d2-2526-4dc1-bacc-942b04fcdbab",
+    "en": "interest",
+    "tr": "Faiz",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "a77cca67-4426-4898-985b-9f9f9ba62c67",
+    "en": "outside",
+    "tr": "Dıştan",
+    "pos": "ADV",
+    "def": ""
+  },
+  {
+    "id": "a77ed76a-9875-45b7-808b-021a641c005d",
+    "en": "vegetable",
+    "tr": "Sebze",
+    "pos": "NOUN",
+    "def": "Any plant."
+  },
+  {
+    "id": "a7f1e075-b978-4414-a2c4-ec2c909d7cb3",
+    "en": "break",
+    "tr": "Kırmak",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "a81817ce-6c96-457c-b7aa-84fbb50c1764",
+    "en": "dictionary",
+    "tr": "Sözlük",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "a921d997-e13d-4283-9164-8522dddd834a",
+    "en": "salad",
+    "tr": "Salata",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "a99f21f4-06ae-4c76-82d4-b236149a5782",
+    "en": "market",
+    "tr": "Pazar",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "a9aedad8-6f02-4482-a1cb-652226f8d838",
+    "en": "married",
+    "tr": "Evli",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "aa45ae1b-d4a3-49fc-b15e-4ca4faaeb651",
+    "en": "DVD",
+    "tr": "Dvd",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "aac22200-38b9-4e7e-b241-44320709b7b4",
+    "en": "sandwich",
+    "tr": "Sandviç",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "ab1040b0-c711-42f5-817a-e7dbc9a142d4",
+    "en": "toilet",
+    "tr": "Tuvalet",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "aba39cd7-8d44-497b-bf1b-da62ee882dd0",
+    "en": "health",
+    "tr": "Sağlık",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "ac016012-8048-40c4-86ee-c3bff2a9d304",
+    "en": "drink",
+    "tr": "Içmek",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "ac1686fb-41dd-4ee8-be01-f6e5a73489a8",
+    "en": "snow",
+    "tr": "Kar",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "ac5faf4a-72de-42e5-ab5c-aa8f26690230",
+    "en": "true",
+    "tr": "Doğru",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "ac997f9b-4517-4196-b652-d275462dd5b6",
+    "en": "follow",
+    "tr": "Takip etmek",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "ada0bea0-ea7e-4451-8c48-0a6e9a73ed91",
+    "en": "report",
+    "tr": "Rapor",
+    "pos": "NOUN",
+    "def": "To relate details of (an event or incident); to recount, describe (something). .mw-parser-output .defdate{font-size:smaller}"
+  },
+  {
+    "id": "add4cf9c-7a18-4d2d-850a-4170c588057a",
+    "en": "practice",
+    "tr": "Pratik",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "ae44d3d8-6891-41bf-b375-d1ce56e1866f",
+    "en": "us",
+    "tr": "Biz",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "ae484f9c-a2b6-4d80-b400-bac23a297b3b",
+    "en": "keep",
+    "tr": "Kale",
+    "pos": "VERB",
+    "def": "To continue in (a course or mode of action); to not intermit or fall from; to uphold or maintain."
+  },
+  {
+    "id": "ae547a0e-7d00-4674-80f3-2a7bee0996e1",
+    "en": "bed",
+    "tr": "Yatak",
+    "pos": "NOUN",
+    "def": "ISO 639-3 language code for Bedoanas."
+  },
+  {
+    "id": "ae5579da-01b5-4f70-a47d-7150b8d57628",
+    "en": "until",
+    "tr": "Değin",
+    "pos": "NOUN",
+    "def": "Up to the time of (something happening); pending."
+  },
+  {
+    "id": "ae613ee9-673b-4ca4-aac7-33f4489f265c",
+    "en": "give",
+    "tr": "Vermek",
+    "pos": "VERB",
+    "def": "To move, shift, provide something abstract or concrete to someone or something or somewhere.\nTo transfer one's possession or holding of (something) to (someone)."
+  },
+  {
+    "id": "ae975eb4-a52d-475b-ac49-d747bdb28d9d",
+    "en": "nobody",
+    "tr": "Hiç kimse",
+    "pos": "NOUN",
+    "def": "Not any person; the logical negation of somebody."
+  },
+  {
+    "id": "af57a687-f97a-43e1-981a-2bc560654fab",
+    "en": "village",
+    "tr": "Köy",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "af786f99-8231-48cd-b603-ba12665706e2",
+    "en": "thanks",
+    "tr": "Teşekkürler",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "af9436d1-9c6b-4eba-bc65-04991e4f914a",
+    "en": "each",
+    "tr": "Her biri",
+    "pos": "ADV",
+    "def": ""
+  },
+  {
+    "id": "afc8e122-1e87-4937-81d5-691a4c20df82",
+    "en": "listen",
+    "tr": "Dinlemek",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "afd74b02-d477-44e2-8ca3-cf45c88b2ef4",
+    "en": "hot",
+    "tr": "Sıcak",
+    "pos": "ADJ",
+    "def": "ISO 639-3 language code for Hote."
+  },
+  {
+    "id": "b0449059-cdb2-4739-a5c0-50cd16ecdb7c",
+    "en": "player",
+    "tr": "Oyuncu",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "b0987304-7b71-4177-9a81-650765fa39ea",
+    "en": "text",
+    "tr": "Metin",
+    "pos": "NOUN",
+    "def": "A writing consisting of multiple glyphs, characters, symbols or sentences."
+  },
+  {
+    "id": "b0d1013f-00e5-4654-8b3a-094a6676bc3c",
+    "en": "soup",
+    "tr": "Çorba",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "b0ea46a3-8397-44f9-a1ba-1f983ff1ed2d",
+    "en": "apartment",
+    "tr": "Daire",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "b154f905-6948-4227-a5cc-a83e511959ff",
+    "en": "animal",
+    "tr": "Hayvan",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "b19db432-504f-46d4-95b1-b0d8b360be43",
+    "en": "bus",
+    "tr": "Otobüs",
+    "pos": "NOUN",
+    "def": "ISO 639-3 language code for Bokobaru."
+  },
+  {
+    "id": "b1ccc93a-78b8-454a-9d3d-3ad0684bf84c",
+    "en": "part",
+    "tr": "Parça",
+    "pos": "NOUN",
+    "def": "A portion; a component.\nA fraction of a whole."
+  },
+  {
+    "id": "b20712b6-998d-4e8b-a6f7-9bb2e6e061a2",
+    "en": "find",
+    "tr": "Bulmak",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "b25ac8f9-2533-425e-bce4-03abe40c3438",
+    "en": "morning",
+    "tr": "Sabah",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "b262f2bd-8f18-47a4-a7e1-7e07f3be0ddb",
+    "en": "purple",
+    "tr": "Mor",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "b2a9ef6c-29c9-4cf8-9087-240d258034a7",
+    "en": "downstairs",
+    "tr": "Alt katta",
+    "pos": "ADV",
+    "def": "Located on a lower floor."
+  },
+  {
+    "id": "b32f5c4c-781a-4c14-9fa5-e5f3a5dae52b",
+    "en": "potato",
+    "tr": "Patates",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "b37e2b58-68b4-42c4-909c-bb56f557a135",
+    "en": "kilometre",
+    "tr": "Kilometre",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "b38f0bc4-406c-41f7-89c3-5206fd717614",
+    "en": "cheese",
+    "tr": "Peynir",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "b3b0c419-3410-4633-bc4a-de5c5b3cffeb",
+    "en": "statement",
+    "tr": "Ifade",
+    "pos": "NOUN",
+    "def": "A declaration or remark."
+  },
+  {
+    "id": "b3ec1da9-6eea-48c3-8655-d6b07a7f85af",
+    "en": "cannot",
+    "tr": "Yapamamak",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "b3fc2515-a32c-48e0-81fb-ef134bdd6603",
+    "en": "farmer",
+    "tr": "Çiftçi",
+    "pos": "NOUN",
+    "def": "Someone or something that farms, as:\nA person who works the land and/or who keeps livestock; anyone engaged in agriculture on a farm."
+  },
+  {
+    "id": "b41adcf4-e3d9-43f3-921e-1dd9f5093d69",
+    "en": "seventeen",
+    "tr": "On yedi",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "b4e66cf1-97b5-47bd-bb01-2ab447369921",
+    "en": "tea",
+    "tr": "Çay",
+    "pos": "NOUN",
+    "def": "ISO 639-3 language code for Temiar."
+  },
+  {
+    "id": "b50a66b3-d99a-4623-aca3-42c62b83b77b",
+    "en": "modern",
+    "tr": "Modern",
+    "pos": "ADJ",
+    "def": "Pertaining to a current or recent time and style; not ancient."
+  },
+  {
+    "id": "b536f87c-fe8b-443f-9869-e8498ac44788",
+    "en": "dish",
+    "tr": "Tabak",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "b5407651-20d6-42a8-ac82-26b23c618e52",
+    "en": "really",
+    "tr": "Gerçekten",
+    "pos": "ADV",
+    "def": ""
+  },
+  {
+    "id": "b55a131b-fe17-45e1-989b-324a6dfdf9f9",
+    "en": "test",
+    "tr": "Test",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "b5796ed9-23b7-402f-8f28-2459e15f66e0",
+    "en": "final",
+    "tr": "Son",
+    "pos": "ADJ",
+    "def": "A final examination; a test or examination given at the end of a term or class; the test that concludes a class."
+  },
+  {
+    "id": "b5e157a1-b5c4-4f8f-8d3e-01b462ae60ad",
+    "en": "check",
+    "tr": "Kontrol etmek",
+    "pos": "VERB",
+    "def": "An inspection or examination."
+  },
+  {
+    "id": "b61deec9-f242-4488-acf8-8eccb1f168ab",
+    "en": "order",
+    "tr": "Emir",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "b641a06b-4388-4c4b-beb8-f55ac78fc5b6",
+    "en": "it",
+    "tr": "Bt",
+    "pos": "NOUN",
+    "def": "ISO 639-1 language code for Italian."
+  },
+  {
+    "id": "b650ee9c-ca6e-4592-be27-7f8daa8590b5",
+    "en": "like",
+    "tr": "Beğenmek",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "b6c26433-c4b0-43ed-adb9-288d2314d15c",
+    "en": "area",
+    "tr": "Alan",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "b6fc2f30-1c82-4028-9923-ce8c31e7a318",
+    "en": "more",
+    "tr": "Daha",
+    "pos": "ADV",
+    "def": "comparative degree of many: in greater number."
+  },
+  {
+    "id": "b73a6378-c2e4-46e6-a191-2be55dd5b911",
+    "en": "year",
+    "tr": "Yıl",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "b83dfbbd-c720-49bc-9856-f19472295c16",
+    "en": "help",
+    "tr": "Yardım",
+    "pos": "NOUN",
+    "def": "Action given to provide assistance; aid."
+  },
+  {
+    "id": "b87e3054-a407-44cf-9040-9501857401be",
+    "en": "as",
+    "tr": "Gibi",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "b88c4684-4feb-4456-8e52-c015d139c5cf",
+    "en": "get",
+    "tr": "Elde etmek",
+    "pos": "VERB",
+    "def": "To obtain; to acquire."
+  },
+  {
+    "id": "b8c868dd-fb02-4da6-b91a-3dac0f02d2e3",
+    "en": "local",
+    "tr": "Yerel",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "b916a153-f4f0-432e-aa33-fe51653655aa",
+    "en": "try",
+    "tr": "Denemek",
+    "pos": "VERB",
+    "def": "ISO 639-3 language code for Turung."
+  },
+  {
+    "id": "b92c74a5-5c62-4c4a-a38b-0fcd64eff33e",
+    "en": "page",
+    "tr": "Sayfa",
+    "pos": "NOUN",
+    "def": "One of the many pieces of paper bound together within a book or similar document."
+  },
+  {
+    "id": "b9618a19-8154-48a2-bdd8-56cfb64b0344",
+    "en": "product",
+    "tr": "Ürün",
+    "pos": "NOUN",
+    "def": "Anything that is produced; a result."
+  },
+  {
+    "id": "b967fa69-fa3c-48ae-aec5-1bd23c26693e",
+    "en": "once",
+    "tr": "Bir kere",
+    "pos": "ADV",
+    "def": "One and only one time."
+  },
+  {
+    "id": "b9754ed6-0483-455a-864b-32a65b60aa77",
+    "en": "letter",
+    "tr": "Mektup",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "b9be79a4-4a53-47cd-86f9-d58a992f7309",
+    "en": "my",
+    "tr": "Benim",
+    "pos": "NOUN",
+    "def": "ISO 639-1 language code for Burmese."
+  },
+  {
+    "id": "ba1d0ffc-a9c4-45f0-b7dc-a0e4ee944f9f",
+    "en": "long",
+    "tr": "Uzun",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "ba321ec3-ecf0-4752-892e-93556e46e2a4",
+    "en": "cook",
+    "tr": "Aşçı",
+    "pos": "VERB",
+    "def": "A person who prepares food."
+  },
+  {
+    "id": "baac34a8-8810-4636-9194-1b9cdde4381f",
+    "en": "pool",
+    "tr": "Havuz",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "bad50e9f-9c73-4dee-ae08-10d94d1e6f1f",
+    "en": "bread",
+    "tr": "Ekmek",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "baf17869-36b6-4ce3-bfcc-1ac045a4c4b6",
+    "en": "note",
+    "tr": "Not",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "bb16b565-dab9-43a0-8c70-a74c74d31c81",
+    "en": "May",
+    "tr": "Mayıs",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "bb25733e-a4c3-48b7-af4e-4c26248c150f",
+    "en": "ever",
+    "tr": "Durmadan",
+    "pos": "ADV",
+    "def": "Always, frequently, forever."
+  },
+  {
+    "id": "bb2959c9-dc20-440c-9b8a-75c0c924c985",
+    "en": "which",
+    "tr": "Hangi",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "bbe276a1-264c-4c22-a72d-955c7c0bf5e5",
+    "en": "new",
+    "tr": "Yeni",
+    "pos": "ADJ",
+    "def": "ISO 639-2 &amp; ISO 639-3 language code for Newar."
+  },
+  {
+    "id": "bc19ffba-a771-424c-8253-abb8c416b14e",
+    "en": "because",
+    "tr": "Çünkü",
+    "pos": "NOUN",
+    "def": "By or for the cause that; on this account that; for the reason that."
+  },
+  {
+    "id": "bc557e37-4784-4a84-be3b-76fa6d4ff711",
+    "en": "thank",
+    "tr": "Teşekkür etmek",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "bc6336f9-f95b-412d-bb82-256910f46962",
+    "en": "son",
+    "tr": "Oğul",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "bcbd11af-b85b-451c-aaa2-484868acd17d",
+    "en": "diet",
+    "tr": "Diyet",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "bccc16c9-f181-4ffc-8bd9-8f4a3e39ee6f",
+    "en": "grow",
+    "tr": "Büyümek",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "bd86e5b1-c4bb-4d2d-88c3-9c0c176c6a84",
+    "en": "do",
+    "tr": "Yapmak",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "bdc8bb84-777e-476c-ae19-05c4a0b01f5e",
+    "en": "perfect",
+    "tr": "Mükemmel",
+    "pos": "ADJ",
+    "def": "Fitting its definition precisely."
+  },
+  {
+    "id": "be14417c-4053-4258-bfe8-95e03d8bab63",
+    "en": "ball",
+    "tr": "Top",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "be1fb07a-fa22-4702-bf98-61ffc15bb942",
+    "en": "telephone",
+    "tr": "Telefon",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "bf094646-fbdf-4f5b-b1ed-ee2850f798af",
+    "en": "gym",
+    "tr": "Spor salonu",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "bf87ee70-e2e4-4bba-8ceb-df4dc47fc55e",
+    "en": "write",
+    "tr": "Yazmak",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "bfe04116-5bd9-432b-b17a-43aae6c83614",
+    "en": "five",
+    "tr": "Beş",
+    "pos": "NOUN",
+    "def": "NATO &amp; ICAO radiotelephony clear code (spelling-alphabet name) for the digit 5."
+  },
+  {
+    "id": "c03cdc34-7db9-45f3-839f-adaef3db628f",
+    "en": "head",
+    "tr": "Kafa",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "c0db47ad-3096-4c7a-831e-257a0e71e07a",
+    "en": "slow",
+    "tr": "Yavaş",
+    "pos": "ADJ",
+    "def": "Taking a long time to move or go a short distance, or to perform an action; not quick in motion; proceeding at a low speed."
+  },
+  {
+    "id": "c107a53b-26a6-426c-90b3-c071c4ac995d",
+    "en": "when",
+    "tr": "Ne zaman",
+    "pos": "ADV",
+    "def": "At what time? At which time? Upon which occasion or circumstance? Used to introduce direct or indirect questions about time."
+  },
+  {
+    "id": "c17db86e-04af-44ce-8028-e00f38331948",
+    "en": "cousin",
+    "tr": "Kuzen",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "c24287c0-dac3-42f9-b148-605545421043",
+    "en": "woman",
+    "tr": "Kadın",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "c27b82fc-b124-4ba3-9dd0-a1bbeed0da55",
+    "en": "elephant",
+    "tr": "Fil",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "c3173f11-5746-49b7-ab8e-3de45effdf53",
+    "en": "something",
+    "tr": "Bir şey",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "c34340fd-653e-494d-8159-968cd019b277",
+    "en": "improve",
+    "tr": "Geliştirmek",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "c3f837f0-67af-4d36-90a4-e0fddc8a2dc9",
+    "en": "happy",
+    "tr": "Mutlu",
+    "pos": "ADJ",
+    "def": "Having a feeling arising from a consciousness of well-being or of enjoyment; enjoying good of any kind, such as comfort, peace, or tranquillity; blissful, contented, joyous."
+  },
+  {
+    "id": "c41df15f-7a6f-487f-8aeb-ae4433753111",
+    "en": "tennis",
+    "tr": "Tenis",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "c42bda72-0ce5-43d1-b473-908db45b000a",
+    "en": "twenty",
+    "tr": "Yirmi",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "c48ffa5b-f3fc-42fb-b498-121ae83f8618",
+    "en": "sea",
+    "tr": "Deniz",
+    "pos": "NOUN",
+    "def": "ISO 639-3 language code for Semai."
+  },
+  {
+    "id": "c4ae432c-e9c8-49f8-a065-08edad2eef24",
+    "en": "week",
+    "tr": "Hafta",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "c4f18d4b-5f4d-4ea5-ad93-36096f0cfb9e",
+    "en": "too",
+    "tr": "Fazla",
+    "pos": "ADV",
+    "def": "ISO 639-3 language code for Xicotepec de Juárez Totonac."
+  },
+  {
+    "id": "c4f1941f-56ed-454c-9863-c7cfde025758",
+    "en": "book",
+    "tr": "Kitap",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "c66a18cd-b2e6-48e1-97c4-54486edbc4b4",
+    "en": "journey",
+    "tr": "Seyahat",
+    "pos": "NOUN",
+    "def": "A set amount of travelling, seen as a single unit; a discrete trip, a voyage."
+  },
+  {
+    "id": "c6d022b1-460a-4bbc-8ee4-e3d58c6bf4eb",
+    "en": "car",
+    "tr": "Araba",
+    "pos": "NOUN",
+    "def": "ISO 639-2 &amp; ISO 639-3 language code for Kari'na."
+  },
+  {
+    "id": "c6e947e3-ee22-41ca-ab17-df9f06e654bf",
+    "en": "table",
+    "tr": "Masa",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "c6ff5f94-5b3f-4b8f-8dda-b21f86abbf7a",
+    "en": "ready",
+    "tr": "Hazır",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "c7407b1c-d68a-4554-af7a-3c08b9ac7697",
+    "en": "similar",
+    "tr": "Benzer",
+    "pos": "ADJ",
+    "def": "Having traits or characteristics in common; alike, allied, comparable."
+  },
+  {
+    "id": "c76eec8a-0658-4789-9838-d35d879453b4",
+    "en": "reason",
+    "tr": "Sebep",
+    "pos": "NOUN",
+    "def": "A cause:"
+  },
+  {
+    "id": "c7bc5d6c-cf17-4c86-9b8d-e027a5233773",
+    "en": "chocolate",
+    "tr": "Çikolata",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "c8132664-deeb-4b0b-9b9d-8fd323c43eba",
+    "en": "miss",
+    "tr": "Kayıp",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "c82ad91d-5446-42d5-ad82-37a2955d75e3",
+    "en": "right",
+    "tr": "Sağ",
+    "pos": "ADJ",
+    "def": "Designating the side of the body which is positioned to the east if one is facing north, the side on which the heart is not located in most humans. This arrow points to the reader's right: →"
+  },
+  {
+    "id": "c82ae7d0-affc-4054-890a-93efc9e66f3d",
+    "en": "snake",
+    "tr": "Yılan",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "c873ba80-8d42-4dc9-ac91-ea27b06a73c6",
+    "en": "than",
+    "tr": "Hariç",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "c8c221ee-0fa8-4e8a-9506-6fed0cedf499",
+    "en": "personal",
+    "tr": "Kişisel",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "c93b0450-c679-44dc-9a20-b673a8d09432",
+    "en": "best",
+    "tr": "En iyi",
+    "pos": "ADJ",
+    "def": "superlative form of good: most good."
+  },
+  {
+    "id": "c96d6879-fbde-4a6d-b7e3-da984549b39c",
+    "en": "few",
+    "tr": "Bir kaç",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "c9b859e7-5e03-4b89-8bce-67ed41aaf2ef",
+    "en": "lunch",
+    "tr": "Öğle yemeği",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "c9fc502f-4804-4c01-b937-0746f0b5dfe2",
+    "en": "explain",
+    "tr": "Açıklamak",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "ca6eebd3-6f93-49dc-97a5-5833acfe3809",
+    "en": "this",
+    "tr": "Bu",
+    "pos": "NOUN",
+    "def": "The (thing) here ."
+  },
+  {
+    "id": "ca7d23db-4ac4-4939-8cee-a1feb6bf4435",
+    "en": "fourteen",
+    "tr": "On dört",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "cada755f-ef4b-4e89-b74a-ebe2ad1c2077",
+    "en": "bird",
+    "tr": "Kuş",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "cae01718-c18b-41c4-98b7-fe0c19d33cb3",
+    "en": "onion",
+    "tr": "Soğan",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "cb134111-4a6b-4dae-ab5a-a3fd8f2ad1a6",
+    "en": "cheap",
+    "tr": "Ucuz",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "cb2047ba-510e-415f-835b-204b9f4b58b6",
+    "en": "her",
+    "tr": "O",
+    "pos": "NOUN",
+    "def": "ISO 639-2 &amp; ISO 639-3 language code for Herero."
+  },
+  {
+    "id": "cc6b30ef-2b59-4c59-9044-5c69b090d588",
+    "en": "live",
+    "tr": "Canlı",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "cd55a33a-49b8-4b45-a277-fc62b87d2847",
+    "en": "jacket",
+    "tr": "Ceket",
+    "pos": "NOUN",
+    "def": "A piece of clothing worn on the upper body outside a shirt or blouse, often waist length to thigh length."
+  },
+  {
+    "id": "cdaa5399-be05-4aae-9f0d-e888e95d2b8e",
+    "en": "forget",
+    "tr": "Unutmak",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "cdfd6938-f258-4013-a8ab-250c08861f51",
+    "en": "grey",
+    "tr": "Gri",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "ce41a0d7-66e1-4f51-9b0a-72913bb02997",
+    "en": "video",
+    "tr": "Video",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "ce86d190-ff9f-49da-ae56-0d17b210f28b",
+    "en": "science",
+    "tr": "Bilim",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "ce989532-5297-4625-bf16-4bec671a68aa",
+    "en": "everybody",
+    "tr": "Herkes",
+    "pos": "NOUN",
+    "def": "All people."
+  },
+  {
+    "id": "ceeecfd0-02d7-42cf-a24c-dd47e9e49cfa",
+    "en": "hair",
+    "tr": "Saç",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "cf6c9a96-bfbe-44da-8e17-0d892deb1502",
+    "en": "point",
+    "tr": "Nokta",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "d07ef3cb-c959-45f4-86dd-769edf95f247",
+    "en": "guitar",
+    "tr": "Gitar",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "d108af64-19a8-4f23-bb24-acf33c7c072d",
+    "en": "believe",
+    "tr": "Inanmak",
+    "pos": "VERB",
+    "def": "To accept as true, particularly without absolute certainty (i.e., as opposed to knowing)."
+  },
+  {
+    "id": "d1a96c16-651a-450b-af0a-652677aff605",
+    "en": "eye",
+    "tr": "Göz",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "d1e4b88c-1d17-4860-abc6-27ff7bc42ee3",
+    "en": "him",
+    "tr": "O",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "d229d79b-5025-4644-97e6-208687c90352",
+    "en": "apple",
+    "tr": "Elma",
+    "pos": "NOUN",
+    "def": "A common, firm, round fruit produced by a tree of the genus Malus."
+  },
+  {
+    "id": "d23649ca-87dd-4822-adce-a2ba37115eea",
+    "en": "ride",
+    "tr": "Sürmek",
+    "pos": "VERB",
+    "def": "To transport oneself by sitting on and directing a horse, later also a bicycle etc. .mw-parser-output .defdate{font-size:smaller}"
+  },
+  {
+    "id": "d237c9d3-fdc2-4b9b-a115-8faf6cfc7aeb",
+    "en": "dress",
+    "tr": "Elbise",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "d2435848-9872-43b2-be84-418d0ee146fe",
+    "en": "during",
+    "tr": "Sırasında",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "d28c838b-c232-4857-94b1-35e698e64839",
+    "en": "favourite",
+    "tr": "Favori",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "d2f68434-7250-4967-a735-b27938e2dde0",
+    "en": "wall",
+    "tr": "Duvar",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "d3149168-0f73-44a7-95da-22ae955abdcc",
+    "en": "soon",
+    "tr": "Yakında",
+    "pos": "ADV",
+    "def": ""
+  },
+  {
+    "id": "d394e0af-6a84-4935-86bd-0e3c8134ba6c",
+    "en": "visitor",
+    "tr": "Ziyaretçi",
+    "pos": "NOUN",
+    "def": "Someone who visits someone else; someone staying as a guest."
+  },
+  {
+    "id": "d43d4b35-32a0-41ae-95aa-ac9d85bc8d25",
+    "en": "who",
+    "tr": "Dsö",
+    "pos": "NOUN",
+    "def": "What person or people; which person or people; asks for the identity of someone; used in a direct or indirect question."
+  },
+  {
+    "id": "d46efaea-2266-4579-8bff-8968cde7eba7",
+    "en": "she",
+    "tr": "O",
+    "pos": "NOUN",
+    "def": "ISO 639-3 language code for Sheko."
+  },
+  {
+    "id": "d511e07e-f59b-49b6-8032-aec707a3a61e",
+    "en": "feel",
+    "tr": "Hissetmek",
+    "pos": "VERB",
+    "def": "To use or experience the sense of touch.\n To become aware of through the skin; to use the sense of touch on."
+  },
+  {
+    "id": "d518f37b-851f-43f4-b9c6-ebc1ccaae23c",
+    "en": "hour",
+    "tr": "Saat",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "d5454f26-7816-4834-9c70-e772aeece9f2",
+    "en": "hello",
+    "tr": "Merhaba",
+    "pos": "NOUN",
+    "def": "A greeting (salutation) said when meeting someone or acknowledging someone’s arrival or presence."
+  },
+  {
+    "id": "d5598d6a-bd2f-4158-96a6-66c53f197a10",
+    "en": "expensive",
+    "tr": "Masraflı",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "d5daef2e-feef-4cf1-97be-2583f5e33be9",
+    "en": "TV",
+    "tr": "Tv",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "d64a5272-8e86-451c-a9fd-d558f2a27be8",
+    "en": "mouth",
+    "tr": "Ağız",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "d67ba05d-be3c-487d-9fc9-2deaa87bf19d",
+    "en": "should",
+    "tr": "Yapmalı",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "d67f9003-b9d8-435a-9c4e-288e5bf716b8",
+    "en": "film",
+    "tr": "Film",
+    "pos": "NOUN",
+    "def": "A thin layer of some substance; a pellicle; a membranous covering, causing opacity."
+  },
+  {
+    "id": "d6ad8951-9d4a-4c27-9d30-75699615eb31",
+    "en": "brown",
+    "tr": "Kahverengi",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "d7253bd1-510a-4853-8618-e54034fdc5f1",
+    "en": "cinema",
+    "tr": "Sinema",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "d7a2e091-aefe-451a-a9e1-f0d2610370a7",
+    "en": "stay",
+    "tr": "Kalmak",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "d7b0e6e6-7f54-41a1-a981-b28326a79cbf",
+    "en": "here",
+    "tr": "Burada",
+    "pos": "ADV",
+    "def": "In, on, or at this place (a place perceived to be close to the speaker); compare there."
+  },
+  {
+    "id": "d7ea993c-3c0f-4557-86c3-bf6e8ce44c0c",
+    "en": "rule",
+    "tr": "Kural",
+    "pos": "NOUN",
+    "def": "A regulation, law, guideline."
+  },
+  {
+    "id": "d893cc0e-e5f3-4fce-a123-e660ead6cd12",
+    "en": "winter",
+    "tr": "Kış",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "d94627d8-aeff-43da-8353-b1ef7da766d7",
+    "en": "another",
+    "tr": "Bir diğer",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "d9b81fdb-4527-45a7-8276-39d361b92616",
+    "en": "dinner",
+    "tr": "Akşam yemeği",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "d9e6ca0e-d9b5-4920-b4b7-e3946a91a31c",
+    "en": "sure",
+    "tr": "Elbette",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "da135e3c-9eb3-4e35-812f-8ca2c3e9aa1e",
+    "en": "run",
+    "tr": "Koşmak",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "da36f337-8565-41b5-94a0-0361f0537c05",
+    "en": "useful",
+    "tr": "Kullanışlı",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "da99d8a2-af3b-4e86-ae68-5fa958652419",
+    "en": "phrase",
+    "tr": "Ifade etmek",
+    "pos": "NOUN",
+    "def": "A short written or spoken expression."
+  },
+  {
+    "id": "daa05fbf-6903-4ee2-81eb-751b8a2fa554",
+    "en": "Sunday",
+    "tr": "Pazar",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "dad9e198-a9f1-48bc-88c4-1cbb315e821c",
+    "en": "interested",
+    "tr": "Ilgili",
+    "pos": "ADJ",
+    "def": "Having or showing interest (attention or curiosity)."
+  },
+  {
+    "id": "daf89fe9-b242-4efa-8fe1-816153f6695e",
+    "en": "group",
+    "tr": "Grup",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "dbdace44-7c95-4f85-b4dd-835a2d032afc",
+    "en": "nothing",
+    "tr": "Hiçbir şey",
+    "pos": "NOUN",
+    "def": "Not any thing; no thing."
+  },
+  {
+    "id": "dc15ec99-04fa-46df-bba6-c17b381d6d1c",
+    "en": "desk",
+    "tr": "Çalışma masası",
+    "pos": "NOUN",
+    "def": "A table, frame, or case, in past centuries usually with a sloping top but now usually with a flat top, for the use of writers and readers. It often has a drawer or repository underneath."
+  },
+  {
+    "id": "dca22d5b-38d5-465f-b9d0-c96be36be378",
+    "en": "born",
+    "tr": "Doğmak",
+    "pos": "VERB",
+    "def": "past participle of bear; given birth to."
+  },
+  {
+    "id": "dce96076-44d6-444e-bed2-9c5ccbdadd7b",
+    "en": "milk",
+    "tr": "Süt",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "dd847e60-9b2d-4071-a14b-d65cea3e4cef",
+    "en": "autumn",
+    "tr": "Sonbahar",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "dd90a775-5234-4100-96e9-de680f7ae8af",
+    "en": "sixteen",
+    "tr": "On altı",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "ddcfea2a-673d-4a6f-89f8-dc858cfb8f7f",
+    "en": "body",
+    "tr": "Vücut",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "dde50a63-5598-4c74-86ab-1b701cad6623",
+    "en": "Wednesday",
+    "tr": "Çarşamba",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "ddf2ff03-aa98-4a56-970f-baa72616ce37",
+    "en": "in",
+    "tr": "Içinde",
+    "pos": "ADV",
+    "def": "Former ISO 639-1 language code for Indonesian."
+  },
+  {
+    "id": "de018a5d-0e0a-459d-b543-6b3962d77b89",
+    "en": "space",
+    "tr": "Uzay",
+    "pos": "NOUN",
+    "def": "Unlimited or generalized extent, physical or otherwise.\nThe distance between objects. .mw-parser-output .defdate{font-size:smaller}"
+  },
+  {
+    "id": "de181213-84ea-4189-9744-c4ca94e2b8c2",
+    "en": "object",
+    "tr": "Nesne",
+    "pos": "NOUN",
+    "def": "A thing that has physical existence but is not alive."
+  },
+  {
+    "id": "de467a3a-c5d3-419c-a0e8-f7ee4db5bc5f",
+    "en": "learn",
+    "tr": "Öğrenmek",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "de9a2bcf-2de9-40c5-a594-803f515d9d06",
+    "en": "boat",
+    "tr": "Bot",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "dee5b004-dd20-4600-bd61-1d3f3af384a7",
+    "en": "husband",
+    "tr": "Koca",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "df0ba810-d497-4414-865f-58eeeccf6a24",
+    "en": "website",
+    "tr": "Web sitesi",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "df264ba1-5d2a-4e34-a3c8-fcc70bd20724",
+    "en": "project",
+    "tr": "Proje",
+    "pos": "NOUN",
+    "def": "A planned endeavor, usually with a specific goal and accomplished in several steps or stages."
+  },
+  {
+    "id": "df5514ff-caec-4d8f-9be7-4339f6a2a1ec",
+    "en": "our",
+    "tr": "Bizim",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "dfd9c2cf-3f60-427e-8f22-f4fec5cf4cc6",
+    "en": "cut",
+    "tr": "Kesmek",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "e0070bfb-dffe-47d7-8e4e-61c51b652730",
+    "en": "from",
+    "tr": "Itibaren",
+    "pos": "NOUN",
+    "def": "Used to indicate source or provenance."
+  },
+  {
+    "id": "e01ce9cc-e5a7-4d4e-86af-2864ae1de78c",
+    "en": "opinion",
+    "tr": "Fikir",
+    "pos": "NOUN",
+    "def": "A belief, judgment or perspective that a person has formed, either through objective or subjective reasoning, about a topic, issue, person or thing."
+  },
+  {
+    "id": "e0750261-2559-445b-a416-5e070f2f081e",
+    "en": "skill",
+    "tr": "Yetenek",
+    "pos": "NOUN",
+    "def": "A capacity to do something well; a technique, an ability, usually acquired or learned, as opposed to abilities that are regarded as innate."
+  },
+  {
+    "id": "e07fbc4b-8924-469e-a1f0-9ab84052c083",
+    "en": "subject",
+    "tr": "Ders",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "e0f0edcc-c7d7-428a-aa81-8734a4ed240a",
+    "en": "make",
+    "tr": "Yapmak",
+    "pos": "VERB",
+    "def": "To create.\nTo build, construct, produce, or originate."
+  },
+  {
+    "id": "e14542b9-8007-4e6c-8a42-9546565489fa",
+    "en": "Friday",
+    "tr": "Cuma",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "e175e92c-b404-4116-a526-b9d54000dc36",
+    "en": "routine",
+    "tr": "Rutin",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "e1b591ad-0154-4755-b6aa-c68f333d986a",
+    "en": "umbrella",
+    "tr": "Şemsiye",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "e22414d7-125a-4fd2-a705-14290d6aeffe",
+    "en": "quick",
+    "tr": "Hızlı",
+    "pos": "ADJ",
+    "def": "Moving with speed, rapidity or swiftness, or capable of doing so; rapid; fast."
+  },
+  {
+    "id": "e2b72a7b-e036-4716-9d84-4abe964fb8aa",
+    "en": "beautiful",
+    "tr": "Güzel",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "e2bcd094-0f3f-4f52-bdce-eb5afd942d02",
+    "en": "swimming",
+    "tr": "Yüzme",
+    "pos": "NOUN",
+    "def": "The act or art of sustaining and propelling the body in water."
+  },
+  {
+    "id": "e3a33b68-b309-4033-a8a8-b62c512b6f6a",
+    "en": "farm",
+    "tr": "Çiftlik",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "e40bc96c-2684-479b-9e30-1e2562419095",
+    "en": "little",
+    "tr": "Biraz",
+    "pos": "ADJ",
+    "def": "Small, not large, limited, particularly:"
+  },
+  {
+    "id": "e46c0c20-b570-48a8-9325-89e476111bf7",
+    "en": "that",
+    "tr": "O",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "e4786e76-6085-407e-b780-d17dd4efc1d0",
+    "en": "garden",
+    "tr": "Bahçe",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "e4d6da03-c407-4d38-8af0-72c4afa6e959",
+    "en": "put",
+    "tr": "Koymak",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "e510a7ed-8959-4997-b568-c2b72150d47c",
+    "en": "some",
+    "tr": "Bazı",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "e525ed59-a00b-4086-9769-67f3b08b0bf3",
+    "en": "course",
+    "tr": "Kurs",
+    "pos": "NOUN",
+    "def": "A sequence of events."
+  },
+  {
+    "id": "e52e6792-b1a9-4667-8a4f-04850acda717",
+    "en": "same",
+    "tr": "Aynı",
+    "pos": "ADJ",
+    "def": "Not different or other; not another or others; not different as regards self; selfsame; identical."
+  },
+  {
+    "id": "e568e79a-629f-42c7-9bc5-506fa553ceb9",
+    "en": "eleven",
+    "tr": "On bir",
+    "pos": "NOUN",
+    "def": "NATO, ICAO, ITU &amp; IMO radiotelephony code for 11, used only with o'clock to indicate direction."
+  },
+  {
+    "id": "e579520e-6136-4262-b352-f5f5b3b3f257",
+    "en": "excited",
+    "tr": "Heyecanlı",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "e605d980-cbcd-4baa-a1ab-3a0c95761a00",
+    "en": "hi",
+    "tr": "Merhaba",
+    "pos": "NOUN",
+    "def": "ISO 639-1 language code for Hindi."
+  },
+  {
+    "id": "e66108aa-34d5-4a49-b568-78efc20a702e",
+    "en": "wait",
+    "tr": "Beklemek",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "e66d1274-dcc0-4fa8-adda-a5621fa040a7",
+    "en": "ticket",
+    "tr": "Bilet",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "e67106c6-adfe-4699-968d-45a18b4908d7",
+    "en": "sun",
+    "tr": "Güneş",
+    "pos": "NOUN",
+    "def": "ISO 639-2 &amp; ISO 639-3 language code for Sundanese."
+  },
+  {
+    "id": "e681e443-4cab-438c-95a2-b7ac1e2c2bca",
+    "en": "positive",
+    "tr": "Olumlu",
+    "pos": "ADJ",
+    "def": "Included, present, characterized by affirmation."
+  },
+  {
+    "id": "e6b20349-721f-4226-9097-8527ba426c99",
+    "en": "probably",
+    "tr": "Muhtemelen",
+    "pos": "ADV",
+    "def": ""
+  },
+  {
+    "id": "e70e0c92-48a6-46f5-99a6-896930db6c91",
+    "en": "flat",
+    "tr": "Düz",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "e7977883-4f29-4b04-b963-7309e820f6c2",
+    "en": "yourself",
+    "tr": "Kendin",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "e83901a0-9425-40cc-bcbd-5a99e0c1e44a",
+    "en": "tired",
+    "tr": "Yorgun",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "e884ec2c-c343-4367-983b-aebf03cf4a5d",
+    "en": "everything",
+    "tr": "Her şey",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "e8c489a8-d908-4adb-8326-688507cf706d",
+    "en": "goodbye",
+    "tr": "Güle güle",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "e8e900c3-8779-447b-8edc-de297b66d79d",
+    "en": "hey",
+    "tr": "Hey",
+    "pos": "NOUN",
+    "def": "An exclamation to get attention."
+  },
+  {
+    "id": "e99a02b0-247a-4d70-abed-f4d2f190b4f8",
+    "en": "fun",
+    "tr": "Eğlence",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "ea190f6f-f67c-4f36-a254-5780c793fec5",
+    "en": "we",
+    "tr": "Biz",
+    "pos": "NOUN",
+    "def": "Two or more people including or consisting of the speaker(s)/writer(s).\n Excluding the person(s) being addressed."
+  },
+  {
+    "id": "ea3f7998-a739-4b7d-b545-c2b06b31b597",
+    "en": "problem",
+    "tr": "Sorun",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "eac193fd-16e7-4c69-b6f9-15867d30b313",
+    "en": "shop",
+    "tr": "Mağaza",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "ead16d0c-5514-4f5d-88f8-ea5818b5d05e",
+    "en": "butter",
+    "tr": "Tereyağı",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "eb0779aa-45d1-4d3c-b519-30c2cd868d08",
+    "en": "language",
+    "tr": "Dil",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "eb5fe921-70b9-41f0-8ad2-4038e96e4c54",
+    "en": "newspaper",
+    "tr": "Gazete",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "eb7ecbb1-be33-4fc1-833b-8ac0d13a4c4f",
+    "en": "OK",
+    "tr": "Tamam",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "eb7f2b1e-d56b-42ba-95e7-ba46558ee022",
+    "en": "stand",
+    "tr": "Durmak",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "ebb816e2-4dff-49b2-a5f1-af987f74ddb4",
+    "en": "draw",
+    "tr": "Çizmek",
+    "pos": "VERB",
+    "def": "Senses relating to exerting force or pulling.\n To pull (someone or something) in a particular direction or manner. .mw-parser-output .defdate{font-size:smaller}"
+  },
+  {
+    "id": "ebc0131e-e0e1-486d-8fb9-bc78ba2e5654",
+    "en": "exciting",
+    "tr": "Heyecan verici",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "ebe3410b-b6b1-4eb2-8725-71e0370c5b3a",
+    "en": "look",
+    "tr": "Bakmak",
+    "pos": "VERB",
+    "def": "To try to see, to pay attention to with one’s eyes."
+  },
+  {
+    "id": "ec78377f-ab3f-445e-b930-f622232317ec",
+    "en": "use",
+    "tr": "Kullanmak",
+    "pos": "VERB",
+    "def": "The act of using."
+  },
+  {
+    "id": "ed24efff-b8d9-41ab-8265-efcd980ee690",
+    "en": "restaurant",
+    "tr": "Restoran",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "ed4672f9-1965-4ed6-b8d8-a254c6a8fe48",
+    "en": "begin",
+    "tr": "Başlamak",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "ed7e2082-9733-4cd2-a061-96182f23e2eb",
+    "en": "with",
+    "tr": "Ile",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "edff033b-8fdf-4b0c-a7d8-2fdf9e0dc04f",
+    "en": "Monday",
+    "tr": "Pazartesi",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "ee71fec4-6a6a-40e3-a756-85e09e04f8f3",
+    "en": "fifth",
+    "tr": "Beşinci",
+    "pos": "NOUN",
+    "def": "The ordinal form of the number five."
+  },
+  {
+    "id": "eea9e404-6b06-4652-9bf1-c2cf3fa0a6c0",
+    "en": "teenager",
+    "tr": "Genç",
+    "pos": "NOUN",
+    "def": "A person between thirteen and nineteen years old (inclusive)."
+  },
+  {
+    "id": "ef4cec14-dded-46c6-a7ad-d28a7fae0489",
+    "en": "west",
+    "tr": "Batı",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "ef6580e7-0950-46f3-99f5-8b762e9a838b",
+    "en": "meat",
+    "tr": "Et",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "ef6e813e-1072-463c-a320-bead563abbb6",
+    "en": "grandparent",
+    "tr": "Büyükanne ve büyükbaba",
+    "pos": "NOUN",
+    "def": "The parent of someone's parent."
+  },
+  {
+    "id": "ef81b517-7504-42ab-b8b1-7668e52442d1",
+    "en": "lesson",
+    "tr": "Ders",
+    "pos": "NOUN",
+    "def": "To instruct to teach."
+  },
+  {
+    "id": "efae5cfd-7c45-46b2-b76d-a7dc98aba188",
+    "en": "practise",
+    "tr": "Pratik",
+    "pos": "VERB",
+    "def": "To repeat (an activity) as a way of improving one's skill in that activity."
+  },
+  {
+    "id": "f0a01567-d81d-4f2a-bc56-7ff860de5139",
+    "en": "kind",
+    "tr": "Tür",
+    "pos": "NOUN",
+    "def": "A type, race or category; a group of entities that have common characteristics such that they may be grouped together."
+  },
+  {
+    "id": "f0accfab-a93e-46bf-85ec-3397e86c36c3",
+    "en": "enjoy",
+    "tr": "Eğlence",
+    "pos": "VERB",
+    "def": "To receive pleasure or satisfaction from something."
+  },
+  {
+    "id": "f0c60470-9a91-4e31-a4ec-9a2378fc6ed9",
+    "en": "culture",
+    "tr": "Kültür",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "f0cf3a23-0021-4c04-8d30-aaeedbeee6e5",
+    "en": "homework",
+    "tr": "Ev ödevi",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "f0da9926-7b49-4fc0-b19d-ed0f8c321feb",
+    "en": "every",
+    "tr": "Her",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "f10c98ae-f068-445f-9917-682585f2a718",
+    "en": "before",
+    "tr": "Önce",
+    "pos": "NOUN",
+    "def": "Earlier than (in time)."
+  },
+  {
+    "id": "f1680907-a75d-4bb5-9ac8-7a2d3292c353",
+    "en": "mountain",
+    "tr": "Dağ",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "f17a3a53-ab39-4cc1-b0a4-0ba7356fa3bf",
+    "en": "nineteen",
+    "tr": "On dokuz",
+    "pos": "NOUN",
+    "def": "The cardinal number occurring after eighteen and before twenty, represented in Roman numerals as XIX and in Arabic numerals as 19. It is the last/largest of the \"teens\"."
+  },
+  {
+    "id": "f18d7191-647f-44d1-b26c-b8e0d9c1920a",
+    "en": "daughter",
+    "tr": "Kız çocuğu",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "f1e7fd3f-da51-420e-8fbe-f0ae8bc907f9",
+    "en": "no",
+    "tr": "Hayir",
+    "pos": "NOUN",
+    "def": "ISO 639-1 language code for Norwegian."
+  },
+  {
+    "id": "f1ea375a-8cee-447c-b92b-10d5caebc6e5",
+    "en": "capital",
+    "tr": "Başkent",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "f2225eb9-82a4-4ec6-8095-b195fc2d74c0",
+    "en": "bye",
+    "tr": "Güle güle",
+    "pos": "NOUN",
+    "def": "ISO 639-3 language code for Pouye."
+  },
+  {
+    "id": "f29a1d3d-2ccf-4d23-81ab-78809580c1c1",
+    "en": "end",
+    "tr": "Son",
+    "pos": "NOUN",
+    "def": "ISO 639-3 language code for Ende."
+  },
+  {
+    "id": "f31e5c92-20d2-4f31-aff5-dec023afa406",
+    "en": "juice",
+    "tr": "Meyve suyu",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "f3340284-cc90-46f2-a038-b3dfaa97db33",
+    "en": "warm",
+    "tr": "Ilık",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "f3381b2e-b7a9-4f52-9a91-33fb151a998c",
+    "en": "wrong",
+    "tr": "Yanlış",
+    "pos": "ADJ",
+    "def": "Incorrect or untrue."
+  },
+  {
+    "id": "f41365a1-4e08-4311-b9f5-59abbf3ac88e",
+    "en": "jeans",
+    "tr": "Kot",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "f4a9524e-02a7-4ff5-a7dd-bdc1c7d0bfea",
+    "en": "eight",
+    "tr": "Sekiz",
+    "pos": "NOUN",
+    "def": "NATO &amp; ICAO radiotelephony clear code (spelling-alphabet name) for the digit 8."
+  },
+  {
+    "id": "f4d4d019-0dfc-4837-8e9c-fd1f74e243d0",
+    "en": "museum",
+    "tr": "Müze",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "f57f5a16-0849-4234-9b71-280026ec8ae9",
+    "en": "if",
+    "tr": "Eğer",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "f5f0c881-0ba5-47cf-9261-8fb97e4c6e02",
+    "en": "about",
+    "tr": "Hakkında",
+    "pos": "ADV",
+    "def": "In a circle around; all round; on every side of; on the outside of; around. .mw-parser-output .defdate{font-size:smaller}"
+  },
+  {
+    "id": "f6089b13-2cd5-42a2-9841-e5ab80d1795e",
+    "en": "easy",
+    "tr": "Kolay",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "f65760cf-f369-496b-b39c-b5a87e150505",
+    "en": "thousand",
+    "tr": "Bin",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "f69098b3-ddd8-4bce-ac79-d990d0eec7c6",
+    "en": "action",
+    "tr": "Aksiyon",
+    "pos": "NOUN",
+    "def": "The effort of performing or doing something."
+  },
+  {
+    "id": "f79be3d3-71c0-43c4-8d29-081ebb3ce0d2",
+    "en": "popular",
+    "tr": "Popüler",
+    "pos": "ADJ",
+    "def": "Common among the general public; generally accepted. .mw-parser-output .defdate{font-size:smaller}"
+  },
+  {
+    "id": "f7b18380-2847-42a5-9452-37a3d94ef50a",
+    "en": "mile",
+    "tr": "Mil",
+    "pos": "NOUN",
+    "def": "The international mile: a unit of length precisely equal to 1.609344 kilometers established by treaty among Anglophone nations in 1959, divided into 5,280 feet or 1,760 yards."
+  },
+  {
+    "id": "f7cd7da3-2440-4d0a-9373-f9f6d8d4be07",
+    "en": "could",
+    "tr": "Olabilir",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "f801fe1a-62b9-43cc-b6cc-90e81c2ffeb4",
+    "en": "coffee",
+    "tr": "Kahve",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "f9263d4b-f093-4ff5-b56c-104b5e767136",
+    "en": "football",
+    "tr": "Futbol",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "f93ce1f2-0e0b-4382-a984-b248c073090c",
+    "en": "box",
+    "tr": "Kutu",
+    "pos": "NOUN",
+    "def": "ISO 639-3 language code for Buamu."
+  },
+  {
+    "id": "f9bad803-165a-4a9f-8d4d-bd752c1540e8",
+    "en": "wine",
+    "tr": "Şarap",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "f9c85a4d-5473-4853-8e2b-65d92efb3c1f",
+    "en": "only",
+    "tr": "Sadece",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "fa311c0f-2a86-4cbf-837c-c5e36759a7bc",
+    "en": "mum",
+    "tr": "Anne",
+    "pos": "NOUN",
+    "def": "ISO 639-3 language code for Maiwala."
+  },
+  {
+    "id": "fa3f22e7-3537-4370-b903-dc04b12f437d",
+    "en": "leave",
+    "tr": "Ayrılmak",
+    "pos": "VERB",
+    "def": "To have a consequence or remnant.\n To cause or allow (something) to remain as available; to refrain from taking (something) away; to stop short of consuming or otherwise depleting (something) entirely."
+  },
+  {
+    "id": "fa81955a-ada0-4621-a52e-cb8adeb842da",
+    "en": "else",
+    "tr": "Başka",
+    "pos": "ADV",
+    "def": "Other; in addition to previously mentioned items."
+  },
+  {
+    "id": "faca1d77-d44e-43e9-b6ef-cd5d59b52ee9",
+    "en": "success",
+    "tr": "Başarı",
+    "pos": "NOUN",
+    "def": "The achievement of one's aim or goal. .mw-parser-output .defdate{font-size:smaller}"
+  },
+  {
+    "id": "fad22494-a443-4477-87ce-03bc06e9b31d",
+    "en": "hungry",
+    "tr": "Aç",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "fb3a5f19-732c-4777-adf4-77432079b21e",
+    "en": "bring",
+    "tr": "Getirmek",
+    "pos": "VERB",
+    "def": "To transport toward somebody/somewhere."
+  },
+  {
+    "id": "fb5405cb-0bbe-4db5-b325-7fb1b88efeb1",
+    "en": "still",
+    "tr": "Hala",
+    "pos": "ADV",
+    "def": ""
+  },
+  {
+    "id": "fb68bb1a-958e-4108-b0da-cd7632cb5ec3",
+    "en": "two",
+    "tr": "Iki",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "fc083a0c-684d-405a-82cc-6a4183a24b42",
+    "en": "their",
+    "tr": "Onların",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "fc20d331-48f7-4214-b2a5-6dc869d3e4da",
+    "en": "interesting",
+    "tr": "Ilginç",
+    "pos": "ADJ",
+    "def": "Of concern; affecting, important."
+  },
+  {
+    "id": "fc75822f-a710-4e44-b8be-7527a44e6433",
+    "en": "spend",
+    "tr": "Harcamak",
+    "pos": "VERB",
+    "def": "To pay out (money)."
+  },
+  {
+    "id": "fc90f999-e1ec-4b7f-b4d4-e3e0e7df35eb",
+    "en": "start",
+    "tr": "Başlangıç",
+    "pos": "VERB",
+    "def": "The beginning of an activity."
+  },
+  {
+    "id": "fca61f0f-4a55-44c9-86ff-937d64ca653b",
+    "en": "home",
+    "tr": "Ev",
+    "pos": "ADV",
+    "def": ""
+  },
+  {
+    "id": "fcbd2f7e-f9ca-4fb9-a65d-85cef4cca8c0",
+    "en": "shirt",
+    "tr": "Gömlek",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "fcd7d8eb-f3b8-4840-b79b-7836bae123c1",
+    "en": "bike",
+    "tr": "Bisiklet",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "fd2b127b-045b-4235-944f-742ee046aa73",
+    "en": "real",
+    "tr": "Gerçek",
+    "pos": "ADJ",
+    "def": ""
+  },
+  {
+    "id": "fd7638e0-491b-4c1c-b980-432720510f93",
+    "en": "magazine",
+    "tr": "Dergi",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "fd80d670-7cd9-46c2-b9cf-2239303dc62d",
+    "en": "island",
+    "tr": "Ada",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "fda424e8-3e2e-4f85-8db2-3f18c3bd6c5d",
+    "en": "be",
+    "tr": "Olmak",
+    "pos": "VERB",
+    "def": ""
+  },
+  {
+    "id": "fe2f3c74-bbd8-4ddc-9e48-56eebe819022",
+    "en": "away",
+    "tr": "Uzak",
+    "pos": "ADV",
+    "def": "From a place, hence."
+  },
+  {
+    "id": "fe31b476-82f0-4d80-b988-1d874fe62ec9",
+    "en": "twelve",
+    "tr": "On iki",
+    "pos": "NOUN",
+    "def": "NATO, ICAO, ITU &amp; IMO radiotelephony code for 12, used only with o'clock to indicate direction."
+  },
+  {
+    "id": "fee8f5fd-5d6d-4159-a03e-4f12c5e85130",
+    "en": "member",
+    "tr": "Üye",
+    "pos": "NOUN",
+    "def": "One who belongs to a group."
+  },
+  {
+    "id": "ff52a28c-5117-4c96-ad71-5d0d71108c99",
+    "en": "taxi",
+    "tr": "Taksi",
+    "pos": "NOUN",
+    "def": "A vehicle that may be hired for single journeys by members of the public, particularly one with an automated meter to calculate the fare."
+  },
+  {
+    "id": "ff5511a5-47ab-4b10-8666-88e800aacb5f",
+    "en": "uncle",
+    "tr": "Amca",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "ff5c9178-73a6-4119-a70e-b296260eb1a1",
+    "en": "coat",
+    "tr": "Kaban",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "ff7e9985-b58c-44cd-a7d8-738142ae77aa",
+    "en": "century",
+    "tr": "Yüzyıl",
+    "pos": "NOUN",
+    "def": ""
+  },
+  {
+    "id": "ff8919b6-4971-49f1-bb7c-d46c9257c90a",
+    "en": "seven",
+    "tr": "Yedi",
+    "pos": "NOUN",
+    "def": "NATO &amp; ICAO radiotelephony clear code (spelling-alphabet name) for the digit 7."
+  },
+  {
+    "id": "ffc9c030-4971-4915-92dc-52311789d4c6",
+    "en": "park",
+    "tr": "Park",
+    "pos": "NOUN",
+    "def": ""
+  }
+]

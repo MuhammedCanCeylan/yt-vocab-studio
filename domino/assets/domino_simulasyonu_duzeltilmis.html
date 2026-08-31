@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerçekçi Domino Fizik Simülasyonu</title>
+    <style>
+        * { box-sizing: border-box; }
+        html, body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #10131a;
+        }
+
+        #ui {
+            position: fixed;
+            top: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            color: white;
+            text-align: center;
+            pointer-events: none;
+            text-shadow: 0 2px 5px #000;
+        }
+
+        #title {
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        #status {
+            margin-top: 5px;
+            font-size: 14px;
+            opacity: .85;
+        }
+
+        #reset {
+            position: fixed;
+            z-index: 10;
+            left: 50%;
+            bottom: 25px;
+            transform: translateX(-50%);
+            border: 2px solid white;
+            border-radius: 10px;
+            padding: 12px 24px;
+            background: #e53935;
+            color: white;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 5px 18px rgba(0,0,0,.45);
+        }
+
+        #reset:hover { background: #f44336; }
+        #reset:active { transform: translateX(-50%) scale(.97); }
+
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="ui">
+        <div id="title">Domino Fizik Simülasyonu</div>
+        <div id="status">Yerçekimi ve çarpışma fiziği aktif</div>
+    </div>
+
+    <button id="reset">Zinciri Başlat / Sıfırla</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cannon.js/0.6.2/cannon.min.js"></script>
+
+    <script>
+    "use strict";
+
+    // ============================================================
+    // 1. THREE.JS SAHNESİ
+    // ============================================================
+
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x171b26);
+    scene.fog = new THREE.Fog(0x171b26, 18, 65);
+
+    const camera = new THREE.PerspectiveCamera(
+        55,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        200
+    );
+
+    camera.position.set(8, 5.8, 17);
+    camera.lookAt(7, 1, 0);
+
+    const renderer = new THREE.WebGLRenderer({
+        antialias: true
+    });
+
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    document.body.appendChild(renderer.domElement);
+
+    // Işık
+    scene.add(new THREE.HemisphereLight(0x9aa7ff, 0x25251e, 1.1));
+
+    const sun = new THREE.DirectionalLight(0xffffff, 1.7);
+    sun.position.set(10, 20, 12);
+    sun.castShadow = true;
+
+    sun.shadow.mapSize.width = 2048;
+    sun.shadow.mapSize.height = 2048;
+
+    sun.shadow.camera.left = -20;
+    sun.shadow.camera.right = 45;
+    sun.shadow.camera.top = 25;
+    sun.shadow.camera.bottom = -15;
+
+    scene.add(sun);
+
+    // ============================================================
+    // 2. GÖRSEL ZEMİN
+    // ============================================================
+
+    const groundGeometry = new THREE.BoxGeometry(70, 1, 16);
+    const groundMaterial = new THREE.MeshStandardMaterial({
+        color: 0x3a3f4b,
+        roughness: 0.8,
+        metalness: 0.05
+    });
+
+    const groundMesh = new THREE.Mesh(
+        groundGeometry,
+        groundMaterial
+    );
+
+    // Üst yüzey tam olarak Y = 0
+    groundMesh.position.set(10, -0.5, 0);
+    groundMesh.receiveShadow = true;
+    scene.add(groundMesh);
+
+    // ============================================================
+    // 3. CANNON.JS FİZİK DÜNYASI
+    // ============================================================
+
+    const world = new CANNON.World();
+
+    // GERÇEK YERÇEKİMİ
+    world.gravity.set(0, -9.82, 0);
+
+    world.allowSleep = true;
+    world.broadphase = new CANNON.SAPBroadphase(world);
+
+    // Daha kararlı çarpışmalar
+    world.solver.iterations = 20;
+    world.solver.tolerance = 0.001;
+
+    // Fizik malzemeleri
+    const groundMaterialPhysics = new CANNON.Material("ground");
+    const dominoMaterialPhysics = new CANNON.Material("domino");
+
+    const contactMaterial = new CANNON.ContactMaterial(
+        groundMaterialPhysics,
+        dominoMaterialPhysics,
+        {
+            friction: 0.75,
+            restitution: 0.0,
+            contactEquationStiffness: 1e7,
+            contactEquationRelaxation: 3
+        }
+    );
+
+    world.addContactMaterial(contactMaterial);
+
+    // Domino-domino çarpışması
+    const dominoContact = new CANNON.ContactMaterial(
+        dominoMaterialPhysics,
+        dominoMaterialPhysics,
+        {
+            friction: 0.55,
+            restitution: 0.02,
+            contactEquationStiffness: 1e7,
+            contactEquationRelaxation: 3
+        }
+    );
+
+    world.addContactMaterial(dominoContact);
+
+    // Fizik zemini
+    const groundBody = new CANNON.Body({
+        mass: 0,
+        material: groundMaterialPhysics
+    });
+
+    groundBody.addShape(
+        new CANNON.Box(new CANNON.Vec3(35, 0.5, 8))
+    );
+
+    groundBody.position.set(10, -0.5, 0);
+    world.addBody(groundBody);
+
+    // ============================================================
+    // 4. DOMİNO AYARLARI
+    // ============================================================
+
+    const dominoes = [];
+
+    // Tam boyutlar
+    const DOMINO_WIDTH  = 0.45; // X
+    const DOMINO_HEIGHT = 2.0;  // Y
+    const DOMINO_DEPTH  = 0.65; // Z
+
+    // ÖNCEKİ KODDA 1.5'Tİ.
+    // Bu değer domino yüksekliğine göre fazla büyüktü.
+    // Domino yaklaşık 1 m ileri düşebildiği için zincir kopuyordu.
+    const DOMINO_SPACING = 0.78;
+
+    const DOMINO_COUNT = 35;
+
+    // ============================================================
+    // 5. DOMİNO OLUŞTURMA
+    // ============================================================
+
+    function createDomino(index) {
+
+        const x = index * DOMINO_SPACING;
+        const y = DOMINO_HEIGHT / 2;
+        const z = 0;
+
+        // --------------------------
+        // THREE.JS GÖRSEL
+        // --------------------------
+
+        const geometry = new THREE.BoxGeometry(
+            DOMINO_WIDTH,
+            DOMINO_HEIGHT,
+            DOMINO_DEPTH
+        );
+
+        const material = new THREE.MeshStandardMaterial({
+            color: index === 0 ? 0xff3b30 : 0x3f8cff,
+            roughness: 0.38,
+            metalness: 0.08
+        });
+
+        const mesh = new THREE.Mesh(
+            geometry,
+            material
+        );
+
+        mesh.position.set(x, y, z);
+        mesh.castShadow = true;
+        mesh.receiveShadow = true;
+
+        scene.add(mesh);
+
+        // --------------------------
+        // CANNON.JS FİZİK
+        // --------------------------
+
+        const shape = new CANNON.Box(
+            new CANNON.Vec3(
+                DOMINO_WIDTH / 2,
+                DOMINO_HEIGHT / 2,
+                DOMINO_DEPTH / 2
+            )
+        );
+
+        const body = new CANNON.Body({
+            mass: 1,
+            material: dominoMaterialPhysics,
+            allowSleep: true,
+            sleepSpeedLimit: 0.08,
+            sleepTimeLimit: 0.25
+        });
+
+        body.addShape(shape);
+        body.position.set(x, y, z);
+
+        // Çok fazla damping fizik hissini öldürmesin
+        body.linearDamping = 0.015;
+        body.angularDamping = 0.015;
+
+        world.addBody(body);
+
+        dominoes.push({
+            mesh: mesh,
+            body: body,
+            index: index
+        });
+    }
+
+    // ============================================================
+    // 6. ZİNCİRİ SIFIRLAMA
+    // ============================================================
+
+    let started = false;
+    let startTimer = null;
+
+    function resetDominoes() {
+
+        if (startTimer !== null) {
+            clearTimeout(startTimer);
+            startTimer = null;
+        }
+
+        for (const domino of dominoes) {
+            scene.remove(domino.mesh);
+            world.removeBody(domino.body);
+        }
+
+        dominoes.length = 0;
+
+        for (let i = 0; i < DOMINO_COUNT; i++) {
+            createDomino(i);
+        }
+
+        started = false;
+
+        camera.position.set(8, 5.8, 17);
+        camera.lookAt(7, 1, 0);
+
+        document.getElementById("status").textContent =
+            "Hazır — 1 saniye içinde ilk domino devrilecek";
+
+        startTimer = setTimeout(() => {
+            startChain();
+        }, 1000);
+    }
+
+    // ============================================================
+    // 7. İLK DOMİNOYU DEVİR
+    // ============================================================
+
+    function startChain() {
+
+        if (started || dominoes.length === 0) return;
+
+        started = true;
+
+        const first = dominoes[0].body;
+
+        first.wakeUp();
+
+        /*
+         * Domino X ekseni boyunca diziliyor.
+         * Devrilme ekseni Z.
+         *
+         * Negatif Z açısal hız:
+         * üst tarafı +X yönüne düşürür.
+         */
+        first.angularVelocity.set(
+            0,
+            0,
+            -2.8
+        );
+
+        // Ufak ileri hız sadece ilk taşı başlatmak için.
+        first.velocity.set(
+            0.35,
+            0,
+            0
+        );
+
+        document.getElementById("status").textContent =
+            "Zincir çalışıyor";
+    }
+
+    // ============================================================
+    // 8. FİZİK + RENDER DÖNGÜSÜ
+    // ============================================================
+
+    const clock = new THREE.Clock();
+
+    // Sabit fizik zaman adımı
+    const FIXED_STEP = 1 / 60;
+
+    function animate() {
+
+        requestAnimationFrame(animate);
+
+        const dt = Math.min(clock.getDelta(), 0.05);
+
+        // Cannon fizik
+        world.step(
+            FIXED_STEP,
+            dt,
+            3
+        );
+
+        // Three.js ile Cannon senkronizasyonu
+        for (const domino of dominoes) {
+
+            domino.mesh.position.copy(
+                domino.body.position
+            );
+
+            domino.mesh.quaternion.copy(
+                domino.body.quaternion
+            );
+        }
+
+        // ========================================================
+        // KAMERA TAKİBİ
+        // ========================================================
+
+        let targetX = 7;
+
+        // Devrilen son aktif taşı bul
+        for (let i = dominoes.length - 1; i >= 0; i--) {
+
+            const body = dominoes[i].body;
+
+            if (
+                Math.abs(body.angle) > 0.15 ||
+                body.velocity.length() > 0.15 ||
+                body.angularVelocity.length() > 0.15
+            ) {
+                targetX = body.position.x;
+                break;
+            }
+        }
+
+        // Kamerayı yumuşak takip ettir
+        const desiredCameraX =
+            Math.max(8, Math.min(targetX + 8, 28));
+
+        camera.position.x +=
+            (desiredCameraX - camera.position.x) *
+            Math.min(dt * 2.5, 1);
+
+        camera.lookAt(
+            camera.position.x - 1.5,
+            1.1,
+            0
+        );
+
+        renderer.render(
+            scene,
+            camera
+        );
+    }
+
+    // ============================================================
+    // 9. BUTON
+    // ============================================================
+
+    document
+        .getElementById("reset")
+        .addEventListener("click", () => {
+            resetDominoes();
+        });
+
+    // ============================================================
+    // 10. PENCERE BOYUTU
+    // ============================================================
+
+    window.addEventListener("resize", () => {
+
+        camera.aspect =
+            window.innerWidth /
+            window.innerHeight;
+
+        camera.updateProjectionMatrix();
+
+        renderer.setSize(
+            window.innerWidth,
+            window.innerHeight
+        );
+    });
+
+    // ============================================================
+    // 11. BAŞLAT
+    // ============================================================
+
+    resetDominoes();
+    animate();
+
+    </script>
+</body>
+</html>

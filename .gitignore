@@ -1,0 +1,14 @@
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.tmp
+
+# Çalışma esnasında oluşan geçici çeviri cache dosyaları
+*.tmp
+
+# Sistem ve Editör Dosyaları
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

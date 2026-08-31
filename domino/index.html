@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Word Domino Chain - War Edition</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.36.0/tabler-icons.min.css">
+    
+    <style>
+        body { margin: 0; overflow: hidden; background-color: #050000; font-family: 'Segoe UI', Tahoma, sans-serif; touch-action: none; user-select: none; }
+        canvas { display: block; width: 100vw; height: 100vh; }
+        
+        #ui-layer { 
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+            pointer-events: none; display: flex; flex-direction: column; 
+            align-items: center; justify-content: space-between; 
+            z-index: 10; 
+            padding: 10px 0; 
+            box-sizing: border-box; 
+            transition: opacity 0.3s; 
+        }
+        #vignette-glow { position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-shadow: inset 0 0 100px rgba(200, 20, 0, 0.4); pointer-events: none; z-index: 5; }
+        
+        /* ÜST PANEL: SÜRE VE PUAN */
+        #timer-container { width: 75%; max-width: 500px; height: 14px; background: rgba(20, 0, 0, 0.8); border: 2px solid #ff4d4d; border-radius: 10px; box-shadow: 0 0 10px rgba(255, 0, 0, 0.6); overflow: hidden; margin-top: 5px; position: relative; }
+        #timer-bar { width: 100%; height: 100%; background: linear-gradient(90deg, #ff0000, #ff6600); box-shadow: inset 0 0 10px #fff; transition: width 0.1s linear, background-color 0.2s; }
+        #top-info { position: absolute; top: 32px; display: flex; justify-content: space-between; width: 75%; max-width: 500px; color: #fff; font-size: 16px; font-family: 'Impact', sans-serif; text-shadow: 2px 2px 4px #000; }
+        .score-text { color: #F5B700; }
+        
+        /* ALT PANEL (KÜÇÜK PENCERE/MODAL İÇİN MİNİMALİZE EDİLDİ) */
+        #bottom-container { 
+            width: 95%; max-width: 480px; display: flex; flex-direction: column; 
+            align-items: center; gap: 8px; pointer-events: auto; 
+            margin-bottom: 8px; /* Taşların önünü kapatmasın diye en alta çekildi */
+        }
+        #target-word { 
+            font-family: 'Impact', sans-serif; 
+            font-size: clamp(20px, 4.5vw, 32px); 
+            color: #FFFFFF; 
+            text-shadow: 0 0 12px #ff6600, 0 0 24px #ff0000; 
+            letter-spacing: 2px; 
+            text-transform: uppercase; 
+            margin: 0; 
+        }
+        #options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; width: 100%; }
+        .option-btn { 
+            background: rgba(15, 5, 5, 0.9); 
+            border: 1.5px solid #ff6600; 
+            color: #fff; 
+            padding: 8px 6px; 
+            font-size: clamp(11px, 2.4vw, 14px); 
+            font-family: 'Impact', sans-serif; 
+            border-radius: 6px; 
+            cursor: pointer; 
+            transition: all 0.15s; 
+            box-shadow: 0 3px 0 rgba(200, 50, 0, 0.8), 0 0 10px rgba(255, 100, 0, 0.2); 
+            text-transform: uppercase; 
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .option-btn:active { transform: translateY(3px); box-shadow: 0 0 0 rgba(200, 50, 0, 0.8); }
+        .option-btn.correct { background: #4EBE59; border-color: #FFF; box-shadow: 0 0 20px #4EBE59; }
+        .option-btn.wrong { background: #E74C3C; border-color: #FFF; box-shadow: 0 0 20px #E74C3C; }
+
+        /* 🔥 TAM EKRAN VEYA BÜYÜK EKRANDA OTOMATİK BÜYÜME 🔥 */
+        @media (min-width: 900px) and (min-height: 650px) {
+            #timer-container { width: 80%; max-width: 600px; height: 20px; margin-top: 10px; }
+            #top-info { top: 45px; width: 80%; max-width: 600px; font-size: 22px; }
+            #bottom-container { max-width: 650px; gap: 14px; margin-bottom: 20px; }
+            #target-word { font-size: clamp(34px, 6vw, 55px); letter-spacing: 3px; }
+            #options-grid { gap: 14px; }
+            .option-btn { padding: 14px 10px; font-size: clamp(15px, 2.5vw, 20px); border-radius: 8px; box-shadow: 0 5px 0 rgba(200, 50, 0, 0.8); }
+        }
+
+        :fullscreen #timer-container { width: 80%; max-width: 650px; height: 22px; margin-top: 15px; }
+        :fullscreen #top-info { top: 50px; width: 80%; max-width: 650px; font-size: 24px; }
+        :fullscreen #bottom-container { max-width: 700px; gap: 16px; margin-bottom: 25px; }
+        :fullscreen #target-word { font-size: clamp(40px, 7vw, 65px); }
+        :fullscreen #options-grid { gap: 16px; }
+        :fullscreen .option-btn { padding: 16px 12px; font-size: 20px; }
+        
+        .screen { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(5, 0, 0, 0.85); display: flex; flex-direction: column; justify-content: center; align-items: center; pointer-events: auto; z-index: 100; transition: opacity 0.3s; }
+        .screen h1 { font-family: 'Impact', sans-serif; font-size: clamp(30px, 6vw, 60px); margin: 0 0 10px 0; text-shadow: 4px 4px 0px #000, 0 0 20px red; text-align:center; color: #F5B700; }
+        .main-btn { background: #ff4d4d; border: 2px solid #FFF; color: #FFF; padding: 10px 30px; font-size: 18px; font-family: 'Impact', sans-serif; cursor: pointer; box-shadow: 4px 4px 0 #000; margin-top: 15px; transition: transform 0.1s; pointer-events: auto;}
+        .main-btn:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 #000; }
+        
+        #loading-bar-container { width: 240px; height: 12px; border: 2px solid #F5B700; margin-top: 12px; }
+        #loading-bar { width: 0%; height: 100%; background: #ff6600; }
+
+        .hud-controls { position: absolute; top: 10px; right: 10px; display: flex; gap: 8px; z-index: 250; pointer-events: auto; }
+        .hud-btn { background: rgba(20, 20, 20, 0.8); border: 1.5px solid #555; color: #FFF; width: 32px; height: 32px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 16px; cursor: pointer; transition: all 0.2s; }
+        .hud-btn:hover { background: #444; border-color: #F5B700; color: #F5B700; }
+
+        #btn-open-editor {
+            position: absolute; bottom: 12px; right: 12px; z-index: 300;
+            background: rgba(30, 30, 40, 0.85); border: 1.5px solid #555; color: #fff;
+            width: 38px; height: 38px; border-radius: 8px; font-size: 18px;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: all 0.2s; pointer-events: auto;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+        #btn-open-editor:hover { background: #444; border-color: #F5B700; color: #F5B700; transform: scale(1.05); }
+    </style>
+</head>
+<body>
+
+    <div class="hud-controls">
+        <button class="hud-btn" id="mute-btn" onclick="AudioEngine.toggleMute()"><i class="ti ti-volume"></i></button>
+        <button class="hud-btn" id="fullscreen-btn" onclick="toggleFullscreen()"><i class="ti ti-maximize"></i></button>
+    </div>
+
+    <!-- YÜKLEME EKRANI -->
+    <div id="loading-overlay" class="screen">
+        <h1>DOMINO ZİNCİRİ</h1>
+        <div id="loading-bar-container"><div id="loading-bar"></div></div>
+        <p style="color: #ff6600; font-family: monospace; margin-top:10px; font-size:12px;">Savaş alanı yükleniyor... <span id="current-asset"></span></p>
+    </div>
+
+    <!-- BAŞLAT EKRANI -->
+    <div id="start-screen" class="screen" style="display:none;">
+        <h1 style="margin-top:-20px;">DOMINO ZİNCİRİ</h1>
+        <button class="main-btn" id="start-btn" onclick="Game.start()">SAVAŞI BAŞLAT</button>
+    </div>
+
+    <!-- OYUN BİTTİ EKRANI -->
+    <div id="game-over-screen" class="screen" style="display:none;">
+        <h1 style="color: #E74C3C; text-shadow: 0 0 30px #E74C3C; margin-top:-20px;">ZİNCİR KIRILDI!</h1>
+        <p id="correct-answer-text" style="color: #FFF; font-size: 18px; margin-bottom: 5px; font-weight:bold; font-family:'Segoe UI';"></p>
+        <h2 style="color:#F5B700; font-size: 26px; margin: 8px 0; font-family:'Impact';">Devrilen Taş: <span id="final-score">0</span></h2>
+        <button class="main-btn" onclick="Game.resetToMenu()">YENİDEN DENE</button>
+    </div>
+
+    <!-- 3D SAHNE EDİTÖRÜ BUTONU -->
+    <button id="btn-open-editor" onclick="window.open('editor/editor.html', '_blank')" title="3D Sahne Editörü">⚙️</button>
+
+    <div id="vignette-glow"></div>
+    <div id="ui-layer" style="display:none;">
+        <div id="timer-container"><div id="timer-bar"></div></div>
+        <div id="top-info"><div>ZİNCİR: <span class="score-text" id="hud-score">0</span></div></div>
+        <div id="bottom-container">
+            <h2 id="target-word">APPLE</h2>
+            <div id="options-grid">
+                <button class="option-btn" id="btn-0" onclick="UI.selectOption(0)"></button>
+                <button class="option-btn" id="btn-1" onclick="UI.selectOption(1)"></button>
+                <button class="option-btn" id="btn-2" onclick="UI.selectOption(2)"></button>
+                <button class="option-btn" id="btn-3" onclick="UI.selectOption(3)"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Three.js ve Eklentileri -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+
+    <!-- Oyun Kodları -->
+    <script src="js/config.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/domino.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/main.js"></script>
+    
+    <script>
+        function toggleFullscreen() {
+            let elem = document.documentElement;
+            if (!document.fullscreenElement) {
+                if (elem.requestFullscreen) { elem.requestFullscreen(); } 
+            } else {
+                if (document.exitFullscreen) { document.exitFullscreen(); } 
+            }
+        }
+    </script>
+</body>
+</html>
